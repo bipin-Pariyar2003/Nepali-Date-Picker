@@ -40,3 +40,31 @@
 .read-the-docs {
   color: #888;
 }
+
+/* my added css  */
+.date-picker {
+  position: relative;
+  display: inline-block;
+}
+
+.date-picker input[type="text"] {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 200px;
+}
+
+.date-picker-calendar {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px;
+  display: none;
+}
+
+.date-picker:hover .date-picker-calendar {
+  display: block;
+}

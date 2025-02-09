@@ -1,16 +1,15 @@
-import { useState } from "react";
-
+import Home from "./Views/Home/index.jsx";
 import "./App.css";
-
+import EngDatePicker from "./Components/EngDatePicker/index.jsx";
+import NepDatePicker from "./Components/NepDatePicker/index.jsx";
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <>
-      <h1>
-        This is simple web app that converts the date from Gregorian to Nepali
-        and Nepali to Gregorian AD to BS and BS to AD
-      </h1>
+      <Home />
+      <div style={{ display: "flex", justifyContent: "center", gap: "300px" }}>
+        <EngDatePicker />
+        <NepDatePicker />
+      </div>
     </>
   );
 }

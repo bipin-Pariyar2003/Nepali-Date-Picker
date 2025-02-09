@@ -2,7 +2,15 @@ import React from "react";
 import { Button } from "@mui/material";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import moment from "moment";
+import DatePickerUI from "../DatePickerUI";
+import { useState, useEffect } from "react";
 const NepDatePicker = () => {
+  const [showDatePicker, setShowDatePicker] = useState(false);
+
+  const handleShowDatePicker = () => {
+    setShowDatePicker(!showDatePicker);
+  };
+
   return (
     <>
       <div class="nepali-date-picker">
@@ -31,10 +39,11 @@ const NepDatePicker = () => {
               position: "relative",
             }}
           />
-          <Button id="calendar-btn">
+          <Button id="calendar-btn" onClick={handleShowDatePicker}>
             <CalendarMonthIcon />
           </Button>
         </div>
+        {showDatePicker && <DatePickerUI />}
         <div class="calendar" id="calendar"></div>
       </div>
     </>

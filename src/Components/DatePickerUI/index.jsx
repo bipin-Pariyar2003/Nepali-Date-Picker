@@ -4,6 +4,7 @@ import { np } from "../../assets/RNepaliCalendar/data";
 import Button from "@mui/material/Button";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
+import { calendar_data } from "../../assets/RNepaliCalendar/data";
 export default function DatePickerUI({ anchorEl, handleClose }) {
   const open = Boolean(anchorEl);
   const id = open ? "date-picker-popover" : undefined;
@@ -57,7 +58,7 @@ export default function DatePickerUI({ anchorEl, handleClose }) {
           >
             {/* previous btn  */}
             <Button
-              style={{ textAlign: "left", marginLeft: "20px" }}
+              style={{ textAlign: "left", marginLeft: "10px" }}
               // onClick={handlePreBtn}
             >
               <KeyboardArrowLeftIcon sx={{ fontSize: 30 }} />
@@ -83,9 +84,32 @@ export default function DatePickerUI({ anchorEl, handleClose }) {
               })}
             </select>
 
+            {/* years selection  */}
+            <select
+              name="years"
+              id="years"
+              style={{
+                width: "120px",
+                height: "40px",
+                textAlign: "center",
+                borderRadius: "5px",
+                fontSize: "15px",
+                fontWeight: "bold",
+                marginLeft: "10px",
+              }}
+            >
+              {Object.keys(calendar_data).map((year, index) => {
+                return (
+                  <React.Fragment key={index}>
+                    <option value="">{year}</option>
+                  </React.Fragment>
+                );
+              })}
+            </select>
+
             {/* next btn  */}
             <Button
-              style={{ textAlign: "right", marginRight: "20px" }}
+              style={{ textAlign: "right", marginRight: "10px" }}
               // onClick={handleNextBtn}
             >
               <KeyboardArrowRightIcon sx={{ fontSize: 30 }} />
@@ -93,7 +117,16 @@ export default function DatePickerUI({ anchorEl, handleClose }) {
           </div>
 
           {/* body section  */}
-          <div className="body"></div>
+          <div className="body">
+            <div
+              className="body-header"
+              style={{
+                width: "100%",
+                height: "40px",
+                backgroundColor: "#DF6D14",
+              }}
+            ></div>
+          </div>
         </div>
       </Popover>
     </>

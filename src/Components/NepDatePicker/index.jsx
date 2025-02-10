@@ -1,19 +1,23 @@
 import React from "react";
 import { Button } from "@mui/material";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
-import moment from "moment";
-import DatePickerUI from "../DatePickerUI";
-import { useState, useEffect } from "react";
-const NepDatePicker = () => {
-  const [showDatePicker, setShowDatePicker] = useState(false);
 
-  const handleShowDatePicker = () => {
-    setShowDatePicker(!showDatePicker);
+import DatePickerUI from "../DatePickerUI";
+import { useState } from "react";
+const NepDatePicker = () => {
+  const [anchorEl, setAnchorEl] = useState(null);
+
+  const handleShowDatePicker = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
   };
 
   return (
     <>
-      <div class="nepali-date-picker">
+      <div className="nepali-date-picker">
         <div
           className="header"
           style={{
@@ -29,7 +33,6 @@ const NepDatePicker = () => {
             id="date-input"
             placeholder="YYYY/MM/DD"
             style={{
-              width: "150px",
               padding: "10px",
               paddingBottom: "15px",
               paddingTop: "15px",
@@ -37,14 +40,14 @@ const NepDatePicker = () => {
               fontSize: "16px",
               border: "none",
               position: "relative",
+              width: "180px",
             }}
           />
           <Button id="calendar-btn" onClick={handleShowDatePicker}>
             <CalendarMonthIcon />
           </Button>
         </div>
-        {showDatePicker && <DatePickerUI />}
-        <div class="calendar" id="calendar"></div>
+        <DatePickerUI anchorEl={anchorEl} handleClose={handleClose} />
       </div>
     </>
   );

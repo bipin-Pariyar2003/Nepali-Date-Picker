@@ -73,6 +73,7 @@ export default function DatePickerUI({ anchorEl, handleClose }) {
                 borderRadius: "5px",
                 fontSize: "15px",
                 fontWeight: "bold",
+                cursor: "pointer",
               }}
             >
               {np.monthName.full.map((name, index) => {
@@ -96,6 +97,7 @@ export default function DatePickerUI({ anchorEl, handleClose }) {
                 fontSize: "15px",
                 fontWeight: "bold",
                 marginLeft: "10px",
+                cursor: "pointer",
               }}
             >
               {Object.keys(calendar_data).map((year, index) => {
@@ -124,8 +126,29 @@ export default function DatePickerUI({ anchorEl, handleClose }) {
                 width: "100%",
                 height: "40px",
                 backgroundColor: "#DF6D14",
+                display: "grid",
+                gridTemplateColumns: "repeat(7,1fr)",
+                alignContent: "center",
+                fontWeight: "bold",
+                cursor: "default",
               }}
-            ></div>
+            >
+              {np.dayName.short.map((name, index) => {
+                return (
+                  <React.Fragment key={index}>
+                    <div
+                      style={{
+                        border: "1px solid #F8F5E9",
+                        padding: "5px",
+                        textAlign: "center",
+                      }}
+                    >
+                      {name}
+                    </div>
+                  </React.Fragment>
+                );
+              })}
+            </div>
           </div>
         </div>
       </Popover>

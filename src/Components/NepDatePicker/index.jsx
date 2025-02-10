@@ -28,7 +28,6 @@ const NepDatePicker = () => {
           }}
         >
           <input
-            // type="date"
             type="text"
             id="date-input"
             placeholder="YYYY/MM/DD"
@@ -41,6 +40,7 @@ const NepDatePicker = () => {
               border: "none",
               position: "relative",
               width: "180px",
+              backgroundColor: "#F8F5E9",
             }}
           />
           <Button id="calendar-btn" onClick={handleShowDatePicker}>

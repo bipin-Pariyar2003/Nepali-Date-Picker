@@ -5,9 +5,12 @@ import Button from "@mui/material/Button";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
 import { calendar_data } from "../../assets/RNepaliCalendar/data";
+import "./index.css";
 export default function DatePickerUI({ anchorEl, handleClose }) {
   const open = Boolean(anchorEl);
   const id = open ? "date-picker-popover" : undefined;
+  // creating static date for layout
+  const dateGatey = Array.from({ length: 30 }, (_, i) => i + 1);
   // let [selectedMonth, setSelectedMonth] = React.useState("");
 
   // //handling pre btn
@@ -120,6 +123,7 @@ export default function DatePickerUI({ anchorEl, handleClose }) {
 
           {/* body section  */}
           <div className="body">
+            {/* days section   BAAR === AAITA SOM MANGAL*/}
             <div
               className="body-header"
               style={{
@@ -138,12 +142,44 @@ export default function DatePickerUI({ anchorEl, handleClose }) {
                   <React.Fragment key={index}>
                     <div
                       style={{
-                        border: "1px solid #F8F5E9",
+                        borderRight: "1px solid #F8F5E9",
                         padding: "5px",
                         textAlign: "center",
                       }}
                     >
                       {name}
+                    </div>
+                  </React.Fragment>
+                );
+              })}
+            </div>
+            {/* displaying GATEY  */}
+            <div
+              className="body-body"
+              style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(7,1fr)",
+                alignContent: "center",
+              }}
+            >
+              {/* loop to show 30 gateys static  */}
+              {dateGatey.map((date, index) => {
+                return (
+                  <React.Fragment key={index}>
+                    <div
+                      className="gatey"
+                      style={{
+                        textAlign: "center",
+                        padding: "10px",
+                        borderRadius: "50%",
+                        cursor: "default",
+                        height: "25px",
+                        width: "25px",
+                        cursor: "pointer",
+                        fontSize: "1.1rem",
+                      }}
+                    >
+                      {date}
                     </div>
                   </React.Fragment>
                 );

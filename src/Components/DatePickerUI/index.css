@@ -1,3 +1,7 @@
 .gatey:not(:empty):hover {
   background-color: #ccc;
 }
+
+.selected-day {
+  background-color: #ccc;
+}

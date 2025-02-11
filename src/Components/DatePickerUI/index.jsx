@@ -6,19 +6,38 @@ import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
 import { calendar_data } from "../../assets/RNepaliCalendar/data";
 import "./index.css";
-import { useState } from "react";
-// import getDaysInMonth from "../../assets/RNepaliCalendar/index";
-import RNepaliCalendar from "../../assets/RNepaliCalendar";
+import { useState, useEffect, useCallback } from "react";
 
-export default function DatePickerUI({ anchorEl, handleClose }) {
+import RNepaliCalendar from "../../assets/RNepaliCalendar";
+// pass the formatted date too
+export default function DatePickerUI({ anchorEl, handleClose, onDateSelect }) {
+  // export default function DatePickerUI({ anchorEl, handleClose }) {
   // creating object of RNepaliCalendar
   const nepaliCalendar = new RNepaliCalendar();
   const open = Boolean(anchorEl);
   const id = open ? "date-picker-popover" : undefined;
 
-  //creating state for year and month
-  const [selectedMonth, setSelectedMonth] = useState(new Date().getMonth() + 1);
-  const [selectedYear, setSelectedYear] = useState(new Date().getFullYear());
+  // getting current Nepali Date
+  const currentNepaliDate = nepaliCalendar.getCurrentBS();
+  // creating state for year and month
+  const [selectedMonth, setSelectedMonth] = useState(+currentNepaliDate.month);
+  const [selectedYear, setSelectedYear] = useState(+currentNepaliDate.year);
+  const [selectedDay, setSelectedDay] = useState(+currentNepaliDate.date);
+
+  // creating state for whole date
+  // const [selectedDate, setSelectedDate] = useState(currentNepaliDate.date);
+
+  // Format the selected date as YYYY/MM/DD
+  const formattedSelectedDate = `${selectedYear}/${String(
+    selectedMonth
+  ).padStart(2, "0")}/${String(selectedDay).padStart(2, "0")}`;
+
+  // // Update parent component with selected date whenever it changes
+  useEffect(() => {
+    if (onDateSelect) {
+      onDateSelect(formattedSelectedDate);
+    }
+  }, [formattedSelectedDate, onDateSelect]);
 
   // calculate the initial day of the week for the first day of the month
   const initialDayOfWeek = nepaliCalendar.getInitialNepaliDay(
@@ -42,6 +61,10 @@ export default function DatePickerUI({ anchorEl, handleClose }) {
   const handleMonthChange = (event) => {
     setSelectedMonth(Number(event.target.value));
   };
+  const handleDayChange = (date) => {
+    if (!date) return;
+    setSelectedDay(+date);
+  };
 
   //handling previous btn
   const handlePreBtn = () => {
@@ -54,15 +77,31 @@ export default function DatePickerUI({ anchorEl, handleClose }) {
     }
   };
 
-  //handling next btn
+  // handling next btn
   const handleNextBtn = () => {
     if (selectedMonth === 12) {
       setSelectedMonth(1);
       setSelectedYear((sYear) => sYear + 1);
+      setSelectedDay(1);
     } else {
       setSelectedMonth((sMonth) => sMonth + 1);
     }
   };
+
+//  //handle next btn
+//  const handleNextBtn = () =>{
+//   const newMonth = selectedMonth ===12? 1 : selectedMonth+1;
+//   const newYear = selectedMonth ===12? selectedYear+1 : selectedYear;
+//     // Ensure we have calendar data for the new month and year
+//     if (calendar_data[newYear] && calendar_data[newYear][newMonth - 1]) {
+//       setSelectedMonth(newMonth);
+//       setSelectedYear(newYear);
+//       setSelectedDay(1);  // Reset to first day of the new month
+//     } else {
+//       console.error(`No calendar data for year ${newYear}, month ${newMonth}`);
+//       // Optionally, you could show a user-friendly error message
+//     }
+//  }
 
   return (
     <>
@@ -209,12 +248,16 @@ export default function DatePickerUI({ anchorEl, handleClose }) {
                 alignContent: "center",
               }}
             >
-              {/* loop to show 30 gateys static  */}
+              {/* showing gatey  */}
               {paddedDateGatey.map((date, index) => {
                 return (
                   <React.Fragment key={index}>
                     <div
-                      className="gatey"
+                      value={date}
+                      // className="gatey"
+                      className={`gatey ${
+                        date === selectedDay ? "selected-day" : ""
+                      }`}
                       style={{
                         textAlign: "center",
                         padding: "10px",
@@ -223,6 +266,7 @@ export default function DatePickerUI({ anchorEl, handleClose }) {
                         width: "25px",
                         cursor: date ? "pointer" : "default",
                       }}
+                      onClick={() => handleDayChange(date)}
                     >
                       {date || ""}
                     </div>

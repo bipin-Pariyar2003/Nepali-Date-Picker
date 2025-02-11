@@ -6,6 +6,8 @@ import DatePickerUI from "../DatePickerUI";
 import { useState } from "react";
 const NepDatePicker = () => {
   const [anchorEl, setAnchorEl] = useState(null);
+  //parent component
+  const [selectedDate, setSelectedDate] = useState(null);
 
   const handleShowDatePicker = (event) => {
     setAnchorEl(event.currentTarget);
@@ -14,6 +16,12 @@ const NepDatePicker = () => {
   const handleClose = () => {
     setAnchorEl(null);
   };
+
+  //handle date selection
+  const handleDateSelect = (date) =>{
+    setSelectedDate(date);
+    // handleClose();
+  }
 
   return (
     <>
@@ -30,7 +38,8 @@ const NepDatePicker = () => {
           <input
             type="text"
             id="date-input"
-            placeholder="YYYY/MM/DD"
+            placeholder={selectedDate || "YYYY/MM/DD"}
+            // placeholder="YYYY/MM/DD"
             style={{
               padding: "10px",
               paddingBottom: "15px",
@@ -47,7 +56,7 @@ const NepDatePicker = () => {
             <CalendarMonthIcon />
           </Button>
         </div>
-        <DatePickerUI anchorEl={anchorEl} handleClose={handleClose} />
+        <DatePickerUI anchorEl={anchorEl} handleClose={handleClose} onDateSelect={handleDateSelect} />
       </div>
     </>
   );

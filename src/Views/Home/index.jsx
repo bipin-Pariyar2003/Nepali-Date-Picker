@@ -12,6 +12,7 @@ const Home = () => {
           borderRadius: "25px",
           alignItems: "center",
           justifyContent: "center",
+          cursor: "default",
         }}
       >
         <h2>Convert Date From AD to BS and BS to AD</h2>

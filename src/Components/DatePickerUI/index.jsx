@@ -19,16 +19,20 @@ export default function DatePickerUI({ anchorEl, handleClose }) {
   //creating state for year and month
   const [selectedMonth, setSelectedMonth] = useState(new Date().getMonth() + 1);
   const [selectedYear, setSelectedYear] = useState(new Date().getFullYear());
-  // creating static date for layout
-  // const dateGatey = Array.from({ length: 30 }, (_, i) => i + 1);
-  //calculate days of month
-  console.log("selected month: ", selectedMonth);
-  console.log("selected year: ", selectedYear);
 
+  // calculate the initial day of the week for the first day of the month
+  const initialDayOfWeek = nepaliCalendar.getInitialNepaliDay(
+    selectedYear,
+    selectedMonth
+  );
+  //calculate days of month
   const dateGatey = Array.from(
     { length: nepaliCalendar.getDaysInMonth(selectedYear, selectedMonth) },
     (_, i) => i + 1
   );
+
+  // create an array to pad the days  before first day of the month
+  const paddedDateGatey = Array(initialDayOfWeek).fill(null).concat(dateGatey);
 
   //handling date change
   const handleYearChange = (event) => {
@@ -38,6 +42,28 @@ export default function DatePickerUI({ anchorEl, handleClose }) {
   const handleMonthChange = (event) => {
     setSelectedMonth(Number(event.target.value));
   };
+
+  //handling previous btn
+  const handlePreBtn = () => {
+    if (selectedMonth === 1) {
+      setSelectedMonth(12);
+      // setSelectedYear(selectedYear-1);
+      setSelectedYear((sYear) => sYear - 1);
+    } else {
+      setSelectedMonth((sMonth) => sMonth - 1);
+    }
+  };
+
+  //handling next btn
+  const handleNextBtn = () => {
+    if (selectedMonth === 12) {
+      setSelectedMonth(1);
+      setSelectedYear((sYear) => sYear + 1);
+    } else {
+      setSelectedMonth((sMonth) => sMonth + 1);
+    }
+  };
+
   return (
     <>
       <Popover
@@ -55,7 +81,7 @@ export default function DatePickerUI({ anchorEl, handleClose }) {
           className="date-picker-ui"
           style={{
             width: "350px",
-            height: "350px",
+            height: "360px",
 
             backgroundColor: "#F8F5E9", //cream
           }}
@@ -77,7 +103,7 @@ export default function DatePickerUI({ anchorEl, handleClose }) {
             {/* previous btn  */}
             <Button
               style={{ textAlign: "left", marginLeft: "10px" }}
-              // onClick={handlePreBtn}
+              onClick={handlePreBtn}
             >
               <KeyboardArrowLeftIcon sx={{ fontSize: 30 }} />
             </Button>
@@ -136,7 +162,7 @@ export default function DatePickerUI({ anchorEl, handleClose }) {
             {/* next btn  */}
             <Button
               style={{ textAlign: "right", marginRight: "10px" }}
-              // onClick={handleNextBtn}
+              onClick={handleNextBtn}
             >
               <KeyboardArrowRightIcon sx={{ fontSize: 30 }} />
             </Button>
@@ -184,7 +210,7 @@ export default function DatePickerUI({ anchorEl, handleClose }) {
               }}
             >
               {/* loop to show 30 gateys static  */}
-              {dateGatey.map((date, index) => {
+              {paddedDateGatey.map((date, index) => {
                 return (
                   <React.Fragment key={index}>
                     <div
@@ -193,13 +219,12 @@ export default function DatePickerUI({ anchorEl, handleClose }) {
                         textAlign: "center",
                         padding: "10px",
                         borderRadius: "50%",
-
                         height: "25px",
                         width: "25px",
-                        cursor: "pointer",
+                        cursor: date ? "pointer" : "default",
                       }}
                     >
-                      {date}
+                      {date || ""}
                     </div>
                   </React.Fragment>
                 );

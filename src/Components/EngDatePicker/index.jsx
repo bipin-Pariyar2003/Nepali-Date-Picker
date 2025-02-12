@@ -20,7 +20,18 @@ const EngDatePicker = ({ selectedDate, onChange }) => {
     <>
       <div style={{ textAlign: "center" }}>
         <label htmlFor="date">
-          {" "}
+          <p>
+            Selected date in A.D.{" "}
+            <span
+              style={{
+                color: "#143D60",
+                fontWeight: "bold",
+                fontSize: "1.2rem",
+              }}
+            >
+              {selectedDate}
+            </span>
+          </p>{" "}
           <b
             style={{
               color: "#143D60",

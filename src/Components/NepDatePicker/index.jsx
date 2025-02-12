@@ -30,6 +30,18 @@ const NepDatePicker = ({ selectedDate, onChange }) => {
       <div className="nepali-date-picker">
         <label htmlFor="date">
           {" "}
+          <p>
+            Selected date in B.S.{" "}
+            <span
+              style={{
+                color: "#143D60",
+                fontWeight: "bold",
+                fontSize: "1.2rem",
+              }}
+            >
+              {selectedDate}
+            </span>
+          </p>
           <b
             style={{
               color: "#143D60",

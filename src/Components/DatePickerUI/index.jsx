@@ -88,21 +88,6 @@ export default function DatePickerUI({ anchorEl, handleClose, onDateSelect }) {
     }
   };
 
-//  //handle next btn
-//  const handleNextBtn = () =>{
-//   const newMonth = selectedMonth ===12? 1 : selectedMonth+1;
-//   const newYear = selectedMonth ===12? selectedYear+1 : selectedYear;
-//     // Ensure we have calendar data for the new month and year
-//     if (calendar_data[newYear] && calendar_data[newYear][newMonth - 1]) {
-//       setSelectedMonth(newMonth);
-//       setSelectedYear(newYear);
-//       setSelectedDay(1);  // Reset to first day of the new month
-//     } else {
-//       console.error(`No calendar data for year ${newYear}, month ${newMonth}`);
-//       // Optionally, you could show a user-friendly error message
-//     }
-//  }
-
   return (
     <>
       <Popover
@@ -121,7 +106,6 @@ export default function DatePickerUI({ anchorEl, handleClose, onDateSelect }) {
           style={{
             width: "350px",
             height: "360px",
-
             backgroundColor: "#F8F5E9", //cream
           }}
         >

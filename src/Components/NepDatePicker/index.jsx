@@ -18,10 +18,10 @@ const NepDatePicker = () => {
   };
 
   //handle date selection
-  const handleDateSelect = (date) =>{
+  const handleDateSelect = (date) => {
     setSelectedDate(date);
     // handleClose();
-  }
+  };
 
   return (
     <>
@@ -39,7 +39,7 @@ const NepDatePicker = () => {
             type="text"
             id="date-input"
             placeholder={selectedDate || "YYYY/MM/DD"}
-            // placeholder="YYYY/MM/DD"
+            // value={selectedDate || ""}
             style={{
               padding: "10px",
               paddingBottom: "15px",
@@ -56,7 +56,11 @@ const NepDatePicker = () => {
             <CalendarMonthIcon />
           </Button>
         </div>
-        <DatePickerUI anchorEl={anchorEl} handleClose={handleClose} onDateSelect={handleDateSelect} />
+        <DatePickerUI
+          anchorEl={anchorEl}
+          handleClose={handleClose}
+          onDateSelect={handleDateSelect}
+        />
       </div>
     </>
   );

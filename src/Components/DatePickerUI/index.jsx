@@ -10,7 +10,7 @@ import { useState, useEffect, useCallback } from "react";
 
 import RNepaliCalendar from "../../assets/RNepaliCalendar";
 // pass the formatted date too
-export default function DatePickerUI({ anchorEl, handleClose, onDateSelect }) {
+export default function DatePickerUI({ anchorEl, handleClose, onDateSelect,initialDate }) {
   // export default function DatePickerUI({ anchorEl, handleClose }) {
   // creating object of RNepaliCalendar
   const nepaliCalendar = new RNepaliCalendar();
@@ -65,6 +65,18 @@ export default function DatePickerUI({ anchorEl, handleClose, onDateSelect }) {
     if (!date) return;
     setSelectedDay(+date);
   };
+
+  //handle day select
+  const handleDaySelect = (day)=>{
+    if (day) {
+      setSelectedDay(day);
+      // Ensure onDateSelect is a function before calling
+      if (typeof onDateSelect === "function") {
+        onDateSelect(formattedSelectedDate);
+      }
+      handleClose();
+    }
+  }
 
   //handling previous btn
   const handlePreBtn = () => {
@@ -264,3 +276,6 @@ export default function DatePickerUI({ anchorEl, handleClose, onDateSelect }) {
     </>
   );
 }
+
+
+

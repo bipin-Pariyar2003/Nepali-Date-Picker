@@ -143,7 +143,11 @@ export default function DatePickerUI({
           >
             {/* previous btn  */}
             <Button
-              style={{ textAlign: "left", marginLeft: "10px" }}
+              style={{
+                textAlign: "left",
+                marginLeft: "10px",
+                marginRight: "10px",
+              }}
               onClick={handlePreBtn}
             >
               <KeyboardArrowLeftIcon sx={{ fontSize: 30 }} />
@@ -205,7 +209,11 @@ export default function DatePickerUI({
 
             {/* next btn  */}
             <Button
-              style={{ textAlign: "right", marginRight: "10px" }}
+              style={{
+                textAlign: "right",
+                marginRight: "10px",
+                marginLeft: "10px",
+              }}
               onClick={handleNextBtn}
             >
               <KeyboardArrowRightIcon sx={{ fontSize: 30 }} />
@@ -260,9 +268,9 @@ export default function DatePickerUI({
                   date = 0;
                   nepDay = 0;
                 } else {
-                nepDay = toNepaliNumber(date);
+                  nepDay = toNepaliNumber(date);
                 }
-             
+
                 return (
                   <React.Fragment key={index}>
                     <div

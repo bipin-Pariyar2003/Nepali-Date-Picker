@@ -400,5 +400,3 @@ export const {
   toEnglishNumber,
   getInitialNepaliDay,
 } = new RNepaliCalendar();
-
-

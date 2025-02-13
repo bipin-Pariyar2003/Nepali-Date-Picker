@@ -7,10 +7,16 @@ import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
 import { calendar_data } from "../../assets/RNepaliCalendar/data";
 import "./index.css";
 import { useState, useEffect, useCallback } from "react";
+import { toNepaliNumber } from "../../assets/RNepaliCalendar";
 
 import RNepaliCalendar from "../../assets/RNepaliCalendar";
 // pass the formatted date too
-export default function DatePickerUI({ anchorEl, handleClose, onDateSelect,initialDate }) {
+export default function DatePickerUI({
+  anchorEl,
+  handleClose,
+  onDateSelect,
+  initialDate,
+}) {
   // export default function DatePickerUI({ anchorEl, handleClose }) {
   // creating object of RNepaliCalendar
   const nepaliCalendar = new RNepaliCalendar();
@@ -67,7 +73,7 @@ export default function DatePickerUI({ anchorEl, handleClose, onDateSelect,initi
   };
 
   //handle day select
-  const handleDaySelect = (day)=>{
+  const handleDaySelect = (day) => {
     if (day) {
       setSelectedDay(day);
       // Ensure onDateSelect is a function before calling
@@ -76,7 +82,7 @@ export default function DatePickerUI({ anchorEl, handleClose, onDateSelect,initi
       }
       handleClose();
     }
-  }
+  };
 
   //handling previous btn
   const handlePreBtn = () => {
@@ -111,7 +117,7 @@ export default function DatePickerUI({ anchorEl, handleClose, onDateSelect,initi
           vertical: "bottom",
           horizontal: "left",
         }}
-        sx={{ mt: 1.5, ml: -25 }}
+        sx={{ mt: 1.5, ml: -25.5 }}
       >
         <div
           className="date-picker-ui"
@@ -170,6 +176,7 @@ export default function DatePickerUI({ anchorEl, handleClose, onDateSelect,initi
 
             {/* years selection  */}
             <select
+              className="years-select"
               name="years"
               id="years"
               style={{
@@ -186,9 +193,11 @@ export default function DatePickerUI({ anchorEl, handleClose, onDateSelect,initi
               value={selectedYear}
             >
               {Object.keys(calendar_data).map((year, index) => {
+                const nepaliYear = toNepaliNumber(year);
                 return (
                   <React.Fragment key={index}>
-                    <option value={year}>{year}</option>
+                    <option value={year}>{nepaliYear}</option>
+                    {/* <option value={year}>{year}</option> */}
                   </React.Fragment>
                 );
               })}
@@ -246,6 +255,14 @@ export default function DatePickerUI({ anchorEl, handleClose, onDateSelect,initi
             >
               {/* showing gatey  */}
               {paddedDateGatey.map((date, index) => {
+                let nepDay;
+                if (!date) {
+                  date = 0;
+                  nepDay = 0;
+                } else {
+                nepDay = toNepaliNumber(date);
+                }
+             
                 return (
                   <React.Fragment key={index}>
                     <div
@@ -264,7 +281,7 @@ export default function DatePickerUI({ anchorEl, handleClose, onDateSelect,initi
                       }}
                       onClick={() => handleDayChange(date)}
                     >
-                      {date || ""}
+                      {nepDay || ""}
                     </div>
                   </React.Fragment>
                 );
@@ -276,6 +293,3 @@ export default function DatePickerUI({ anchorEl, handleClose, onDateSelect,initi
     </>
   );
 }
-
-
-

@@ -77,7 +77,8 @@ const NepDatePicker = ({ selectedDate, onChange }) => {
               width: "180px",
               backgroundColor: "#F8F5E9",
             }}
-            readOnly
+            onChange={(e) => handleDateChange(e)} 
+            // readOnly
           />
           <Button id="calendar-btn" onClick={handleShowDatePicker}>
             <CalendarMonthIcon />

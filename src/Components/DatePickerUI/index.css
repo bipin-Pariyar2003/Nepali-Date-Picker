@@ -5,3 +5,7 @@
 .selected-day {
   background-color: #ccc;
 }
+
+.years-select{
+max-height: 50px;
+}

@@ -34,6 +34,10 @@ function App() {
 
   //handling eng date change
   const handleEngDateChange = (date) => {
+    if (!date) {
+      console.error(" BIPIN ----Received undefined or invalid date:", date);
+      return; // Prevent further processing
+    }
     setSelectedEnglishDate(date);
     const nepDate = ad2bsHandler(date);
     setSelectedNepaliDate(nepDate);

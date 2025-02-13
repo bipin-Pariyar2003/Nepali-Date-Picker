@@ -10,9 +10,7 @@ const ad2bsHandler = (adDate) => {
 };
 
 const bs2adHandler = (bsDate) => {
-  console.log(bsDate);
   const { year, month, date } = bs2ad(bsDate);
-  console.log(bs2ad(bsDate));
 
   return `${year}/${String(month).padStart(2, 0)}/${String(date).padStart(
     2,

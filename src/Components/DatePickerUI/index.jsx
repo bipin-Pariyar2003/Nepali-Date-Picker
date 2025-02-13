@@ -8,15 +8,10 @@ import { calendar_data } from "../../assets/RNepaliCalendar/data";
 import "./index.css";
 import { useState, useEffect, useCallback } from "react";
 import { toNepaliNumber } from "../../assets/RNepaliCalendar";
-
 import RNepaliCalendar from "../../assets/RNepaliCalendar";
+
 // pass the formatted date too
-export default function DatePickerUI({
-  anchorEl,
-  handleClose,
-  onDateSelect,
-  initialDate,
-}) {
+export default function DatePickerUI({ anchorEl, handleClose, onDateSelect }) {
   // export default function DatePickerUI({ anchorEl, handleClose }) {
   // creating object of RNepaliCalendar
   const nepaliCalendar = new RNepaliCalendar();
@@ -29,21 +24,19 @@ export default function DatePickerUI({
   const [selectedMonth, setSelectedMonth] = useState(+currentNepaliDate.month);
   const [selectedYear, setSelectedYear] = useState(+currentNepaliDate.year);
   const [selectedDay, setSelectedDay] = useState(+currentNepaliDate.date);
-
-  // creating state for whole date
-  // const [selectedDate, setSelectedDate] = useState(currentNepaliDate.date);
+  console.log("selected day: ",selectedDay);
 
   // Format the selected date as YYYY/MM/DD
   const formattedSelectedDate = `${selectedYear}/${String(
     selectedMonth
   ).padStart(2, "0")}/${String(selectedDay).padStart(2, "0")}`;
 
-  // // Update parent component with selected date whenever it changes
+  // Update parent component with selected date whenever it changes
   useEffect(() => {
     if (onDateSelect) {
       onDateSelect(formattedSelectedDate);
     }
-  }, [formattedSelectedDate, onDateSelect]);
+  }, [formattedSelectedDate]);
 
   // calculate the initial day of the week for the first day of the month
   const initialDayOfWeek = nepaliCalendar.getInitialNepaliDay(
@@ -69,7 +62,11 @@ export default function DatePickerUI({
   };
   const handleDayChange = (date) => {
     if (!date) return;
-    setSelectedDay(+date);
+    setSelectedDay(date);
+    const formattedSelectedDate = `${selectedYear}/${String(
+      selectedMonth
+    ).padStart(2, "0")}/${String(date).padStart(2, "0")}`;
+    onDateSelect(formattedSelectedDate);
   };
 
   //handle day select
@@ -278,7 +275,8 @@ export default function DatePickerUI({
                       // className="gatey"
                       className={`gatey ${
                         date === selectedDay ? "selected-day" : ""
-                      }`}
+                      }`
+                    }
                       style={{
                         textAlign: "center",
                         padding: "10px",
@@ -298,6 +296,7 @@ export default function DatePickerUI({
           </div>
         </div>
       </Popover>
+      {/* </LocalizationProvider> */}
     </>
   );
 }

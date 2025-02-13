@@ -1,16 +1,12 @@
 import React from "react";
 import { Button } from "@mui/material";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
-import { toNepaliNumber } from "../../assets/RNepaliCalendar";
 import DatePickerUI from "../DatePickerUI";
 import { useState } from "react";
-import { nepDateFormatter } from "../../utils";
 
 //accept props
 const NepDatePicker = ({ selectedDate, onChange }) => {
   const [anchorEl, setAnchorEl] = useState(null);
-  //parent component
-  // const [selectedDate, setSelectedDate] = useState(null);
 
   const handleShowDatePicker = (event) => {
     setAnchorEl(event.currentTarget);
@@ -40,7 +36,8 @@ const NepDatePicker = ({ selectedDate, onChange }) => {
                 fontSize: "1.2rem",
               }}
             >
-              {nepDateFormatter(selectedDate)}
+              {/* {nepDateFormatter(selectedDate)} */}
+              {selectedDate}
             </span>
           </p>
           <b
@@ -66,8 +63,8 @@ const NepDatePicker = ({ selectedDate, onChange }) => {
             type="text"
             id="date-input"
             placeholder={selectedDate || "YYYY/MM/DD"}
-            value={nepDateFormatter(selectedDate) || ""}
-            // value={selectedDate || ""}
+            // value={nepDateFormatter(selectedDate) || ""}
+            value={selectedDate || ""}
             style={{
               padding: "10px",
               paddingBottom: "15px",
@@ -79,8 +76,8 @@ const NepDatePicker = ({ selectedDate, onChange }) => {
               width: "180px",
               backgroundColor: "#F8F5E9",
             }}
-            onChange={(e) => handleDateChange(e)}
-            // readOnly
+            // onChange={(e) => handleDateChange(e)}
+            onChange={(e) => onChange(e.target.value)}
           />
           <Button id="calendar-btn" onClick={handleShowDatePicker}>
             <CalendarMonthIcon />

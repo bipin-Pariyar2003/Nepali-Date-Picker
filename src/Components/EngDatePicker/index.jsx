@@ -3,19 +3,15 @@ import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { AdapterMoment } from "@mui/x-date-pickers/AdapterMoment";
 import moment from "moment";
-
 //handle props
 const EngDatePicker = ({ selectedDate, onChange }) => {
+  //update nepali date also
   const handleDateChange = (date) => {
     // convert moment obj to YYYY/MM/DD format
     const formattedDate = date.format("YYYY/MM/DD");
     onChange(formattedDate);
   };
 
-  // const [selectedDate, setSelectedDate] = useState("2024/12/16");
-  // const handleDateChange = (event) => {
-  //   setSelectedDate(event.target.value);
-  // };
   return (
     <>
       <div style={{ textAlign: "center" }}>

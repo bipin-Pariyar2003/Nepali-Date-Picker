@@ -15,7 +15,7 @@ const Home = () => {
           cursor: "default",
         }}
       >
-        <h2>Convert Date From AD to BS and BS to AD</h2>
+        <h2>Nepali Date Converter (A.D. to B.S.) </h2>
       </div>
     </>
   );

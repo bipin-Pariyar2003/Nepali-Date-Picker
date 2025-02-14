@@ -3,8 +3,9 @@ import { Button } from "@mui/material";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import DatePickerUI from "../DatePickerUI";
 import { useState } from "react";
+import RNepaliCalendar from "../../assets/RNepaliCalendar";
 
-//accept props
+const nepaliCalendar = new RNepaliCalendar();
 const NepDatePicker = ({ selectedDate, onChange }) => {
   const [anchorEl, setAnchorEl] = useState(null);
 
@@ -16,10 +17,37 @@ const NepDatePicker = ({ selectedDate, onChange }) => {
     setAnchorEl(null);
   };
 
-  //handle date selection
-  const handleDateSelect = (date) => {
-    onChange(date);
-    // handleClose();
+  //handle input change
+  const formatDateInput = (value) => {
+    // Remove non-numeric characters except slashes
+    value = value.replace(/[^0-9/]/g, "");
+
+    // Remove extra slashes if present
+    value = value.replace(/\/+/g, "/");
+
+    let parts = value.split("/").map((part) => part.replace(/\D/g, "")); // Extract numeric parts
+
+    let year = parts[0] || "";
+    let month = parts[1] || "";
+    let day = parts[2] || "";
+
+    // Ensure correct year input
+    if (year.length > 4) year = year.slice(0, 4);
+
+    // Auto-pad month and day only when necessary
+    if (month.length === 1 && parseInt(month) > 1) month = "0" + month;
+    if (day.length === 1 && parseInt(day) > 1) day = "0" + day;
+
+    let formattedDate = year;
+    if (month) formattedDate += "/" + month;
+    if (day) formattedDate += "/" + day;
+
+    return formattedDate;
+  };
+
+  const handleInputChange = (e) => {
+    let formattedValue = formatDateInput(e.target.value);
+    onChange(formattedValue);
   };
 
   return (
@@ -61,7 +89,11 @@ const NepDatePicker = ({ selectedDate, onChange }) => {
         >
           <input
             type="text"
-            id="date-input"
+            required
+            pattern="\d{4}/\d{2}/\d{2}"
+            title="Enter date in YYYY/MM/DD format"
+            // type="number"
+            id="neplai-date-input"
             placeholder={selectedDate || "YYYY/MM/DD"}
             // value={nepDateFormatter(selectedDate) || ""}
             value={selectedDate || ""}
@@ -76,8 +108,7 @@ const NepDatePicker = ({ selectedDate, onChange }) => {
               width: "180px",
               backgroundColor: "#F8F5E9",
             }}
-            // onChange={(e) => handleDateChange(e)}
-            onChange={(e) => onChange(e.target.value)}
+            onChange={handleInputChange}
           />
           <Button id="calendar-btn" onClick={handleShowDatePicker}>
             <CalendarMonthIcon />
@@ -86,8 +117,8 @@ const NepDatePicker = ({ selectedDate, onChange }) => {
         <DatePickerUI
           anchorEl={anchorEl}
           handleClose={handleClose}
-          onDateSelect={handleDateSelect}
-          initialDate={selectedDate}
+          onDateSelect={onChange}
+          selectedDate={selectedDate}
         />
       </div>
     </>

@@ -1,11 +1,15 @@
-.gatey:not(:empty):hover {
+.gatey:not(:empty, .selected-day, .today):hover {
   background-color: #ccc;
 }
 
 .selected-day {
-  background-color: #ccc;
+  background-color: #f00;
 }
 
-.years-select{
-max-height: 50px;
+.today {
+  background-color: #0f0;
+}
+
+.years-select {
+  max-height: 50px;
 }

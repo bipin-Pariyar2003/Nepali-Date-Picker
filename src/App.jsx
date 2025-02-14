@@ -18,11 +18,13 @@ function App() {
 
   const initialEnglishDate = bs2adHandler(initialNepaliDate);
 
-  //state
+  //state 
   const [selectedNepaliDate, setSelectedNepaliDate] =
     useState(initialNepaliDate);
   const [selectedEnglishDate, setSelectedEnglishDate] =
     useState(initialEnglishDate);
+    console.log("Selected Eng Date: ", selectedEnglishDate);
+    console.log("Selected Nepali Date: ", selectedNepaliDate);
 
   //handling nepali date change
   const handleNepaliDateChange = (date) => {
@@ -34,10 +36,9 @@ function App() {
 
   //handling eng date change
   const handleEngDateChange = (date) => {
-    if (!date) {
-      console.error(" BIPIN ----Received undefined or invalid date:", date);
-      return; // Prevent further processing
-    }
+    // if (!date) {
+    //   return; // Prevent further processing
+    // }
     setSelectedEnglishDate(date);
     const nepDate = ad2bsHandler(date);
     setSelectedNepaliDate(nepDate);

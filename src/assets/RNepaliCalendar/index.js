@@ -158,6 +158,7 @@ export default class RNepaliCalendar {
    * @param {number} num - English numeral 0,1,2,3...
    */
   toNepaliNumber = (num) => {
+    if (!num) return "";
     var arrNumNe = num
       .toString()
       .split("")

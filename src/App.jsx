@@ -16,8 +16,6 @@ function App() {
   //state
   const [selectedNepaliDate, setSelectedNepaliDate] = useState(initialNepaliDate);
   const [selectedEnglishDate, setSelectedEnglishDate] = useState(initialEnglishDate);
-  console.log("Selected Eng Date: ", selectedEnglishDate);
-  console.log("Selected Nepali Date: ", selectedNepaliDate);
 
   //handling nepali date change
   const handleNepaliDateChange = (date) => {

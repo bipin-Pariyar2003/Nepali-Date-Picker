@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { Button } from "@mui/material";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import DatePickerUI from "../DatePickerUI";
 import styles from "./styles";
 
 const NepDatePicker = ({ selectedDate, onChange }) => {
+  const inputRef = useRef(selectedDate);
   const [anchorEl, setAnchorEl] = useState(null);
 
   const handleShowDatePicker = (event) => {
@@ -14,6 +15,10 @@ const NepDatePicker = ({ selectedDate, onChange }) => {
   const handleClose = () => {
     setAnchorEl(null);
   };
+
+  React.useEffect(() => {
+    if (inputRef && inputRef.current) inputRef.current.value = selectedDate;
+  }, [selectedDate]);
 
   const handleInputChange = (e) => {
     let value = e.target.value.replace(/\D/g, ""); // Remove non-numeric characters
@@ -45,11 +50,10 @@ const NepDatePicker = ({ selectedDate, onChange }) => {
         <input
           className="input-field"
           type="text"
-          defaultValue={selectedDate}
           onInput={handleInputChange}
           placeholder="YYYY/MM/DD"
           style={styles.input}
-          maxLength={10}
+          ref={inputRef}
         />
         <Button id="calendar-btn" onClick={handleShowDatePicker}>
           <CalendarMonthIcon />

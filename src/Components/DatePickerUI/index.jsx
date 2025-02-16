@@ -1,13 +1,13 @@
 import * as React from "react";
 import Popover from "@mui/material/Popover";
-import { np } from "../../assets/RNepaliCalendar/data";
+import { np } from "~assets/RNepaliCalendar/data";
 import Button from "@mui/material/Button";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
-import { calendar_data } from "../../assets/RNepaliCalendar/data";
+import { calendar_data } from "~assets/RNepaliCalendar/data";
 import "./index.css";
-import { getCurrentBS, toNepaliNumber } from "../../assets/RNepaliCalendar";
-import RNepaliCalendar from "../../assets/RNepaliCalendar";
+import { getCurrentBS, toNepaliNumber } from "~assets/RNepaliCalendar";
+import RNepaliCalendar from "~assets/RNepaliCalendar";
 import { useEffect } from "react";
 
 // pass the formatted date too
@@ -50,16 +50,13 @@ const PopUp = ({ selectedDate, onDateSelect, handleClose }) => {
     year: selectedDate.split("/").at(0),
     month: selectedDate.split("/").at(1),
   });
-    // Update viewDate when selectedDate changes
-    useEffect(() => {
-      setViewDate({
-        
-        year: selectedDate.split("/").at(0),
-        month: selectedDate.split("/").at(1),
-      });
-     
-
-    }, [selectedDate]);
+  // Update viewDate when selectedDate changes
+  useEffect(() => {
+    setViewDate({
+      year: selectedDate.split("/").at(0),
+      month: selectedDate.split("/").at(1),
+    });
+  }, [selectedDate]);
 
   const { year, month, date } = getCurrentBS();
 
@@ -82,9 +79,7 @@ const PopUp = ({ selectedDate, onDateSelect, handleClose }) => {
   };
   //handling month change
   const handleMonthChange = (event) => {
-    
     setViewDate({ ...viewDate, month: event.target.value });
-   
   };
   const handleDayChange = (date) => {
     if (!date) return;
@@ -127,9 +122,9 @@ const PopUp = ({ selectedDate, onDateSelect, handleClose }) => {
       `${viewDate.year}/${viewDate.month}/${String(gatay).padStart(2, 0)}`
     );
   };
-  
+
   return (
-  <div
+    <div
       className="date-picker-ui"
       style={{
         width: "350px",
@@ -165,28 +160,29 @@ const PopUp = ({ selectedDate, onDateSelect, handleClose }) => {
 
         {/* selecting MONTH  */}
         <select
-  name="months"
-  id="months"
-  style={{
-    width: "120px",
-    height: "40px",
-    textAlign: "center",
-    borderRadius: "5px",
-    fontSize: "15px",
-    fontWeight: "bold",
-    cursor: "pointer",
-  }}
-  onChange={handleMonthChange}
-  value={+viewDate.month} 
->
-  {np.monthName.full.map((name, index) => {
-    return (
-      <React.Fragment key={index}>
-        <option value={index + 1}>{name}</option> // Month values should be 1-12
-      </React.Fragment>
-    );
-  })}
-</select>
+          name="months"
+          id="months"
+          style={{
+            width: "120px",
+            height: "40px",
+            textAlign: "center",
+            borderRadius: "5px",
+            fontSize: "15px",
+            fontWeight: "bold",
+            cursor: "pointer",
+          }}
+          onChange={handleMonthChange}
+          value={+viewDate.month}
+        >
+          {np.monthName.full.map((name, index) => {
+            return (
+              <React.Fragment key={index}>
+                <option value={index + 1}>{name}</option> // Month values should
+                be 1-12
+              </React.Fragment>
+            );
+          })}
+        </select>
 
         {/* years selection  */}
         <select

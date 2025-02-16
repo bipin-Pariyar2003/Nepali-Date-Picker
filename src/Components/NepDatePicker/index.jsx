@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
 import { Button } from "@mui/material";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
-import DatePickerUI from "../DatePickerUI";
+import DatePickerUI from "~Components/DatePickerUI";
 import styles from "./styles";
 
 const NepDatePicker = ({ selectedDate, onChange }) => {
@@ -25,9 +25,12 @@ const NepDatePicker = ({ selectedDate, onChange }) => {
 
     if (value.length > 8) value = value.slice(0, 8); // Limit to YYYYMMDD format
 
-    let formattedValue = value.replace(/^(\d{4})(\d{0,2})(\d{0,2})$/, (_, y, m, d) => {
-      return [y, m, d].filter(Boolean).join("/");
-    });
+    let formattedValue = value.replace(
+      /^(\d{4})(\d{0,2})(\d{0,2})$/,
+      (_, y, m, d) => {
+        return [y, m, d].filter(Boolean).join("/");
+      }
+    );
 
     e.target.value = formattedValue; // Update input field
 

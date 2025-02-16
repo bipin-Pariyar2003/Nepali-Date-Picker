@@ -1,10 +1,10 @@
 import { useState } from "react";
 import moment from "moment";
 
-import Home from "./Views/Home/index.jsx";
-import EngDatePicker from "./Components/EngDatePicker/index.jsx";
-import NepDatePicker from "./Components/NepDatePicker/index.jsx";
-import { ad2bsHandler, bs2adHandler } from "./utils/index.js";
+import Home from "~Views/Home/index.jsx";
+import EngDatePicker from "~Components/EngDatePicker/index.jsx";
+import NepDatePicker from "~Components/NepDatePicker/index.jsx";
+import { ad2bsHandler, bs2adHandler } from "~utils/index.js";
 
 import "./App.css";
 
@@ -14,8 +14,10 @@ function App() {
   const initialNepaliDate = ad2bsHandler(initialEnglishDate);
 
   //state
-  const [selectedNepaliDate, setSelectedNepaliDate] = useState(initialNepaliDate);
-  const [selectedEnglishDate, setSelectedEnglishDate] = useState(initialEnglishDate);
+  const [selectedNepaliDate, setSelectedNepaliDate] =
+    useState(initialNepaliDate);
+  const [selectedEnglishDate, setSelectedEnglishDate] =
+    useState(initialEnglishDate);
 
   //handling nepali date change
   const handleNepaliDateChange = (date) => {

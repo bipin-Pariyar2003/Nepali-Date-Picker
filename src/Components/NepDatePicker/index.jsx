@@ -55,28 +55,14 @@ const NepDatePicker = ({ selectedDate, onChange }) => {
       <div className="nepali-date-picker">
         <label htmlFor="date">
           {" "}
-          <p>
+          <p className="text">
             Selected date in B.S.{" "}
-            <span
-              style={{
-                color: "#143D60",
-                fontWeight: "bold",
-                fontSize: "1.2rem",
-              }}
-            >
+            <span className="text-imp">
               {/* {nepDateFormatter(selectedDate)} */}
               {selectedDate}
             </span>
           </p>
-          <b
-            style={{
-              color: "#143D60",
-              fontSize: "1.3rem",
-              textDecoration: "underline",
-            }}
-          >
-            Date in B.S.
-          </b>
+          <p className="sub-heading">Date in B.S.</p>
         </label>
         <div
           className="header"
@@ -88,20 +74,19 @@ const NepDatePicker = ({ selectedDate, onChange }) => {
           }}
         >
           <input
+            className="input-field"
             type="text"
             required
             pattern="\d{4}/\d{2}/\d{2}"
             title="Enter date in YYYY/MM/DD format"
-            // type="number"
             id="neplai-date-input"
             placeholder={selectedDate || "YYYY/MM/DD"}
-            // value={nepDateFormatter(selectedDate) || ""}
             value={selectedDate || ""}
             style={{
               padding: "10px",
               paddingBottom: "15px",
               paddingTop: "15px",
-              paddingLeft: "10px",
+              paddingLeft: "15px",
               fontSize: "16px",
               border: "none",
               position: "relative",

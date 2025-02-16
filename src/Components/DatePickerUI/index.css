@@ -3,11 +3,11 @@
 }
 
 .selected-day {
-  background-color: #f00;
+  background-color: lightgreen;
 }
 
 .today {
-  background-color: #0f0;
+  background-color: red;
 }
 
 .years-select {

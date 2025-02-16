@@ -2,7 +2,7 @@
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-  background-color: #f8f5e9;
+  background-color: #dcd7c9;
   /* color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424; */
@@ -70,4 +70,36 @@ button:focus-visible {
 
 h2 {
   text-align: center;
+}
+.heading {
+  display: flex;
+  background-color: #9dc08b;
+  margin-bottom: 20px;
+  color: rgba(0, 0, 0, 0.9);
+  border-radius: 25px;
+  align-items: center;
+  justify-content: center;
+  cursor: default;
+}
+
+.text-imp {
+  color: rgba(0, 0, 0, 0.8);
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.text {
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.sub-heading {
+  color: rgba(0, 0, 0, 0.8);
+  font-weight: bold;
+  font-size: 1.3rem;
+  margin-bottom: 20px;
+  margin-top: 0px;
+  text-decoration: underline;
+}
+.input-field {
+  background-color: #dcd7c9;
 }

@@ -84,10 +84,22 @@ const PopUp = ({ selectedDate, onDateSelect, handleClose }) => {
   };
 
   //handling previous btn
-  const handlePreBtn = () => {};
+  const handlePreBtn = () => {
+    if (+viewDate.month === 1) {
+      setViewDate({ ...viewDate, year: +viewDate.year - 1, month: 12 });
+    } else {
+      setViewDate({ ...viewDate, month: +viewDate.month - 1 });
+    }
+  };
 
   // handling next btn
-  const handleNextBtn = () => {};
+  const handleNextBtn = () => {
+    if (+viewDate.month === 12) {
+      setViewDate({ ...viewDate, year: +viewDate.year + 1, month: 1 });
+    } else {
+      setViewDate({ ...viewDate, month: +viewDate.month + 1 });
+    }
+  };
 
   const isSelected = (date) => {
     return (

@@ -7,6 +7,7 @@ import RNepaliCalendar from "../../assets/RNepaliCalendar";
 
 const nepaliCalendar = new RNepaliCalendar();
 const NepDatePicker = ({ selectedDate, onChange }) => {
+
   const [anchorEl, setAnchorEl] = useState(null);
 
   const handleShowDatePicker = (event) => {

@@ -23,22 +23,18 @@ function App() {
     useState(initialNepaliDate);
   const [selectedEnglishDate, setSelectedEnglishDate] =
     useState(initialEnglishDate);
-    console.log("Selected Eng Date: ", selectedEnglishDate);
-    console.log("Selected Nepali Date: ", selectedNepaliDate);
+   
 
   //handling nepali date change
   const handleNepaliDateChange = (date) => {
     setSelectedNepaliDate(date);
-
     const engDate = bs2adHandler(date);
     setSelectedEnglishDate(engDate);
   };
 
   //handling eng date change
   const handleEngDateChange = (date) => {
-    // if (!date) {
-    //   return; // Prevent further processing
-    // }
+
     setSelectedEnglishDate(date);
     const nepDate = ad2bsHandler(date);
     setSelectedNepaliDate(nepDate);

@@ -111,6 +111,12 @@ h2 {
   margin-top: 0px;
   text-decoration: underline;
 }
-.input-field {
+
+.year-month-button {
+  width: 110px;
+
   background-color: #dcd7c9;
+  border: 1px solid black;
+  box-shadow: #213547 0px 3px 8px;
+  margin: 0;
 }

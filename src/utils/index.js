@@ -1,5 +1,6 @@
 import { ad2bs, bs2ad } from "assets/RNepaliCalendar";
 import { toNepaliNumber } from "assets/RNepaliCalendar";
+import { calendar_data } from "../assets/RNepaliCalendar/data";
 const ad2bsHandler = (adDate) => {
   const { year, month, date } = ad2bs(adDate);
 
@@ -18,6 +19,12 @@ const bs2adHandler = (bsDate) => {
   )}`;
 };
 
+//only convert year from BS to AD (2081 = 2025)
+const bsYearToAdYear = (bsYear) => {
+  const { year } = bs2ad(`${bsYear}/01/01`);
+  return year;
+};
+
 //formats date from "20222524" to "2022/25/24"
 const nepDateFormatter = (date) => {
   const nepaliDate = toNepaliNumber(date);
@@ -31,4 +38,4 @@ const nepDateFormatter = (date) => {
   return formattedNepaliDate;
 };
 
-export { ad2bsHandler, bs2adHandler, nepDateFormatter };
+export { ad2bsHandler, bs2adHandler, nepDateFormatter, bsYearToAdYear };

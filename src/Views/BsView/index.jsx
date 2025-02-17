@@ -34,7 +34,9 @@ const BsView = () => {
                     padding: "0",
                   }}
                 >
-                  <button value={year}>{nepaliYear}</button>
+                  <button className="year-month-button" value={year}>
+                    {nepaliYear}
+                  </button>
                 </div>
                 <br />
               </React.Fragment>
@@ -53,12 +55,11 @@ const BsView = () => {
             display: "flex",
             flexDirection: "column",
             height: "500px",
+
             overflowY: "auto",
           }}
         >
           {np.monthName.full.map((month, index) => {
-            console.log(month);
-
             return (
               <React.Fragment key={index}>
                 <div
@@ -74,7 +75,9 @@ const BsView = () => {
                     padding: "0px",
                   }}
                 >
-                  <button value={index + 1}>{month}</button>
+                  <button className="year-month-button" value={index + 1}>
+                    {month}
+                  </button>
                 </div>
                 <br />
               </React.Fragment>

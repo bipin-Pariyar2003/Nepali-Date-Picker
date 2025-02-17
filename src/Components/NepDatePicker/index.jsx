@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
 import { Button } from "@mui/material";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
-import DatePickerUI from "~Components/DatePickerUI";
+import DatePickerUI from "Components/DatePickerUI";
 import styles from "./styles";
 
 const NepDatePicker = ({ selectedDate, onChange }) => {

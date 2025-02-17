@@ -1,13 +1,13 @@
 import * as React from "react";
 import Popover from "@mui/material/Popover";
-import { np } from "~assets/RNepaliCalendar/data";
+import { np } from "assets/RNepaliCalendar/data";
 import Button from "@mui/material/Button";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
-import { calendar_data } from "~assets/RNepaliCalendar/data";
+import { calendar_data } from "assets/RNepaliCalendar/data";
 import "./index.css";
-import { getCurrentBS, toNepaliNumber } from "~assets/RNepaliCalendar";
-import RNepaliCalendar from "~assets/RNepaliCalendar";
+import { getCurrentBS, toNepaliNumber } from "assets/RNepaliCalendar";
+import RNepaliCalendar from "assets/RNepaliCalendar";
 import { useEffect } from "react";
 
 // pass the formatted date too

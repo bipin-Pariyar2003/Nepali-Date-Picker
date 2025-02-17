@@ -1,13 +1,13 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
+    "baseUrl": "src",
+    "jsx": "preserve",
     "paths": {
-      "~assets/*": ["src/assets/*"],
-      "~Components/*": ["src/Components/*"],
-      "~Theme/*": ["src/Theme/*"],
-      "~utils/*": ["src/utils/*"],
-      "~Views/*": ["src/Views/*"],
-      "~/*": ["src/*"]
+      "assets": ["assets"],
+      "Components": ["Components"],
+      "utils": ["utils"],
+      "Views": ["Views"]
     }
-  }
+  },
+  "include": ["src"]
 }

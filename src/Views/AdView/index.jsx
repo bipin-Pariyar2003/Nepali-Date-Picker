@@ -6,8 +6,9 @@ const AdView = () => {
   return (
     <>
       {/* showing the months  */}
-      <div style={{ marginTop: "50px", marginRight: "50px" }}>
-        <h3>Months</h3>
+
+      <div style={{ marginTop: "30px", marginRight: "50px" }}>
+        <h3 style={{ textDecoration: "underline" }}>Months</h3>
 
         <div
           style={{
@@ -47,8 +48,8 @@ const AdView = () => {
       </div>
 
       {/* showing the years  */}
-      <div style={{ marginTop: "50px" }}>
-        <h3>Years (A.D.)</h3>
+      <div style={{ marginTop: "30px" }}>
+        <h3 style={{ textDecoration: "underline" }}>Years (A.D.)</h3>
         <div
           style={{
             display: "flex",

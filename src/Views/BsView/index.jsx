@@ -2,11 +2,13 @@ import React from "react";
 import { np, calendar_data } from "assets/RNepaliCalendar/data";
 import { getCurrentBS, toNepaliNumber } from "assets/RNepaliCalendar";
 const BsView = () => {
+  // const currentNepaliMonth = getCurrentBS.month();
+  // const currentNepaliYear = getCurrentBS.year();
   return (
     <>
       {/* showing the years  */}
-      <div style={{ marginTop: "50px" }}>
-        <h3>Years (B.S.)</h3>
+      <div style={{ marginTop: "30px" }}>
+        <h3 style={{ textDecoration: "underline" }}>Years (B.S.)</h3>
         <div
           style={{
             display: "flex",
@@ -46,8 +48,8 @@ const BsView = () => {
       </div>
 
       {/* showing the months  */}
-      <div style={{ marginTop: "50px" }}>
-        <h3>Months</h3>
+      <div style={{ marginTop: "30px" }}>
+        <h3 style={{ textDecoration: "underline" }}>Months</h3>
 
         <div
           style={{

@@ -38,31 +38,6 @@ function App() {
   return (
     <>
       <Home />
-      {/* <div
-        style={{
-          margin: "60px",
-          display: "flex",
-          flexDirection: "column",
-          gap: "20px",
-          border: "1px solid rgba(0, 0, 0, 0.4)",
-          borderRadius: "10px",
-          padding: "20px",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        <EngDatePicker
-          selectedDate={selectedEnglishDate}
-          onChange={handleEngDateChange}
-        />
-        <NepDatePicker
-          selectedDate={selectedNepaliDate}
-          onChange={handleNepaliDateChange}
-        />
-      </div> */}
-
-      {/* <BsView />
-      <AdView /> */}
 
       <div
         style={{
@@ -83,6 +58,7 @@ function App() {
         <div
           style={{
             margin: "60px",
+            marginTop: "120px",
             width: "40%", // Set explicit width for more space
             minWidth: "350px", // Ensure it doesn't get too small
             display: "flex",

@@ -2,8 +2,10 @@ import React from "react";
 import { np, calendar_data } from "assets/RNepaliCalendar/data";
 import { getCurrentBS, toNepaliNumber } from "assets/RNepaliCalendar";
 const BsView = () => {
-  // const currentNepaliMonth = getCurrentBS.month();
-  // const currentNepaliYear = getCurrentBS.year();
+  const currentBS = getCurrentBS();
+  const currentNepaliYear = currentBS.year;
+  const currentNepaliMonth = currentBS.month;
+
   return (
     <>
       {/* showing the years  */}
@@ -13,7 +15,7 @@ const BsView = () => {
           style={{
             display: "flex",
             flexDirection: "column",
-            height: "500px",
+            height: "530px",
             overflowY: "auto",
             marginTop: "0px",
             marginRight: "50px",
@@ -27,6 +29,8 @@ const BsView = () => {
                   style={{
                     textAlign: "center",
                     margin: "10px",
+                    marginTop: "0px",
+                    marginBottom: "0px",
                     display: "flex",
                     alignItems: "center",
                     flexDirection: "column",
@@ -36,7 +40,14 @@ const BsView = () => {
                     padding: "0",
                   }}
                 >
-                  <button className="year-month-button" value={year}>
+                  <button
+                    className={
+                      +year === currentNepaliYear
+                        ? "highlight-year-month"
+                        : "year-month-button"
+                    }
+                    value={year}
+                  >
                     {nepaliYear}
                   </button>
                 </div>
@@ -56,7 +67,7 @@ const BsView = () => {
             marginTop: "0px",
             display: "flex",
             flexDirection: "column",
-            height: "500px",
+            height: "530px",
 
             overflowY: "auto",
           }}
@@ -68,6 +79,8 @@ const BsView = () => {
                   style={{
                     textAlign: "center",
                     margin: "10px",
+                    marginTop: "0px",
+                    marginBottom: "0px",
                     display: "flex",
                     alignItems: "center",
                     flexDirection: "column",
@@ -77,7 +90,14 @@ const BsView = () => {
                     padding: "0px",
                   }}
                 >
-                  <button className="year-month-button" value={index + 1}>
+                  <button
+                    value={index + 1}
+                    className={
+                      +currentNepaliMonth === index + 1
+                        ? "highlight-year-month"
+                        : "year-month-button"
+                    }
+                  >
                     {month}
                   </button>
                 </div>

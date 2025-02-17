@@ -1,8 +1,15 @@
 import React from "react";
-import { bs2adHandler, bsYearToAdYear } from "utils";
+import { bsYearToAdYear } from "utils";
 import { calendar_data, en } from "assets/RNepaliCalendar/data";
 
 const AdView = () => {
+  const currentEngYear = new Date().getFullYear();
+  console.log("Current year: ", currentEngYear);
+  console.log("Type of year: ", typeof currentEngYear);
+  const currentEngMonth = new Date().getMonth();
+  console.log("Current Month: ", currentEngMonth);
+  console.log("Type of month: ", typeof currentEngMonth);
+
   return (
     <>
       {/* showing the months  */}
@@ -16,7 +23,7 @@ const AdView = () => {
             marginTop: "0px",
             display: "flex",
             flexDirection: "column",
-            height: "500px",
+            height: "530px",
             overflowY: "auto",
           }}
         >
@@ -27,6 +34,8 @@ const AdView = () => {
                   style={{
                     textAlign: "center",
                     margin: "10px",
+                    marginTop: "0px",
+                    marginBottom: "0px",
                     display: "flex",
                     alignItems: "center",
                     flexDirection: "column",
@@ -36,7 +45,14 @@ const AdView = () => {
                     padding: "0px",
                   }}
                 >
-                  <button className="year-month-button" value={index + 1}>
+                  <button
+                    className={
+                      +currentEngMonth === index
+                        ? "highlight-year-month"
+                        : "year-month-button"
+                    }
+                    value={index + 1}
+                  >
                     {month}
                   </button>
                 </div>
@@ -54,7 +70,7 @@ const AdView = () => {
           style={{
             display: "flex",
             flexDirection: "column",
-            height: "500px",
+            height: "530px",
             overflowY: "auto",
           }}
         >
@@ -70,6 +86,8 @@ const AdView = () => {
                   style={{
                     textAlign: "center",
                     margin: "10px",
+                    marginTop: "0px",
+                    marginBottom: "0px",
                     display: "flex",
                     alignItems: "center",
                     flexDirection: "column",
@@ -79,7 +97,14 @@ const AdView = () => {
                     padding: "0",
                   }}
                 >
-                  <button className="year-month-button" value={year}>
+                  <button
+                    className={
+                      currentEngYear === +engYear
+                        ? "highlight-year-month"
+                        : "year-month-button"
+                    }
+                    value={year}
+                  >
                     {engYear}
                   </button>
                 </div>

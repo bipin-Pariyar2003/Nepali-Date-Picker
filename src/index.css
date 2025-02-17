@@ -120,3 +120,12 @@ h2 {
   box-shadow: #213547 0px 3px 8px;
   margin: 0;
 }
+
+.highlight-year-month {
+  width: 110px;
+  font-weight: bold;
+  background-color: red;
+  border: 1px solid black;
+  box-shadow: #213547 0px 3px 8px;
+  margin: 0;
+}

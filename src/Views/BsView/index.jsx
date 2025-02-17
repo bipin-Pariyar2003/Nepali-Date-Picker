@@ -1,10 +1,20 @@
 import React from "react";
 import { np, calendar_data } from "assets/RNepaliCalendar/data";
-import { getCurrentBS, toNepaliNumber } from "assets/RNepaliCalendar";
+import {
+  getCurrentBS,
+  toNepaliNumber,
+  getDaysInMonth,
+} from "assets/RNepaliCalendar";
+
 const BsView = () => {
   const currentBS = getCurrentBS();
   const currentNepaliYear = currentBS.year;
   const currentNepaliMonth = currentBS.month;
+  const currentNepaliDay = currentBS.date;
+
+  //getting days of the month
+  const daysInMonth = getDaysInMonth(currentNepaliYear, currentNepaliMonth);
+  const daysArray = Array.from({ length: daysInMonth }, (_, i) => i + 1);
 
   return (
     <>
@@ -68,7 +78,6 @@ const BsView = () => {
             display: "flex",
             flexDirection: "column",
             height: "530px",
-
             overflowY: "auto",
           }}
         >
@@ -99,6 +108,49 @@ const BsView = () => {
                     }
                   >
                     {month}
+                  </button>
+                </div>
+                <br />
+              </React.Fragment>
+            );
+          })}
+        </div>
+      </div>
+      {/* showing gatey  */}
+      <div style={{ marginTop: "30px", marginLeft: "50px" }}>
+        <h3 style={{ textDecoration: "underline" }}>Days</h3>
+        <div
+          style={{
+            marginTop: "0px",
+            display: "flex",
+            flexDirection: "column",
+            height: "530px",
+            overflowY: "auto",
+          }}
+        >
+          {daysArray.map((day, index) => {
+            return (
+              <React.Fragment key={index}>
+                <div
+                  style={{
+                    textAlign: "center",
+                    margin: "10px",
+                    marginTop: "0px",
+                    marginBottom: "0px",
+                    display: "flex",
+                    alignItems: "center",
+                    flexDirection: "column",
+                    backgroundColor: "#ccc",
+                  }}
+                >
+                  <button
+                    className={
+                      +currentNepaliDay === index + 1
+                        ? "highlight-day"
+                        : "day-button"
+                    }
+                  >
+                    {day}
                   </button>
                 </div>
                 <br />

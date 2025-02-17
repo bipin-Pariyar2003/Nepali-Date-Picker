@@ -38,4 +38,15 @@ const nepDateFormatter = (date) => {
   return formattedNepaliDate;
 };
 
-export { ad2bsHandler, bs2adHandler, nepDateFormatter, bsYearToAdYear };
+//getting days in month english date
+const getDaysInMonth = (year, month) => {
+  return new Date(year, month, 0).getDate();
+};
+
+export {
+  ad2bsHandler,
+  bs2adHandler,
+  nepDateFormatter,
+  bsYearToAdYear,
+  getDaysInMonth,
+};

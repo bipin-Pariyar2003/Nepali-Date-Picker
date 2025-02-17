@@ -1,19 +1,65 @@
 import React from "react";
-import { bsYearToAdYear } from "utils";
+import { bsYearToAdYear, getDaysInMonth } from "utils";
 import { calendar_data, en } from "assets/RNepaliCalendar/data";
 
 const AdView = () => {
   const currentEngYear = new Date().getFullYear();
-  console.log("Current year: ", currentEngYear);
-  console.log("Type of year: ", typeof currentEngYear);
+  console.log(typeof currentEngYear);
   const currentEngMonth = new Date().getMonth();
-  console.log("Current Month: ", currentEngMonth);
-  console.log("Type of month: ", typeof currentEngMonth);
+  console.log(currentEngMonth);
+  const currentEngDay = new Date().getDate();
+  console.log(currentEngDay);
+  const daysInMonth = getDaysInMonth(currentEngYear, currentEngMonth + 1);
+  console.log(daysInMonth);
 
+  const daysArray = Array.from({ length: daysInMonth }, (_, i) => i + 1);
   return (
     <>
-      {/* showing the months  */}
+      {/* showing days  */}
+      <div style={{ marginTop: "30px", marginRight: "50px" }}>
+        <h3 style={{ textDecoration: "underline" }}>Days</h3>
+        <div
+          style={{
+            marginTop: "0px",
+            display: "flex",
+            flexDirection: "column",
+            height: "530px",
+            overflowY: "auto",
+          }}
+        >
+          {daysArray.map((day, index) => {
+            return (
+              <React.Fragment key={index}>
+                <div
+                  style={{
+                    textAlign: "center",
+                    margin: "10px",
+                    marginTop: "0px",
+                    marginBottom: "0px",
+                    display: "flex",
+                    alignItems: "center",
+                    flexDirection: "column",
+                    backgroundColor: "#ccc",
+                  }}
+                >
+                  <button
+                    className={
+                      +currentEngDay === index + 1
+                        ? "highlight-day"
+                        : "day-button"
+                    }
+                  >
+                    {day}
+                  </button>
+                </div>
+                <br />
+              </React.Fragment>
+            );
+          })}
+        </div>
+      </div>
 
+      {/* showing the months  */}
       <div style={{ marginTop: "30px", marginRight: "50px" }}>
         <h3 style={{ textDecoration: "underline" }}>Months</h3>
 
@@ -21,6 +67,7 @@ const AdView = () => {
           style={{
             marginLeft: "0px",
             marginTop: "0px",
+            gap: "0px",
             display: "flex",
             flexDirection: "column",
             height: "530px",

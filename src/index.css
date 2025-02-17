@@ -3,10 +3,6 @@
   line-height: 1.5;
   font-weight: 400;
   background-color: #dcd7c9;
-  /* color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424; */
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -71,6 +67,7 @@ button:focus-visible {
 h2 {
   text-align: center;
 }
+
 .heading {
   position: absolute; /* Positions the div at the top */
   top: 0;
@@ -124,7 +121,47 @@ h2 {
 .highlight-year-month {
   width: 110px;
   font-weight: bold;
-  background-color: red;
+  background-color: #b3d8a8;
+  border: 1px solid black;
+  box-shadow: #213547 0px 3px 8px;
+  margin: 0;
+}
+
+/* For WebKit browsers (Chrome, Safari) */
+::-webkit-scrollbar {
+  width: 3px; /* Adjust the width as needed */
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Track color */
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; /* Handle color */
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Handle color on hover */
+}
+
+.day-button {
+  width: 50px;
+  padding: 5px;
+  font-weight: bold;
+  background-color: #dcd7c9;
+  border: 1px solid black;
+  box-shadow: #213547 0px 3px 8px;
+  margin: 0;
+}
+
+.highlight-day {
+  width: 50px;
+  padding: 5px;
+  font-weight: bold;
+  background-color: #b3d8a8;
   border: 1px solid black;
   box-shadow: #213547 0px 3px 8px;
   margin: 0;

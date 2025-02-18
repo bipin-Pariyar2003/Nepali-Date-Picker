@@ -20,7 +20,7 @@ const BsView = ({ selectedDate, onChange }) => {
     const daysArray = Array.from({ length: daysInMonth }, (_, i) => i + 1);
     setViewDate({
       year: selectedDate.split("/").at(0),
-      month: selectedDate.split("/").at(0),
+      month: selectedDate.split("/").at(1),
       date: selectedDate.split("/").at(2),
       daysArray,
     });

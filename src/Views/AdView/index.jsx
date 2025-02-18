@@ -25,6 +25,11 @@ const AdView = ({ selectedDate, onChange }) => {
     });
   }, [selectedDate]);
 
+  //check if the date is valid
+  const isValidDate = (date, format = "YYYY/MM/DD") => {
+    return moment(date, format).isValid();
+  };
+
   return (
     <>
       {/* showing days  */}
@@ -64,9 +69,9 @@ const AdView = ({ selectedDate, onChange }) => {
                       const date = `${viewDate.year}/${String(
                         viewDate.month
                       ).padStart(2, 0)}/${String(index + 1).padStart(2, 0)}`;
-                      const isValidDate = moment(date, "YYYY/MM/DD").isValid();
+                      // const isValidDate = moment(date, "YYYY/MM/DD").isValid();
 
-                      if (isValidDate) {
+                      if (isValidDate(date)) {
                         onChange(date);
                         return;
                       }
@@ -142,9 +147,9 @@ const AdView = ({ selectedDate, onChange }) => {
                         2,
                         0
                       )}`;
-                      const isValidDate = moment(date, "YYYY/MM/DD").isValid();
+                      // const isValidDate = moment(date, "YYYY/MM/DD").isValid();
 
-                      if (isValidDate) {
+                      if (isValidDate(date)) {
                         onChange(date);
                         return;
                       }
@@ -211,9 +216,9 @@ const AdView = ({ selectedDate, onChange }) => {
                       2,
                       0
                     )}/${String(viewDate.date).padStart(2, 0)}`;
-                    const isValidDate = moment(date, "YYYY/MM/DD").isValid();
+                    // const isValidDate = moment(date, "YYYY/MM/DD").isValid();
 
-                    if (isValidDate) {
+                    if (isValidDate(date)) {
                       onChange(date);
                       return;
                     }

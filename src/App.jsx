@@ -51,7 +51,10 @@ function App() {
         <div
           style={{ flex: "1", display: "flex", justifyContent: "flex-start" }}
         >
-          <BsView />
+          <BsView
+            selectedDate={selectedNepaliDate}
+            onChange={handleNepaliDateChange}
+          />
         </div>
 
         {/* Centered (DatePickers) */}

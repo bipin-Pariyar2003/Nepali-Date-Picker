@@ -2,15 +2,14 @@ import React from "react";
 import { bsYearToAdYear, getDaysInMonth } from "utils";
 import { calendar_data, en } from "assets/RNepaliCalendar/data";
 
-const AdView = () => {
+const AdView = ({ selectedDate, onChange }) => {
   const currentEngYear = new Date().getFullYear();
-  console.log(typeof currentEngYear);
+
   const currentEngMonth = new Date().getMonth();
-  console.log(currentEngMonth);
+
   const currentEngDay = new Date().getDate();
-  console.log(currentEngDay);
+
   const daysInMonth = getDaysInMonth(currentEngYear, currentEngMonth + 1);
-  console.log(daysInMonth);
 
   const daysArray = Array.from({ length: daysInMonth }, (_, i) => i + 1);
   return (

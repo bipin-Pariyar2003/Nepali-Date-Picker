@@ -83,7 +83,10 @@ function App() {
 
         {/* Right Side (AdView) */}
         <div style={{ flex: "1", display: "flex", justifyContent: "flex-end" }}>
-          <AdView />
+          <AdView
+            selectedDate={selectedEnglishDate}
+            onChange={handleEngDateChange}
+          />
         </div>
       </div>
     </>

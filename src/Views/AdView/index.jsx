@@ -182,60 +182,72 @@ const AdView = ({ selectedDate, onChange }) => {
             overflowY: "auto",
           }}
         >
-          {[2022, 2023, 2024, 2025, 2026].map((engYear, index) => (
-            <React.Fragment key={index}>
-              <div
-                style={{
-                  textAlign: "center",
-                  margin: "10px",
-                  marginTop: "0px",
-                  marginBottom: "0px",
-                  display: "flex",
-                  alignItems: "center",
-                  flexDirection: "column",
-                  backgroundColor: "#ccc",
-                  color: "rgba(0, 0, 0, 0.9)",
-                  borderRadius: "25px",
-                  padding: "0",
-                }}
-              >
-                <button
-                  className={
-                    +viewDate.year === +engYear
-                      ? "highlight-year-month"
-                      : "year-month-button"
-                  }
-                  onClick={() => {
-                    const daysInMonth = getDaysInMonth(engYear, viewDate.month);
-                    const daysArray = Array.from(
-                      { length: daysInMonth },
-                      (_, i) => i + 1
-                    );
-
-                    const date = `${engYear}/${String(viewDate.month).padStart(
-                      2,
-                      0
-                    )}/${String(viewDate.date).padStart(2, 0)}`;
-                    // const isValidDate = moment(date, "YYYY/MM/DD").isValid();
-
-                    if (isValidDate(date)) {
-                      onChange(date);
-                      return;
-                    }
-
-                    setViewDate((prev) => ({
-                      ...prev,
-                      year: engYear,
-                      daysArray,
-                    }));
+          {/* {[2022, 2023, 2024, 2025, 2026].map((engYear, index) => ( */}
+          {Object.keys(calendar_data)
+            .map((year) => {
+              const engYear = bsYearToAdYear(year);
+              return { engYear, year }; // Return both values for later use
+            })
+            .filter(({ engYear }) => !isNaN(engYear)) // Filter out NaN values
+            .map(({ engYear, year }, index) => (
+              <React.Fragment key={index}>
+                <div
+                  style={{
+                    textAlign: "center",
+                    margin: "10px",
+                    marginTop: "0px",
+                    marginBottom: "0px",
+                    display: "flex",
+                    alignItems: "center",
+                    flexDirection: "column",
+                    backgroundColor: "#ccc",
+                    color: "rgba(0, 0, 0, 0.9)",
+                    borderRadius: "25px",
+                    padding: "0",
                   }}
                 >
-                  {engYear}
-                </button>
-              </div>
-              <br />
-            </React.Fragment>
-          ))}
+                  <button
+                    className={
+                      +viewDate.year === +engYear
+                        ? "highlight-year-month"
+                        : "year-month-button"
+                    }
+                    onClick={() => {
+                      const daysInMonth = getDaysInMonth(
+                        engYear,
+                        viewDate.month
+                      );
+                      const daysArray = Array.from(
+                        { length: daysInMonth },
+                        (_, i) => i + 1
+                      );
+
+                      const date = `${engYear}/${String(
+                        viewDate.month
+                      ).padStart(2, 0)}/${String(viewDate.date).padStart(
+                        2,
+                        0
+                      )}`;
+                      // const isValidDate = moment(date, "YYYY/MM/DD").isValid();
+
+                      if (isValidDate(date)) {
+                        onChange(date);
+                        return;
+                      }
+
+                      setViewDate((prev) => ({
+                        ...prev,
+                        year: engYear,
+                        daysArray,
+                      }));
+                    }}
+                  >
+                    {engYear}
+                  </button>
+                </div>
+                <br />
+              </React.Fragment>
+            ))}
         </div>
       </div>
     </>

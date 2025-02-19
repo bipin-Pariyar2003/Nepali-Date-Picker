@@ -2,6 +2,7 @@ import React from "react";
 import { np, calendar_data } from "assets/RNepaliCalendar/data";
 import { toNepaliNumber, getDaysInMonth } from "assets/RNepaliCalendar";
 import moment from "moment";
+import "./index.css";
 
 const BsView = ({ selectedDate, onChange }) => {
   const [viewDate, setViewDate] = React.useState({
@@ -213,7 +214,7 @@ const BsView = ({ selectedDate, onChange }) => {
                   <button
                     className={
                       +viewDate.date === index + 1
-                        ? "highlight-day"
+                        ? "selected-day"
                         : "day-button"
                     }
                     onClick={() => {

@@ -5,11 +5,11 @@ import moment from "moment";
 import "./index.css";
 // getting current month year and day
 const currentYear = new Date().getFullYear();
-console.log(currentYear);
+
 const currentMonth = new Date().getMonth() + 1;
-console.log(currentMonth);
+
 const currentDay = new Date().getDate();
-console.log(currentDay);
+
 const AdView = ({ selectedDate, onChange }) => {
   const [viewDate, setViewDate] = React.useState({
     year: selectedDate.split("/").at(0),
@@ -50,6 +50,15 @@ const AdView = ({ selectedDate, onChange }) => {
       `${viewDate.year}/${viewDate.month}/${String(gatay).padStart(2, 0)}`
     );
   };
+  // const isCurrentMonth = (month) => {
+  //   return (
+  //     `${String(currentYear)}/${String(currentMonth).padStart(
+  //       2,
+  //       0
+  //     )}/${currentDay}` ===
+  //     `${viewDate.year}/${String(month).padStart(2, 0)}/${viewDate.date}`
+  //   );
+  // };
 
   return (
     <>
@@ -81,9 +90,21 @@ const AdView = ({ selectedDate, onChange }) => {
                   }}
                 >
                   <button
-                    className={`gatey ${
-                      isSelected(day) ? "selected-day" : "day-button"
-                    } ${isToday(day) ? "today" : "day-button"}`}
+                    value={+day}
+                    //  className={`day ${
+                    //   // +day===+currentDay?"today": "day-button"}
+                    //   isSelected(day) ? "selected-day" : "day-button"
+                    // } ${isToday(day) ? "today" : "day-button"}`}
+                    className={`day ${
+                      +currentYear === +viewDate.year &&
+                      +currentMonth === +viewDate.month &&
+                      +currentDay === +day
+                        ? "today"
+                        : "day-button"
+                    }
+${+viewDate.date === +day ? "highlight-day" : "day-button"}
+                  `}
+                    // } ${isToday(day) ? "today" : "day-button"}`}
                     // className={
                     //  ${ +viewDate.date === index + 1
                     //     ? "highlight-day"
@@ -150,11 +171,33 @@ const AdView = ({ selectedDate, onChange }) => {
                   }}
                 >
                   <button
-                    className={
-                      +viewDate.month === index + 1
-                        ? "highlight-year-month"
-                        : "year-month-button"
-                    }
+                    // className={
+                    //   +viewDate.month === index + 1
+                    //     ? "highlight-year-month"
+                    //     : "year-month-button"
+                    // }
+
+                    // className={`gatey ${
+                    //   isSelected(month)
+                    //     ? "highlight-year-month"
+                    //     : "year-month-button"
+                    // } ${isToday(month) ? "today" : "year-month-button"}`}
+
+                    className={`month 
+                      ${
+                        // isCurrentMonth(month)
+                        +currentYear === +viewDate.year &&
+                        +currentMonth === index + 1
+                          ? "current-month"
+                          : "year-month-button"
+                      }
+                      ${
+                        +viewDate.month === index + 1
+                          ? "highlight-year-month"
+                          : "year-month-button"
+                      }
+
+                    }`}
                     onClick={() => {
                       const daysInMonth = getDaysInMonth(
                         viewDate.year,
@@ -231,11 +274,19 @@ const AdView = ({ selectedDate, onChange }) => {
                   }}
                 >
                   <button
-                    className={
-                      +viewDate.year === +engYear
-                        ? "highlight-year-month"
-                        : "year-month-button"
-                    }
+                    className={`year
+                       ${
+                         +currentYear === +engYear
+                           ? "current-year"
+                           : "year-month-button"
+                       }
+                     ${
+                       +viewDate.year === +engYear
+                         ? "highlight-year-month"
+                         : "year-month-button"
+                     }
+                       
+                    `}
                     onClick={() => {
                       const daysInMonth = getDaysInMonth(
                         engYear,

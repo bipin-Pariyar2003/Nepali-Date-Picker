@@ -28,7 +28,7 @@
   background-color: #ccc;
 }
 
-.selected-day {
+.highlight-day {
   width: 50px;
   padding: 5px;
   font-weight: bold;
@@ -39,5 +39,13 @@
 }
 
 .today {
+  background-color: red;
+}
+
+.current-month {
+  background-color: red;
+}
+
+.current-year {
   background-color: red;
 }

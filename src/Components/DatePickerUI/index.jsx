@@ -272,7 +272,6 @@ const PopUp = ({ selectedDate, onDateSelect, handleClose }) => {
               <React.Fragment key={index}>
                 <div
                   value={date}
-                  // className="gatey"
                   className={`gatey ${isSelected(date) ? "selected-day" : ""} ${
                     isToday(date) ? "today" : ""
                   }`}

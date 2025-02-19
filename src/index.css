@@ -109,11 +109,11 @@ h2 {
   text-decoration: underline;
 }
 
-.year-month-button {
+/* .year-month-button {
   width: 110px;
   font-weight: bold;
   background-color: #dcd7c9;
-  border: 1px solid black;
+ 
   box-shadow: #213547 0px 3px 8px;
   margin: 0;
 }
@@ -122,10 +122,10 @@ h2 {
   width: 110px;
   font-weight: bold;
   background-color: #b3d8a8;
-  border: 1px solid black;
+ 
   box-shadow: #213547 0px 3px 8px;
   margin: 0;
-}
+} */
 
 /* For WebKit browsers (Chrome, Safari) */
 ::-webkit-scrollbar {
@@ -147,12 +147,12 @@ h2 {
   background: #555; /* Handle color on hover */
 }
 
-.day-button {
+/* .day-button {
   width: 50px;
   padding: 5px;
   font-weight: bold;
   background-color: #dcd7c9;
-  border: 1px solid black;
+
   box-shadow: #213547 0px 3px 8px;
   margin: 0;
 }
@@ -162,7 +162,7 @@ h2 {
   padding: 5px;
   font-weight: bold;
   background-color: #b3d8a8;
-  border: 1px solid black;
+
   box-shadow: #213547 0px 3px 8px;
   margin: 0;
-}
+} */

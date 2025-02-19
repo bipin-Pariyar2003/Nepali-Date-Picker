@@ -4,8 +4,6 @@ import { toNepaliNumber, getDaysInMonth } from "assets/RNepaliCalendar";
 import moment from "moment";
 
 const BsView = ({ selectedDate, onChange }) => {
-  console.log("selectedDate: ", selectedDate);
-
   const [viewDate, setViewDate] = React.useState({
     year: selectedDate.split("/").at(0),
     month: selectedDate.split("/").at(1),

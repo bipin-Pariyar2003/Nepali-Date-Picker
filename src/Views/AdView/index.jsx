@@ -2,7 +2,14 @@ import React from "react";
 import { bsYearToAdYear, getDaysInMonth } from "utils";
 import { calendar_data, en } from "assets/RNepaliCalendar/data";
 import moment from "moment";
-
+import "./index.css";
+// getting current month year and day
+const currentYear = new Date().getFullYear();
+console.log(currentYear);
+const currentMonth = new Date().getMonth() + 1;
+console.log(currentMonth);
+const currentDay = new Date().getDate();
+console.log(currentDay);
 const AdView = ({ selectedDate, onChange }) => {
   const [viewDate, setViewDate] = React.useState({
     year: selectedDate.split("/").at(0),
@@ -28,6 +35,20 @@ const AdView = ({ selectedDate, onChange }) => {
   //check if the date is valid
   const isValidDate = (date, format = "YYYY/MM/DD") => {
     return moment(date, format).isValid();
+  };
+
+  const isSelected = (date) => {
+    return (
+      selectedDate ===
+      `${viewDate.year}/${viewDate.month}/${String(date).padStart(2, 0)}`
+    );
+  };
+
+  const isToday = (gatay) => {
+    return (
+      `${currentYear}/${String(currentMonth).padStart(2, 0)}/${currentDay}` ===
+      `${viewDate.year}/${viewDate.month}/${String(gatay).padStart(2, 0)}`
+    );
   };
 
   return (
@@ -60,16 +81,19 @@ const AdView = ({ selectedDate, onChange }) => {
                   }}
                 >
                   <button
-                    className={
-                      +viewDate.date === index + 1
-                        ? "highlight-day"
-                        : "day-button"
-                    }
+                    className={`gatey ${
+                      isSelected(day) ? "selected-day" : "day-button"
+                    } ${isToday(day) ? "today" : "day-button"}`}
+                    // className={
+                    //  ${ +viewDate.date === index + 1
+                    //     ? "highlight-day"
+                    //     : "day-button"
+                    //  }
+                    // }
                     onClick={() => {
                       const date = `${viewDate.year}/${String(
                         viewDate.month
                       ).padStart(2, 0)}/${String(index + 1).padStart(2, 0)}`;
-                      // const isValidDate = moment(date, "YYYY/MM/DD").isValid();
 
                       if (isValidDate(date)) {
                         onChange(date);

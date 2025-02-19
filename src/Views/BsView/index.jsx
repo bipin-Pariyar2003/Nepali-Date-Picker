@@ -8,6 +8,13 @@ import {
 import moment from "moment";
 import "./index.css";
 
+//getting current month year and day
+const currentYear = getCurrentBS().year;
+
+const currentMonth = getCurrentBS().month;
+
+const currentDay = getCurrentBS().date;
+
 const BsView = ({ selectedDate, onChange }) => {
   const [viewDate, setViewDate] = React.useState({
     year: selectedDate.split("/").at(0),
@@ -29,18 +36,10 @@ const BsView = ({ selectedDate, onChange }) => {
     });
   }, [selectedDate]);
 
-  //getting days of the month
-
   //check if the date is valid
   const isValidDate = (date, format = "YYYY/MM/DD") => {
     return moment(date, format).isValid();
   };
-
-  const currentYear = getCurrentBS().year;
-
-  const currentMonth = getCurrentBS().month;
-
-  const currentDay = getCurrentBS().date;
 
   return (
     <>
@@ -239,18 +238,17 @@ const BsView = ({ selectedDate, onChange }) => {
                   }}
                 >
                   <button
+                    value={+day}
                     className={`day
                       ${
                         +currentYear === +viewDate.year &&
                         +currentMonth === +viewDate.month &&
-                        +currentDay === index + 1
+                        +currentDay === +day
                           ? "today"
                           : "day-button"
                       }
                       ${
-                        +viewDate.date === index + 1
-                          ? "selected-day"
-                          : "day-button"
+                        +viewDate.date === +day ? "highlight-day" : "day-button"
                       }
                     `}
                     onClick={() => {

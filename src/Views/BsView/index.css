@@ -28,7 +28,7 @@
   background-color: #ccc;
 }
 
-.selected-day {
+.highlight-day {
   width: 50px;
   padding: 5px;
   font-weight: bold;

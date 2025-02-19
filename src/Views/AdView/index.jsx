@@ -37,29 +37,6 @@ const AdView = ({ selectedDate, onChange }) => {
     return moment(date, format).isValid();
   };
 
-  const isSelected = (date) => {
-    return (
-      selectedDate ===
-      `${viewDate.year}/${viewDate.month}/${String(date).padStart(2, 0)}`
-    );
-  };
-
-  const isToday = (gatay) => {
-    return (
-      `${currentYear}/${String(currentMonth).padStart(2, 0)}/${currentDay}` ===
-      `${viewDate.year}/${viewDate.month}/${String(gatay).padStart(2, 0)}`
-    );
-  };
-  // const isCurrentMonth = (month) => {
-  //   return (
-  //     `${String(currentYear)}/${String(currentMonth).padStart(
-  //       2,
-  //       0
-  //     )}/${currentDay}` ===
-  //     `${viewDate.year}/${String(month).padStart(2, 0)}/${viewDate.date}`
-  //   );
-  // };
-
   return (
     <>
       {/* showing days  */}

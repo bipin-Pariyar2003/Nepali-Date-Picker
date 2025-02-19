@@ -33,11 +33,14 @@
   padding: 5px;
   font-weight: bold;
   background-color: #b3d8a8;
-
   box-shadow: #213547 0px 3px 8px;
   margin: 0;
 }
 
 .today {
+  background-color: red;
+}
+
+.current-year {
   background-color: red;
 }

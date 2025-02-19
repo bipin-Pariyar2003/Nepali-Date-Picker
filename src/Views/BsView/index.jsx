@@ -1,6 +1,10 @@
 import React from "react";
 import { np, calendar_data } from "assets/RNepaliCalendar/data";
-import { toNepaliNumber, getDaysInMonth } from "assets/RNepaliCalendar";
+import {
+  toNepaliNumber,
+  getDaysInMonth,
+  getCurrentBS,
+} from "assets/RNepaliCalendar";
 import moment from "moment";
 import "./index.css";
 
@@ -31,6 +35,12 @@ const BsView = ({ selectedDate, onChange }) => {
   const isValidDate = (date, format = "YYYY/MM/DD") => {
     return moment(date, format).isValid();
   };
+
+  const currentYear = getCurrentBS().year;
+
+  const currentMonth = getCurrentBS().month;
+
+  const currentDay = getCurrentBS().date;
 
   return (
     <>
@@ -67,11 +77,19 @@ const BsView = ({ selectedDate, onChange }) => {
                   }}
                 >
                   <button
-                    className={
-                      +viewDate.year === +year
-                        ? "highlight-year-month"
-                        : "year-month-button"
-                    }
+                    className={`year
+                       ${
+                         +currentYear === +year
+                           ? "current-year"
+                           : "year-month-button"
+                       }
+                      ${
+                        +viewDate.year === +year
+                          ? "highlight-year-month"
+                          : "year-month-button"
+                      }
+                       
+                    `}
                     onClick={() => {
                       const daysInMonth = getDaysInMonth(year, viewDate.month);
                       const daysArray = Array.from(
@@ -140,11 +158,20 @@ const BsView = ({ selectedDate, onChange }) => {
                 >
                   <button
                     value={index + 1}
-                    className={
-                      +viewDate.month === index + 1
-                        ? "highlight-year-month"
-                        : "year-month-button"
-                    }
+                    className={`month
+                      ${
+                        +currentYear === +viewDate.year &&
+                        +currentMonth === index + 1
+                          ? "current-month"
+                          : "year-month-button"
+                      }
+                      ${
+                        +viewDate.month === index + 1
+                          ? "highlight-year-month"
+                          : "year-month-button"
+                      }
+
+                    `}
                     onClick={() => {
                       const daysInMonth = getDaysInMonth(
                         +viewDate.year,
@@ -212,11 +239,20 @@ const BsView = ({ selectedDate, onChange }) => {
                   }}
                 >
                   <button
-                    className={
-                      +viewDate.date === index + 1
-                        ? "selected-day"
-                        : "day-button"
-                    }
+                    className={`day
+                      ${
+                        +currentYear === +viewDate.year &&
+                        +currentMonth === +viewDate.month &&
+                        +currentDay === index + 1
+                          ? "today"
+                          : "day-button"
+                      }
+                      ${
+                        +viewDate.date === index + 1
+                          ? "selected-day"
+                          : "day-button"
+                      }
+                    `}
                     onClick={() => {
                       const date = `${viewDate.year}/${String(
                         viewDate.month

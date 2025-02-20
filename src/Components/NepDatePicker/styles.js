@@ -2,7 +2,7 @@ const styles = {
   box: {
     alignItems: "center",
     gap: "0px",
-    border: "1px solid #ccc",
+    border: "1px solid rgba(0, 0, 0, 0.3)",
     borderRadius: "5px",
   },
   input: {
@@ -14,7 +14,9 @@ const styles = {
     border: "none",
     position: "relative",
     width: "180px",
-    backgroundColor: "#F8F5E9",
+    borderRadius: "5px",
+    color: "rgba(0, 0, 0, 0.8)",
+    backgroundColor: "#dcd7c9",
   },
 };
 

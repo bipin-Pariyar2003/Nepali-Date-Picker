@@ -20,10 +20,11 @@ a:hover {
 
 body {
   margin: 0;
-  display: flex;
+  /* display: flex; */
   /* this is making contents center  */
   place-items: start;
   min-width: 320px;
+  max-width: 100%;
   min-height: 100vh;
 }
 
@@ -71,22 +72,22 @@ h2 {
 .heading {
   position: absolute; /* Positions the div at the top */
   top: 0;
-  left: 50%; /* Moves the left edge to the center */
-  transform: translateX(
-    -50%
-  ); /* Moves it back by half of its width to center it */
+  left: 50%;
+  /* Moves the left edge to the center */
 
-  width: 50%; /* Set width to 50% */
-  height: 50px; /* Adjust height if needed */
+  transform: translateX(-50%);
+
+  /* Moves it back by half of its width to center it */
+
+  max-width: 100%;
+  width: 98%; /* Set width to 50% */
+  height: 40px; /* Adjust height if needed */
   padding: 10px; /* Add some padding */
-
   display: flex;
   align-items: center; /* Align items vertically inside */
   justify-content: center; /* Center text horizontally */
-
   background-color: #9dc08b;
   color: rgba(0, 0, 0, 0.9);
-  border-radius: 25px;
   cursor: default;
 }
 

@@ -74,13 +74,13 @@ function App() {
             justifyContent: "center",
           }}
         >
-          <EngDatePicker
-            selectedDate={selectedEnglishDate}
-            onChange={handleEngDateChange}
-          />
           <NepDatePicker
             selectedDate={selectedNepaliDate}
             onChange={handleNepaliDateChange}
+          />
+          <EngDatePicker
+            selectedDate={selectedEnglishDate}
+            onChange={handleEngDateChange}
           />
         </div>
 

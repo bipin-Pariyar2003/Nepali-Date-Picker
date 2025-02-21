@@ -17,10 +17,8 @@ function App() {
   const initialNepaliDate = ad2bsHandler(initialEnglishDate);
 
   //state
-  const [selectedNepaliDate, setSelectedNepaliDate] =
-    useState(initialNepaliDate);
-  const [selectedEnglishDate, setSelectedEnglishDate] =
-    useState(initialEnglishDate);
+  const [selectedNepaliDate, setSelectedNepaliDate] = useState(initialNepaliDate);
+  const [selectedEnglishDate, setSelectedEnglishDate] = useState(initialEnglishDate);
 
   //handling nepali date change
   const handleNepaliDateChange = (date) => {
@@ -44,25 +42,32 @@ function App() {
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between", // Ensures left, center, and right alignment
-          padding: "20px",
+          padding: "0 20px",
+          gap: "40px",
         }}
       >
         {/* Left Side (BsView) */}
         <div
-          style={{ flex: "1", display: "flex", justifyContent: "flex-start" }}
+          style={{
+            display: "flex",
+            flex: 1,
+            gap: "50px",
+            width: "100%",
+            justifyContent: "center",
+            position: "relative",
+            paddingTop: "60px",
+          }}
         >
-          <BsView
-            selectedDate={selectedNepaliDate}
-            onChange={handleNepaliDateChange}
-          />
+          <h2 style={{ position: "absolute", top: 0 }}>Nepali Date</h2>
+          <BsView selectedDate={selectedNepaliDate} onChange={handleNepaliDateChange} />
         </div>
 
         {/* Centered (DatePickers) */}
         <div
           style={{
-            margin: "60px",
-            marginTop: "120px",
-            width: "40%", // Set explicit width for more space
+            // margin: "60px",
+            // marginTop: "60px",
+            width: "min-content", // Set explicit width for more space
             minWidth: "350px", // Ensure it doesn't get too small
             display: "flex",
             flexDirection: "column",
@@ -72,6 +77,7 @@ function App() {
             padding: "20px",
             alignItems: "center",
             justifyContent: "center",
+            flex: 1,
           }}
         >
           <NepDatePicker
@@ -85,11 +91,19 @@ function App() {
         </div>
 
         {/* Right Side (AdView) */}
-        <div style={{ flex: "1", display: "flex", justifyContent: "flex-end" }}>
-          <AdView
-            selectedDate={selectedEnglishDate}
-            onChange={handleEngDateChange}
-          />
+        <div
+          style={{
+            display: "flex",
+            flex: 1,
+            gap: "50px",
+            width: "100%",
+            justifyContent: "center",
+            position: "relative",
+            paddingTop: "60px",
+          }}
+        >
+          <h2 style={{ position: "absolute", top: 0 }}>English Date</h2>
+          <AdView selectedDate={selectedEnglishDate} onChange={handleEngDateChange} />
         </div>
       </div>
     </>

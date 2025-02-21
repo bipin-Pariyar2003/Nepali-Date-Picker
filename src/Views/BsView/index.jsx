@@ -1,10 +1,6 @@
 import React from "react";
 import { np, calendar_data } from "assets/RNepaliCalendar/data";
-import {
-  toNepaliNumber,
-  getDaysInMonth,
-  getCurrentBS,
-} from "assets/RNepaliCalendar";
+import { toNepaliNumber, getDaysInMonth, getCurrentBS } from "assets/RNepaliCalendar";
 import moment from "moment";
 import "./index.css";
 
@@ -44,16 +40,16 @@ const BsView = ({ selectedDate, onChange }) => {
   return (
     <>
       {/* showing the years  */}
-      <div style={{ marginTop: "30px" }}>
-        <h3 style={{ textDecoration: "underline" }}>Years (B.S.)</h3>
+      <div style={{ textAlign: "center" }}>
+        <h3 style={{ textDecoration: "underline", textAlign: "center" }}>Years (B.S.)</h3>
         <div
           style={{
             display: "flex",
             flexDirection: "column",
-            height: "530px",
+            height: "73vh",
             overflowY: "auto",
-            marginTop: "0px",
-            marginRight: "50px",
+            margin: "0px",
+            // marginRight: "50px",
           }}
         >
           {Object.keys(calendar_data).map((year, index) => {
@@ -62,26 +58,18 @@ const BsView = ({ selectedDate, onChange }) => {
               <React.Fragment key={index}>
                 <div
                   style={{
-                    textAlign: "center",
-                    margin: "10px",
-                    marginTop: "0px",
-                    marginBottom: "0px",
-                    display: "flex",
-                    alignItems: "center",
-                    flexDirection: "column",
-                    backgroundColor: "#ccc",
-                    color: "rgba(0, 0, 0, 0.9)",
-                    borderRadius: "25px",
-                    padding: "0",
+                    // textAlign: "center",
+                    margin: "0px",
+                    marginRight: "10px",
+
+                    // display: "flex",
+                    // alignItems: "center",
+                    // flexDirection: "column",
                   }}
                 >
                   <button
                     className={`year
-                       ${
-                         +currentYear === +year
-                           ? "current-year"
-                           : "year-month-button"
-                       }
+                       ${+currentYear === +year ? "current-year" : "year-month-button"}
                       ${
                         +viewDate.year === +year
                           ? "highlight-year-month"
@@ -125,15 +113,15 @@ const BsView = ({ selectedDate, onChange }) => {
       </div>
 
       {/* showing the months  */}
-      <div style={{ marginTop: "30px" }}>
+      <div style={{}}>
         <h3 style={{ textDecoration: "underline" }}>Months</h3>
 
         <div
           style={{
-            marginTop: "0px",
-            display: "flex",
-            flexDirection: "column",
-            height: "530px",
+            // marginTop: "0px",
+            // display: "flex",
+            // flexDirection: "column",
+            height: "73vh",
             overflowY: "auto",
           }}
         >
@@ -142,25 +130,20 @@ const BsView = ({ selectedDate, onChange }) => {
               <React.Fragment key={index}>
                 <div
                   style={{
-                    textAlign: "center",
-                    margin: "10px",
-                    marginTop: "0px",
-                    marginBottom: "0px",
+                    // textAlign: "center",
+                    margin: "0px",
+                    marginRight: "10px",
+
                     display: "flex",
                     alignItems: "center",
                     flexDirection: "column",
-                    backgroundColor: "#ccc",
-                    color: "rgba(0, 0, 0, 0.9)",
-                    borderRadius: "25px",
-                    padding: "0px",
                   }}
                 >
                   <button
                     value={index + 1}
                     className={`month
                       ${
-                        +currentYear === +viewDate.year &&
-                        +currentMonth === index + 1
+                        +currentYear === +viewDate.year && +currentMonth === index + 1
                           ? "current-month"
                           : "year-month-button"
                       }
@@ -172,21 +155,16 @@ const BsView = ({ selectedDate, onChange }) => {
 
                     `}
                     onClick={() => {
-                      const daysInMonth = getDaysInMonth(
-                        +viewDate.year,
-                        index + 1
-                      );
+                      const daysInMonth = getDaysInMonth(+viewDate.year, index + 1);
                       const daysArray = Array.from(
                         { length: daysInMonth },
                         (_, i) => i + 1
                       );
 
-                      const date = `${viewDate.year}/${String(
-                        index + 1
-                      ).padStart(2, 0)}/${String(viewDate.date).padStart(
+                      const date = `${viewDate.year}/${String(index + 1).padStart(
                         2,
                         0
-                      )}`;
+                      )}/${String(viewDate.date).padStart(2, 0)}`;
                       // const isValidDate = moment(date, "YYYY/MM/DD").isValid();
 
                       if (isValidDate(date)) {
@@ -211,14 +189,14 @@ const BsView = ({ selectedDate, onChange }) => {
         </div>
       </div>
       {/* showing gatey  */}
-      <div style={{ marginTop: "30px", marginLeft: "50px" }}>
+      <div style={{}}>
         <h3 style={{ textDecoration: "underline" }}>Days</h3>
         <div
           style={{
             marginTop: "0px",
-            display: "flex",
-            flexDirection: "column",
-            height: "530px",
+            // display: "flex",
+            // flexDirection: "column",
+            height: "73vh",
             overflowY: "auto",
           }}
         >
@@ -247,14 +225,13 @@ const BsView = ({ selectedDate, onChange }) => {
                           ? "today"
                           : "day-button"
                       }
-                      ${
-                        +viewDate.date === +day ? "highlight-day" : "day-button"
-                      }
+                      ${+viewDate.date === +day ? "highlight-day" : "day-button"}
                     `}
                     onClick={() => {
-                      const date = `${viewDate.year}/${String(
-                        viewDate.month
-                      ).padStart(2, 0)}/${String(index + 1).padStart(2, 0)}`;
+                      const date = `${viewDate.year}/${String(viewDate.month).padStart(
+                        2,
+                        0
+                      )}/${String(index + 1).padStart(2, 0)}`;
                       // const isValidDate = moment(date, "YYYY/MM/DD").isValid();
 
                       if (isValidDate(date)) {

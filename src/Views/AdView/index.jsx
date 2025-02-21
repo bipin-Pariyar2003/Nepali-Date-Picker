@@ -40,14 +40,14 @@ const AdView = ({ selectedDate, onChange }) => {
   return (
     <>
       {/* showing days  */}
-      <div style={{ marginTop: "30px", marginRight: "50px" }}>
+      <div>
         <h3 style={{ textDecoration: "underline" }}>Days</h3>
         <div
           style={{
             marginTop: "0px",
             display: "flex",
             flexDirection: "column",
-            height: "530px",
+            height: "73vh",
             overflowY: "auto",
           }}
         >
@@ -89,9 +89,10 @@ ${+viewDate.date === +day ? "highlight-day" : "day-button"}
                     //  }
                     // }
                     onClick={() => {
-                      const date = `${viewDate.year}/${String(
-                        viewDate.month
-                      ).padStart(2, 0)}/${String(index + 1).padStart(2, 0)}`;
+                      const date = `${viewDate.year}/${String(viewDate.month).padStart(
+                        2,
+                        0
+                      )}/${String(index + 1).padStart(2, 0)}`;
 
                       if (isValidDate(date)) {
                         onChange(date);
@@ -115,7 +116,7 @@ ${+viewDate.date === +day ? "highlight-day" : "day-button"}
       </div>
 
       {/* showing the months  */}
-      <div style={{ marginTop: "30px", marginRight: "50px" }}>
+      <div style={{}}>
         <h3 style={{ textDecoration: "underline" }}>Months</h3>
 
         <div
@@ -125,7 +126,7 @@ ${+viewDate.date === +day ? "highlight-day" : "day-button"}
             gap: "0px",
             display: "flex",
             flexDirection: "column",
-            height: "530px",
+            height: "73vh",
             overflowY: "auto",
           }}
         >
@@ -163,8 +164,7 @@ ${+viewDate.date === +day ? "highlight-day" : "day-button"}
                     className={`month 
                       ${
                         // isCurrentMonth(month)
-                        +currentYear === +viewDate.year &&
-                        +currentMonth === index + 1
+                        +currentYear === +viewDate.year && +currentMonth === index + 1
                           ? "current-month"
                           : "year-month-button"
                       }
@@ -176,21 +176,16 @@ ${+viewDate.date === +day ? "highlight-day" : "day-button"}
 
                     }`}
                     onClick={() => {
-                      const daysInMonth = getDaysInMonth(
-                        viewDate.year,
-                        index + 1
-                      );
+                      const daysInMonth = getDaysInMonth(viewDate.year, index + 1);
                       const daysArray = Array.from(
                         { length: daysInMonth },
                         (_, i) => i + 1
                       );
 
-                      const date = `${viewDate.year}/${String(
-                        index + 1
-                      ).padStart(2, 0)}/${String(viewDate.date).padStart(
+                      const date = `${viewDate.year}/${String(index + 1).padStart(
                         2,
                         0
-                      )}`;
+                      )}/${String(viewDate.date).padStart(2, 0)}`;
                       // const isValidDate = moment(date, "YYYY/MM/DD").isValid();
 
                       if (isValidDate(date)) {
@@ -216,13 +211,13 @@ ${+viewDate.date === +day ? "highlight-day" : "day-button"}
       </div>
 
       {/* showing the years  */}
-      <div style={{ marginTop: "30px" }}>
+      <div style={{}}>
         <h3 style={{ textDecoration: "underline" }}>Years (A.D.)</h3>
         <div
           style={{
             display: "flex",
             flexDirection: "column",
-            height: "530px",
+            height: "73vh",
             overflowY: "auto",
           }}
         >
@@ -252,11 +247,7 @@ ${+viewDate.date === +day ? "highlight-day" : "day-button"}
                 >
                   <button
                     className={`year
-                       ${
-                         +currentYear === +engYear
-                           ? "current-year"
-                           : "year-month-button"
-                       }
+                       ${+currentYear === +engYear ? "current-year" : "year-month-button"}
                      ${
                        +viewDate.year === +engYear
                          ? "highlight-year-month"
@@ -265,21 +256,16 @@ ${+viewDate.date === +day ? "highlight-day" : "day-button"}
                        
                     `}
                     onClick={() => {
-                      const daysInMonth = getDaysInMonth(
-                        engYear,
-                        viewDate.month
-                      );
+                      const daysInMonth = getDaysInMonth(engYear, viewDate.month);
                       const daysArray = Array.from(
                         { length: daysInMonth },
                         (_, i) => i + 1
                       );
 
-                      const date = `${engYear}/${String(
-                        viewDate.month
-                      ).padStart(2, 0)}/${String(viewDate.date).padStart(
+                      const date = `${engYear}/${String(viewDate.month).padStart(
                         2,
                         0
-                      )}`;
+                      )}/${String(viewDate.date).padStart(2, 0)}`;
                       // const isValidDate = moment(date, "YYYY/MM/DD").isValid();
 
                       if (isValidDate(date)) {

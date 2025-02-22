@@ -3,6 +3,9 @@
   line-height: 1.5;
   font-weight: 400;
   background-color: #dcd7c9;
+  /* background-color: #fce7c8; */
+  /* background-color: #ffffff; */
+  /* background-color: #eddbc7 */
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -46,6 +49,7 @@ button {
 }
 button:hover {
   border-color: #646cff;
+  background-color: #ccc;
 }
 button:focus,
 button:focus-visible {
@@ -70,16 +74,6 @@ h2 {
 }
 
 .heading {
-  /* Positions the div at the top */
-  /* position: absolute; */
-  /* top: 0;
-  left: 50%; */
-  /* Moves the left edge to the center */
-
-  /* transform: translateX(-50%); */
-
-  /* Moves it back by half of its width to center it */
-
   max-width: 100%;
   /* Set width to 50% */
   height: 40px; /* Adjust height if needed */
@@ -87,8 +81,12 @@ h2 {
   display: flex;
   align-items: center; /* Align items vertically inside */
   justify-content: center; /* Center text horizontally */
-  background-color: #9dc08b;
-  color: rgba(0, 0, 0, 0.9);
+  /* background-color: #9dc08b; */
+  /* background-color: #a7727d; */
+  /* background-color: #8b4513; */
+  /* background-color: #b1c29e; */
+  background-color: #b9b28a;
+  color: rgba(0, 0, 0, 0.8);
   cursor: default;
 }
 

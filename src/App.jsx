@@ -58,7 +58,9 @@ function App() {
             paddingTop: "60px",
           }}
         >
-          <h2 style={{ position: "absolute", top: 0 }}>Nepali Date</h2>
+          <h2 style={{ position: "absolute", top: 0, textDecoration: "underline" }}>
+            Select date in B.S.
+          </h2>
           <BsView selectedDate={selectedNepaliDate} onChange={handleNepaliDateChange} />
         </div>
 
@@ -102,7 +104,9 @@ function App() {
             paddingTop: "60px",
           }}
         >
-          <h2 style={{ position: "absolute", top: 0 }}>English Date</h2>
+          <h2 style={{ position: "absolute", top: 0, textDecoration: "underline" }}>
+            Select Date in A.D.
+          </h2>
           <AdView selectedDate={selectedEnglishDate} onChange={handleEngDateChange} />
         </div>
       </div>

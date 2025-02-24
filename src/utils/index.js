@@ -4,19 +4,15 @@ import { calendar_data } from "../assets/RNepaliCalendar/data";
 const ad2bsHandler = (adDate) => {
   const { year, month, date } = ad2bs(adDate);
 
-  return `${String(year).padStart(4, 0)}/${String(month).padStart(
-    2,
-    0
-  )}/${String(date).padStart(2, 0)}`;
+  return `${String(year).padStart(4, 0)}/${String(month).padStart(2, 0)}/${String(
+    date
+  ).padStart(2, 0)}`;
 };
 
 const bs2adHandler = (bsDate) => {
   const { year, month, date } = bs2ad(bsDate);
 
-  return `${year}/${String(month).padStart(2, 0)}/${String(date).padStart(
-    2,
-    0
-  )}`;
+  return `${year}/${String(month).padStart(2, 0)}/${String(date).padStart(2, 0)}`;
 };
 
 //only convert year from BS to AD (2081 = 2025)
@@ -43,10 +39,15 @@ const getDaysInMonth = (year, month) => {
   return new Date(year, month, 0).getDate();
 };
 
+const getDaysInMonthAD = (year, month) => {
+  return new Date(year, month, 0).getDate();
+};
+
 export {
   ad2bsHandler,
   bs2adHandler,
   nepDateFormatter,
   bsYearToAdYear,
   getDaysInMonth,
+  getDaysInMonthAD,
 };

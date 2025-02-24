@@ -1,13 +1,86 @@
-import React from "react";
+import { useState } from "react";
+import moment from "moment";
 
-const Home = () => {
+import NepDatePicker from "Components/NepDatePicker";
+import { ad2bsHandler, bs2adHandler } from "utils";
+
+import BsView from "Views/BsView";
+import AdView from "Views/AdView";
+
+import EngDatePicker from "Components/EngDatePicker";
+import { Box, Stack } from "@mui/material";
+
+function Home() {
+  const initialEnglishDate = moment().format("YYYY/MM/DD");
+
+  const initialNepaliDate = ad2bsHandler(initialEnglishDate);
+
+  //state
+  const [selectedNepaliDate, setSelectedNepaliDate] = useState(initialNepaliDate);
+  const [selectedEnglishDate, setSelectedEnglishDate] = useState(initialEnglishDate);
+
+  //handling nepali date change
+  const handleNepaliDateChange = (date) => {
+    setSelectedNepaliDate(date);
+    const engDate = bs2adHandler(date);
+    setSelectedEnglishDate(engDate);
+  };
+
+  //handling eng date change
+  const handleEngDateChange = (date) => {
+    setSelectedEnglishDate(date);
+    const nepDate = ad2bsHandler(date);
+    setSelectedNepaliDate(nepDate);
+  };
   return (
-    <>
+    <Stack
+      sx={{
+        height: "100svh",
+      }}
+    >
       <div className="heading">
         <h2>Nepali Date Converter (B.S - A.D) </h2>
       </div>
-    </>
+      <Stack direction="row" gap={4} pl={4} sx={{ overflow: "hidden" }}>
+        <Stack gap={2} sx={{ overflow: "hidden" }}>
+          <h2 style={{ textDecoration: "underline" }}>Select date in B.S.</h2>
+          <BsView selectedDate={selectedNepaliDate} onChange={handleNepaliDateChange} />
+        </Stack>
+
+        <div
+          style={{
+            // margin: "60px",
+            // marginTop: "60px",
+            width: "min-content", // Set explicit width for more space
+            minWidth: "350px", // Ensure it doesn't get too small
+            display: "flex",
+            flexDirection: "column",
+            gap: "20px",
+            border: "1px solid rgba(0, 0, 0, 0.4)",
+            borderRadius: "10px",
+            padding: "20px",
+            alignItems: "center",
+            justifyContent: "center",
+            flex: 1,
+          }}
+        >
+          <NepDatePicker
+            selectedDate={selectedNepaliDate}
+            onChange={handleNepaliDateChange}
+          />
+          <EngDatePicker
+            selectedDate={selectedEnglishDate}
+            onChange={handleEngDateChange}
+          />
+        </div>
+
+        <Stack gap={2}>
+          <h2 style={{ textDecoration: "underline" }}>Select Date in A.D.</h2>
+          <AdView selectedDate={selectedEnglishDate} onChange={handleEngDateChange} />
+        </Stack>
+      </Stack>
+    </Stack>
   );
-};
+}
 
 export default Home;

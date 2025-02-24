@@ -2,10 +2,8 @@
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-  background-color: #dcd7c9;
-  /* background-color: #fce7c8; */
-  /* background-color: #ffffff; */
-  /* background-color: #eddbc7 */
+  background-color: rgb(240, 240, 240);
+
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -49,7 +47,6 @@ button {
 }
 button:hover {
   border-color: #646cff;
-  background-color: #ccc;
 }
 button:focus,
 button:focus-visible {
@@ -85,8 +82,10 @@ h2 {
   /* background-color: #a7727d; */
   /* background-color: #8b4513; */
   /* background-color: #b1c29e; */
-  background-color: #b9b28a;
-  color: rgba(0, 0, 0, 0.8);
+  /* background-color: #b9b28a; */
+  /* background-color: rgba(192, 43, 43, 0.721); */
+  background-color: rgb(48, 48, 48);
+  color: rgba(255, 255, 255, 0.8);
   cursor: default;
 }
 

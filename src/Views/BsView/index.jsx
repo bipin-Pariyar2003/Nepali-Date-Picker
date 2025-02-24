@@ -1,7 +1,6 @@
 import React from "react";
 import { np, calendar_data } from "assets/RNepaliCalendar/data";
 import { toNepaliNumber, getDaysInMonth, getCurrentBS } from "assets/RNepaliCalendar";
-import moment from "moment";
 import "./index.css";
 
 //getting current month year and day
@@ -18,12 +17,15 @@ const BsView = ({ selectedDate, onChange }) => {
     date: selectedDate.split("/").at(2),
     daysArray: [],
   });
+
   React.useEffect(() => {
     const daysInMonth = getDaysInMonth(
       selectedDate.split("/").at(0),
-      selectedDate.split("/").at("1")
+      selectedDate.split("/").at(1)
     );
+
     const daysArray = Array.from({ length: daysInMonth }, (_, i) => i + 1);
+
     setViewDate({
       year: selectedDate.split("/").at(0),
       month: selectedDate.split("/").at(1),
@@ -33,8 +35,10 @@ const BsView = ({ selectedDate, onChange }) => {
   }, [selectedDate]);
 
   //check if the date is valid
-  const isValidDate = (date, format = "YYYY/MM/DD") => {
-    return moment(date, format).isValid();
+  const isValidDate = (date) => {
+    const daysInMonth = getDaysInMonth(date.split("/").at(0), date.split("/").at(1));
+
+    return daysInMonth >= +date.split("/").at(2);
   };
 
   return (
@@ -232,7 +236,6 @@ const BsView = ({ selectedDate, onChange }) => {
                         2,
                         0
                       )}/${String(index + 1).padStart(2, 0)}`;
-                      // const isValidDate = moment(date, "YYYY/MM/DD").isValid();
 
                       if (isValidDate(date)) {
                         onChange(date);

@@ -1,5 +1,5 @@
 import { calendar_data } from "assets/RNepaliCalendar/data";
-import { getDaysInMonth, getCurrentBS } from "assets/RNepaliCalendar";
+import { getDaysInMonth, getCurrentBS, toNepaliNumber } from "assets/RNepaliCalendar";
 import DisplayList from "../DisplayList";
 import { bsYearToAdYear, getDaysInMonthAD } from "../../../utils";
 import { isValidDate, isValidDateAD } from "./setup";
@@ -7,6 +7,7 @@ import { isValidDate, isValidDateAD } from "./setup";
 const currentYear = getCurrentBS().year;
 
 const YearDisplayList = ({ onChange, setViewDate, viewDate, dateType = "BS" }) => {
+  console.log(viewDate);
   const handleClickYearBS = (year) => {
     const daysInMonth = getDaysInMonth(year, viewDate.month);
     const daysArray = Array.from({ length: daysInMonth }, (_, i) => i + 1);
@@ -73,7 +74,10 @@ const YearDisplayList = ({ onChange, setViewDate, viewDate, dateType = "BS" }) =
       isSelectedValue={checkSelectedValue}
       options={
         dateType === "BS"
-          ? Object.keys(calendar_data)
+          ? // ? Object.keys(calendar_data).map((year) => {
+            //     return toNepaliNumber(year);
+            //   })
+            Object.keys(calendar_data)
           : Object.keys(calendar_data)
               .map((year) => {
                 const engYear = bsYearToAdYear(year);

@@ -5,7 +5,7 @@ import {
   DayDisplayList,
   MonthDisplayList,
   YearDisplayList,
-} from "../../Components/UI/WWW";
+} from "../../Components/UI/MonthYearDayList";
 
 const BsView = ({ selectedDate, onChange }) => {
   const [viewDate, setViewDate] = React.useState({

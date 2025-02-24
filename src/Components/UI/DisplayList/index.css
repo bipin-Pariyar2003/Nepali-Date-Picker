@@ -6,10 +6,12 @@
   margin: 0;
 }
 
-.today {
-  background-color: red;
-}
 
 .selected {
   background-color: #b3d8a8;
+}
+
+
+.today {
+  background-color: red;
 }

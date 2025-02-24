@@ -4,6 +4,7 @@ import DisplayList from "../DisplayList";
 import { getDaysInMonthAD } from "../../../utils";
 import { isValidDate, isValidDateAD } from "./setup";
 
+const currentYear = getCurrentBS().year;
 const currentMonth = getCurrentBS().month;
 
 const MonthDisplayList = ({ onChange, setViewDate, viewDate, dateType = "BS" }) => {
@@ -57,8 +58,9 @@ const MonthDisplayList = ({ onChange, setViewDate, viewDate, dateType = "BS" }) 
   };
 
   const checkIsToday = ({ index }) => {
-    if (dateType === "BS") return index + 1 === +currentMonth;
-    return index === new Date().getMonth();
+    if (dateType === "BS")
+      return +viewDate.year === +currentYear && index + 1 === +currentMonth;
+    return +viewDate.year === new Date().getFullYear() && index === new Date().getMonth();
   };
 
   const checkSelectedValue = ({ index }) => {

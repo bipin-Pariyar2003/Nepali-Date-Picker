@@ -32,10 +32,8 @@ h1 {
 
 button {
   border-radius: 8px;
-  /* border: 1px solid transparent; */
   padding: 0.6em 1.2em;
   font-size: 1em;
-  /* font-weight: 500; */
   font-family: inherit;
   background-color: #1a1a1a;
   cursor: pointer;
@@ -68,18 +66,11 @@ h2 {
 
 .heading {
   max-width: 100%;
-  /* Set width to 50% */
   height: 40px; /* Adjust height if needed */
   padding: 10px; /* Add some padding */
   display: flex;
   align-items: center; /* Align items vertically inside */
   justify-content: center; /* Center text horizontally */
-  /* background-color: #9dc08b; */
-  /* background-color: #a7727d; */
-  /* background-color: #8b4513; */
-  /* background-color: #b1c29e; */
-  /* background-color: #b9b28a; */
-  /* background-color: rgba(192, 43, 43, 0.721); */
   background-color: rgb(48, 48, 48);
   color: rgba(255, 255, 255, 0.8);
   cursor: default;

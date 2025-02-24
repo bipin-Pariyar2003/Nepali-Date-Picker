@@ -84,9 +84,10 @@ const PopUp = ({ selectedDate, onDateSelect, handleClose }) => {
   const handleDayChange = (date) => {
     if (!date) return;
     onDateSelect(
-      `${viewDate.year}/${String(viewDate.month).padStart(2, 0)}/${String(
-        date
-      ).padStart(2, 0)}`
+      `${viewDate.year}/${String(viewDate.month).padStart(2, 0)}/${String(date).padStart(
+        2,
+        0
+      )}`
     );
     handleClose();
   };
@@ -111,8 +112,7 @@ const PopUp = ({ selectedDate, onDateSelect, handleClose }) => {
 
   const isSelected = (date) => {
     return (
-      selectedDate ===
-      `${viewDate.year}/${viewDate.month}/${String(date).padStart(2, 0)}`
+      selectedDate === `${viewDate.year}/${viewDate.month}/${String(date).padStart(2, 0)}`
     );
   };
 
@@ -177,8 +177,7 @@ const PopUp = ({ selectedDate, onDateSelect, handleClose }) => {
           {np.monthName.full.map((name, index) => {
             return (
               <React.Fragment key={index}>
-                <option value={index + 1}>{name}</option> // Month values should
-                be 1-12
+                <option value={index + 1}>{name}</option> // Month values should be 1-12
               </React.Fragment>
             );
           })}
@@ -271,18 +270,18 @@ const PopUp = ({ selectedDate, onDateSelect, handleClose }) => {
             return (
               <React.Fragment key={index}>
                 <div
+                  style={{
+                    textAlign: "center",
+                    padding: "10px",
+                    height: "45px",
+                    width: "45px",
+                    borderRadius: "50%",
+                    cursor: date ? "pointer" : "default",
+                  }}
                   value={date}
                   className={`gatey ${isSelected(date) ? "selected-day" : ""} ${
                     isToday(date) ? "today" : ""
                   }`}
-                  style={{
-                    textAlign: "center",
-                    padding: "10px",
-                    borderRadius: "50%",
-                    height: "25px",
-                    width: "25px",
-                    cursor: date ? "pointer" : "default",
-                  }}
                   onClick={() => handleDayChange(date)}
                 >
                   {toNepaliNumber(date)}

@@ -4,15 +4,10 @@ import { isValidDate, isValidDateAD } from "./setup";
 
 // to get the actual working today
 const currentYear = getCurrentBS().year;
-console.log(currentYear);
 
 const currentMonth = getCurrentBS().month;
-console.log(currentMonth);
 
 const currentDay = getCurrentBS().date;
-console.log(currentDay);
-
-console.log(new Date().getFullYear(), new Date().getMonth(), new Date().getDate());
 
 const DayDisplayList = ({ onChange, setViewDate, viewDate, dateType = "BS" }) => {
   const handleClickDayBS = (index) => {

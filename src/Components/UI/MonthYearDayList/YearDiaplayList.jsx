@@ -7,7 +7,6 @@ import { isValidDate, isValidDateAD } from "./setup";
 const currentYear = getCurrentBS().year;
 
 const YearDisplayList = ({ onChange, setViewDate, viewDate, dateType = "BS" }) => {
-  console.log(viewDate);
   const handleClickYearBS = (year) => {
     const daysInMonth = getDaysInMonth(year, viewDate.month);
     const daysArray = Array.from({ length: daysInMonth }, (_, i) => i + 1);
@@ -35,12 +34,12 @@ const YearDisplayList = ({ onChange, setViewDate, viewDate, dateType = "BS" }) =
     const date = `${year}/${String(viewDate.month).padStart(2, 0)}/${String(
       viewDate.date
     ).padStart(2, 0)}`;
-    // const isValidDate = moment(date, "YYYY/MM/DD").isValid();
 
     if (isValidDateAD(date)) {
       onChange(date);
       return;
     }
+
     setViewDate((prev) => ({
       ...prev,
       year,
@@ -58,11 +57,12 @@ const YearDisplayList = ({ onChange, setViewDate, viewDate, dateType = "BS" }) =
 
   const checkIsToday = ({ display }) => {
     return dateType === "BS"
-      ? +display === currentYear
+      ? +display[0] === currentYear
       : +display === new Date().getFullYear();
   };
 
   const checkSelectedValue = ({ display }) => {
+    if (Array.isArray(display)) return +display[0] === +viewDate.year;
     return +display === +viewDate.year;
   };
 
@@ -76,10 +76,9 @@ const YearDisplayList = ({ onChange, setViewDate, viewDate, dateType = "BS" }) =
         dateType === "BS"
           ? Object.keys(calendar_data).map((year) => {
               // return toNepaliNumber(year);
-              return year;
+              return [year, toNepaliNumber(year)];
             })
-          : // Object.keys(calendar_data)
-            Object.keys(calendar_data)
+          : Object.keys(calendar_data)
               .map((year) => {
                 const engYear = bsYearToAdYear(year);
                 return engYear;

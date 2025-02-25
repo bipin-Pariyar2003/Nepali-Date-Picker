@@ -25,9 +25,12 @@ const DisplayList = ({ handleClick, title, options, isToday, isSelectedValue }) 
                   className={`${isToday({ display, index }) ? "today" : ""} ${
                     isSelectedValue({ display, index }) ? "selected" : ""
                   } box`}
-                  onClick={() => handleClick(display, index)}
+                  onClick={() =>
+                    handleClick(Array.isArray(display) ? +display[0] : display, index)
+                  }
+                  value={Array.isArray(display) ? +display[0] : ""}
                 >
-                  {display}
+                  {Array.isArray(display) ? display[1] : display}
                 </button>
               </div>
               <br />

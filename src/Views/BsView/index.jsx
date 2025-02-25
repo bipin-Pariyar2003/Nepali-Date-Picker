@@ -1,5 +1,5 @@
 import React from "react";
-import { getDaysInMonth } from "assets/RNepaliCalendar";
+import { getDaysInMonth, toNepaliNumber } from "assets/RNepaliCalendar";
 import { Stack } from "@mui/material";
 import {
   DayDisplayList,
@@ -27,7 +27,10 @@ const BsView = ({ selectedDate, onChange }) => {
       year: selectedDate.split("/").at(0),
       month: selectedDate.split("/").at(1),
       date: selectedDate.split("/").at(2),
-      daysArray,
+      daysArray: daysArray.map((v) => ({
+        display: toNepaliNumber(v),
+        value: v,
+      })),
     });
   }, [selectedDate]);
 

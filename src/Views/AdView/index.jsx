@@ -26,7 +26,10 @@ const AdView = ({ selectedDate, onChange }) => {
       year: selectedDate.split("/").at(0),
       month: selectedDate.split("/").at(1),
       date: selectedDate.split("/").at(2),
-      daysArray,
+      daysArray: daysArray.map((v) => ({
+        display: v,
+        value: v,
+      })),
     });
   }, [selectedDate]);
 

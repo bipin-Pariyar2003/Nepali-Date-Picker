@@ -3,13 +3,17 @@ import { getDaysInMonth, getCurrentBS, toNepaliNumber } from "assets/RNepaliCale
 import DisplayList from "../DisplayList";
 import { bsYearToAdYear, getDaysInMonthAD } from "../../../utils";
 import { isValidDate, isValidDateAD } from "./setup";
+import { useMemo } from "react";
 
 const currentYear = getCurrentBS().year;
 
 const YearDisplayList = ({ onChange, setViewDate, viewDate, dateType = "BS" }) => {
   const handleClickYearBS = (year) => {
     const daysInMonth = getDaysInMonth(year, viewDate.month);
-    const daysArray = Array.from({ length: daysInMonth }, (_, i) => i + 1);
+    const daysArray = Array.from({ length: daysInMonth }, (_, i) => i + 1).map((v) => ({
+      display: toNepaliNumber(v),
+      value: v,
+    }));
 
     const date = `${year}/${String(viewDate.month).padStart(2, 0)}/${String(
       viewDate.date
@@ -23,13 +27,19 @@ const YearDisplayList = ({ onChange, setViewDate, viewDate, dateType = "BS" }) =
     setViewDate((prev) => ({
       ...prev,
       year: year,
-      daysArray,
+      daysArray: daysArray.map((v) => ({
+        display: toNepaliNumber(v),
+        value: v,
+      })),
     }));
   };
 
   const handleClickYearAD = (year) => {
     const daysInMonth = getDaysInMonthAD(year, viewDate.month);
-    const daysArray = Array.from({ length: daysInMonth }, (_, i) => i + 1);
+    const daysArray = Array.from({ length: daysInMonth }, (_, i) => i + 1).map((v) => ({
+      display: v,
+      value: v,
+    }));
 
     const date = `${year}/${String(viewDate.month).padStart(2, 0)}/${String(
       viewDate.date
@@ -43,7 +53,10 @@ const YearDisplayList = ({ onChange, setViewDate, viewDate, dateType = "BS" }) =
     setViewDate((prev) => ({
       ...prev,
       year,
-      daysArray,
+      daysArray: daysArray.map((v) => ({
+        display: v,
+        value: v,
+      })),
     }));
   };
 
@@ -57,7 +70,7 @@ const YearDisplayList = ({ onChange, setViewDate, viewDate, dateType = "BS" }) =
 
   const checkIsToday = ({ display }) => {
     return dateType === "BS"
-      ? +display[0] === currentYear
+      ? +display === currentYear
       : +display === new Date().getFullYear();
   };
 
@@ -66,25 +79,22 @@ const YearDisplayList = ({ onChange, setViewDate, viewDate, dateType = "BS" }) =
     return +display === +viewDate.year;
   };
 
+  const yearOptions = useMemo(() => {
+    if (dateType === "BS")
+      return Object.keys(calendar_data).map((v) => ({
+        display: toNepaliNumber(v),
+        value: v,
+      }));
+    return Object.keys(calendar_data).map((v) => ({ display: v, value: v }));
+  }, []);
+
   return (
     <DisplayList
       title={dateType === "BS" ? "Year (B.S.)" : "Year (A.D.)"}
       handleClick={handleClickYear}
       isToday={checkIsToday}
       isSelectedValue={checkSelectedValue}
-      options={
-        dateType === "BS"
-          ? Object.keys(calendar_data).map((year) => {
-              // return toNepaliNumber(year);
-              return [year, toNepaliNumber(year)];
-            })
-          : Object.keys(calendar_data)
-              .map((year) => {
-                const engYear = bsYearToAdYear(year);
-                return engYear;
-              })
-              .filter((engYear) => !isNaN(engYear))
-      }
+      options={yearOptions}
     />
   );
 };

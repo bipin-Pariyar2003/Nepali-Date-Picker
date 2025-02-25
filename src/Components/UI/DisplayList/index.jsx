@@ -1,8 +1,15 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 
 import "./index.css";
 
 const DisplayList = ({ handleClick, title, options, isToday, isSelectedValue }) => {
+  const ref = useRef(null);
+  useEffect(() => {
+    if (ref.current) {
+      ref.current.scrollIntoView({ block: "center", behavior: "smooth" });
+    }
+  }, []);
+
   return (
     <div style={{ overflow: "auto", position: "relative" }}>
       <h3
@@ -17,20 +24,21 @@ const DisplayList = ({ handleClick, title, options, isToday, isSelectedValue }) 
         {title}
       </h3>
       <div style={{ padding: "10px 20px" }}>
-        {options.map((display, index) => {
+        {options.map((option, index) => {
+          const isCurrent = isToday({ display: option.value, index });
+          const isSelected = isSelectedValue({ display: option.value, index });
+
           return (
             <React.Fragment key={index}>
               <div>
                 <button
-                  className={`${isToday({ display, index }) ? "today" : ""} ${
-                    isSelectedValue({ display, index }) ? "selected" : ""
+                  ref={isCurrent ? ref : null}
+                  className={`${isCurrent ? "today" : ""} ${
+                    isSelected ? "selected" : ""
                   } box`}
-                  onClick={() =>
-                    handleClick(Array.isArray(display) ? +display[0] : display, index)
-                  }
-                  value={Array.isArray(display) ? +display[0] : ""}
+                  onClick={() => handleClick(option.value, index)}
                 >
-                  {Array.isArray(display) ? display[1] : display}
+                  {option.display}
                 </button>
               </div>
               <br />

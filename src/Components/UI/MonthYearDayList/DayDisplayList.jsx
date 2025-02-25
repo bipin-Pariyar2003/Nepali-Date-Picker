@@ -68,6 +68,7 @@ const DayDisplayList = ({ onChange, setViewDate, viewDate, dateType = "BS" }) =>
   const checkSelectedValue = ({ index }) => {
     return index + 1 === +viewDate.date;
   };
+  if (viewDate.daysArray.length === 0) return null;
 
   return (
     <DisplayList

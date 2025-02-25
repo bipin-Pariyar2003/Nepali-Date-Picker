@@ -1,8 +1,9 @@
 import { np, en } from "assets/RNepaliCalendar/data";
-import { getDaysInMonth, getCurrentBS } from "assets/RNepaliCalendar";
+import { getDaysInMonth, getCurrentBS, toNepaliNumber } from "assets/RNepaliCalendar";
 import DisplayList from "../DisplayList";
 import { getDaysInMonthAD } from "../../../utils";
 import { isValidDate, isValidDateAD } from "./setup";
+import { useMemo } from "react";
 
 const currentYear = getCurrentBS().year;
 const currentMonth = getCurrentBS().month;
@@ -24,7 +25,10 @@ const MonthDisplayList = ({ onChange, setViewDate, viewDate, dateType = "BS" }) 
     setViewDate((prev) => ({
       ...prev,
       month: index + 1,
-      daysArray,
+      daysArray: daysArray.map((v) => ({
+        display: toNepaliNumber(v),
+        value: v,
+      })),
     }));
   };
 
@@ -45,7 +49,10 @@ const MonthDisplayList = ({ onChange, setViewDate, viewDate, dateType = "BS" }) 
     setViewDate((prev) => ({
       ...prev,
       month: index + 1,
-      daysArray,
+      daysArray: daysArray.map((v) => ({
+        display: v,
+        value: v,
+      })),
     }));
   };
 
@@ -67,13 +74,19 @@ const MonthDisplayList = ({ onChange, setViewDate, viewDate, dateType = "BS" }) 
     return index + 1 === +viewDate.month;
   };
 
+  const monthOptions = useMemo(() => {
+    if (dateType === "BS")
+      return np.monthName.full.map((v) => ({ display: v, value: v }));
+    return en.monthName.full.map((v) => ({ display: v, value: v }));
+  }, []);
+
   return (
     <DisplayList
       title="Months"
       handleClick={handleClickMonth}
       isToday={checkIsToday}
       isSelectedValue={checkSelectedValue}
-      options={dateType === "BS" ? np.monthName.full : en.monthName.full}
+      options={monthOptions}
     />
   );
 };

@@ -74,11 +74,12 @@ const YearDisplayList = ({ onChange, setViewDate, viewDate, dateType = "BS" }) =
       isSelectedValue={checkSelectedValue}
       options={
         dateType === "BS"
-          ? // ? Object.keys(calendar_data).map((year) => {
-            //     return toNepaliNumber(year);
-            //   })
+          ? Object.keys(calendar_data).map((year) => {
+              // return toNepaliNumber(year);
+              return year;
+            })
+          : // Object.keys(calendar_data)
             Object.keys(calendar_data)
-          : Object.keys(calendar_data)
               .map((year) => {
                 const engYear = bsYearToAdYear(year);
                 return engYear;

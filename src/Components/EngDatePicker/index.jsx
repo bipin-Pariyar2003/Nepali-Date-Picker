@@ -16,10 +16,9 @@ const EngDatePicker = ({ selectedDate, onChange }) => {
     <>
       <div style={{ textAlign: "center" }}>
         <label htmlFor="date">
-          <p className="text">
-            Selected date in A.D.{" "}
-            <span className="text-imp">{selectedDate}</span>
-          </p>{" "}
+          <hr
+            style={{ border: "1px solid black", marginTop: "15px", marginBottom: "15px" }}
+          />
           <p
             className="sub-heading"
             style={{
@@ -28,6 +27,9 @@ const EngDatePicker = ({ selectedDate, onChange }) => {
           >
             Date in A.D.
           </p>
+          <p className="text" style={{ marginTop: "15px", marginBottom: "15px" }}>
+            Selected date in A.D. <span className="text-imp">{selectedDate}</span>
+          </p>{" "}
         </label>
         <br />
         <LocalizationProvider dateAdapter={AdapterMoment}>

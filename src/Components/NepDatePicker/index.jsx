@@ -25,12 +25,9 @@ const NepDatePicker = ({ selectedDate, onChange }) => {
 
     if (value.length > 8) value = value.slice(0, 8); // Limit to YYYYMMDD format
 
-    let formattedValue = value.replace(
-      /^(\d{4})(\d{0,2})(\d{0,2})$/,
-      (_, y, m, d) => {
-        return [y, m, d].filter(Boolean).join("/");
-      }
-    );
+    let formattedValue = value.replace(/^(\d{4})(\d{0,2})(\d{0,2})$/, (_, y, m, d) => {
+      return [y, m, d].filter(Boolean).join("/");
+    });
 
     e.target.value = formattedValue; // Update input field
 
@@ -43,10 +40,15 @@ const NepDatePicker = ({ selectedDate, onChange }) => {
   return (
     <div className="nepali-date-picker">
       <label htmlFor="date">
-        <p className="text">
+        <p className="sub-heading" style={{ textAlign: "center", marginBottom: "0px" }}>
+          Date in B.S.
+        </p>
+        <p
+          className="text"
+          style={{ textAlign: "center", marginTop: "15px", marginBottom: "15px" }}
+        >
           Selected date in B.S. <span className="text-imp">{selectedDate}</span>
         </p>
-        <p className="sub-heading">Date in B.S.</p>
       </label>
 
       <div className="header" style={styles.box}>

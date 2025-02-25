@@ -39,7 +39,6 @@ const MonthDisplayList = ({ onChange, setViewDate, viewDate, dateType = "BS" }) 
     const date = `${viewDate.year}/${String(index + 1).padStart(2, 0)}/${String(
       viewDate.date
     ).padStart(2, 0)}`;
-    // const isValidDate = moment(date, "YYYY/MM/DD").isValid();
 
     if (isValidDateAD(date)) {
       onChange(date);
@@ -87,6 +86,7 @@ const MonthDisplayList = ({ onChange, setViewDate, viewDate, dateType = "BS" }) 
       isToday={checkIsToday}
       isSelectedValue={checkSelectedValue}
       options={monthOptions}
+      viewDate={viewDate}
     />
   );
 };

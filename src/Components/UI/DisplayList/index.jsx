@@ -2,13 +2,20 @@ import React, { useEffect, useRef } from "react";
 
 import "./index.css";
 
-const DisplayList = ({ handleClick, title, options, isToday, isSelectedValue }) => {
+const DisplayList = ({
+  handleClick,
+  title,
+  options,
+  isToday,
+  isSelectedValue,
+  viewDate,
+}) => {
   const ref = useRef(null);
   useEffect(() => {
     if (ref.current) {
       ref.current.scrollIntoView({ block: "center", behavior: "smooth" });
     }
-  }, []);
+  }, [viewDate]);
 
   return (
     <div style={{ overflow: "auto", position: "relative" }}>
@@ -32,7 +39,7 @@ const DisplayList = ({ handleClick, title, options, isToday, isSelectedValue }) 
             <React.Fragment key={index}>
               <div>
                 <button
-                  ref={isCurrent ? ref : null}
+                  ref={isSelected ? ref : null}
                   className={`${isCurrent ? "today" : ""} ${
                     isSelected ? "selected" : ""
                   } box`}

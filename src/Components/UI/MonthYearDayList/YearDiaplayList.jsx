@@ -1,7 +1,7 @@
 import { calendar_data } from "assets/RNepaliCalendar/data";
 import { getDaysInMonth, getCurrentBS, toNepaliNumber } from "assets/RNepaliCalendar";
 import DisplayList from "../DisplayList";
-import { bsYearToAdYear, getDaysInMonthAD } from "../../../utils";
+import { getDaysInMonthAD } from "../../../utils";
 import { isValidDate, isValidDateAD } from "./setup";
 import { useMemo } from "react";
 
@@ -95,6 +95,7 @@ const YearDisplayList = ({ onChange, setViewDate, viewDate, dateType = "BS" }) =
       isToday={checkIsToday}
       isSelectedValue={checkSelectedValue}
       options={yearOptions}
+      viewDate={viewDate}
     />
   );
 };

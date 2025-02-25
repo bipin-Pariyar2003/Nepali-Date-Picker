@@ -2,7 +2,7 @@ import { getCurrentBS } from "assets/RNepaliCalendar";
 import DisplayList from "../DisplayList";
 import { isValidDate, isValidDateAD } from "./setup";
 
-// to get the actual working today
+// to get the actual current today
 const currentYear = getCurrentBS().year;
 
 const currentMonth = getCurrentBS().month;
@@ -77,6 +77,7 @@ const DayDisplayList = ({ onChange, setViewDate, viewDate, dateType = "BS" }) =>
       isToday={checkIsToday}
       isSelectedValue={checkSelectedValue}
       options={viewDate.daysArray}
+      viewDate={viewDate}
     />
   );
 };

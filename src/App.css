@@ -41,3 +41,25 @@
 .date-picker:hover .date-picker-calendar {
   display: block;
 }
+
+/* Responsive Styles */
+@media (max-width: 480px) {
+  #root {
+    background-color: #f5f1e0; /* Example: Change background for mobile */
+  }
+  
+  .card {
+    padding: 1em; /* Reduce padding for mobile */
+  }
+  
+  .date-picker {
+    display: block; /* Stack elements vertically */
+    width: 100%; /* Full width on mobile */
+  }
+}
+
+@media (max-width: 768px) {
+  .card {
+    padding: 1.5em; /* Adjust padding for tablets */
+  }
+}

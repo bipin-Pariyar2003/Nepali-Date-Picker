@@ -18,7 +18,7 @@ const DisplayList = ({
   }, [viewDate]);
 
   return (
-    <div style={{ overflow: "auto", position: "relative" }}>
+    <div style={{ overflow: "auto", position: "relative", width: "100%" }}>
       <h3
         style={{
           textDecoration: "underline",
@@ -36,6 +36,7 @@ const DisplayList = ({
           const isSelected = isSelectedValue({ display: option.value, index });
 
           return (
+            <div style={{ display: "flex", flexDirection: "column", width: "100%", }}>
             <React.Fragment key={index}>
               <div>
                 <button
@@ -50,6 +51,7 @@ const DisplayList = ({
               </div>
               <br />
             </React.Fragment>
+            </div>
           );
         })}
       </div>

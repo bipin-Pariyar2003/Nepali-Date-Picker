@@ -41,8 +41,9 @@ button {
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #646cff;
+  box-shadow: #646cff 1px;
 }
+
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
@@ -62,6 +63,7 @@ button:focus-visible {
 }
 
 h2 {
+  font-size: 1.5em;
   text-align: center;
 }
 
@@ -114,4 +116,84 @@ h2 {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #555; /* Handle color on hover */
+}
+
+/* for responsive design for smaller screens  */
+@media screen and (max-width: 600px) {
+  h1 {
+    font-size: 1em;
+    line-height: 0.1;
+  }
+
+  h2 {
+    font-size: 0.8em;
+    text-align: center;
+  }
+
+  button {
+    border: none;
+    box-shadow: #213547 1px;
+    border-radius: 8px;
+    padding: 1.2em 0.5em;
+    font-size: 0.5em;
+    font-family: inherit;
+    cursor: pointer;
+    transition: border-color 0.25s;
+  }
+  button:hover {
+    box-shadow: #646cff 1px;
+  }
+
+  button:focus,
+  button:focus-visible {
+    outline: 4px auto -webkit-focus-ring-color;
+  }
+
+  .heading {
+    max-width: 100%;
+    height: 40px; /* Adjust height if needed */
+    padding: 10px; /* Add some padding */
+    display: flex;
+    align-items: center; /* Align items vertically inside */
+    justify-content: center; /* Center text horizontally */
+    background-color: rgb(48, 48, 48);
+    color: rgba(255, 255, 255, 0.8);
+    cursor: default;
+  }
+
+  .text-imp {
+    color: rgba(0, 0, 0, 0.8);
+    font-weight: bold;
+    font-size: 1.2rem;
+  }
+
+  .text {
+    color: rgba(0, 0, 0, 0.8);
+  }
+
+  .sub-heading {
+    color: rgba(0, 0, 0, 0.8);
+    font-weight: bold;
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+    margin-top: 0px;
+    text-decoration: underline;
+  }
+}
+
+/* Responsive Styles */
+@media (max-width: 480px) {
+  :root {
+    font-size: 14px; /* Adjust font size for mobile */
+  }
+
+  a {
+    font-size: 16px; /* Increase link font size for better readability */
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    font-size: 15px; /* Adjust font size for tablets */
+  }
 }

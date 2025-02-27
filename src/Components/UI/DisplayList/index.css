@@ -1,16 +1,14 @@
 .box {
-  width: 110px;
+  width: 120px;
   font-weight: bold;
-  background-color: #dcd7c9;
+  background-color: #cecfe8;
   box-shadow: #213547 0px 3px 8px;
   margin: 0;
 }
 
-
 .selected {
   background-color: #b3d8a8;
 }
-
 
 .today {
   background-color: red;

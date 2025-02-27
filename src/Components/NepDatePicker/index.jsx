@@ -3,10 +3,20 @@ import { Button } from "@mui/material";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import DatePickerUI from "Components/DatePickerUI";
 import styles from "./styles";
+import { toNepaliNumber } from "assets/RNepaliCalendar";
 
 const NepDatePicker = ({ selectedDate, onChange }) => {
   const inputRef = useRef(selectedDate);
   const [anchorEl, setAnchorEl] = useState(null);
+  const formattedNepaliDate = (date) => {
+    return (
+      toNepaliNumber(date.split("/").at(0)) +
+      "/" +
+      toNepaliNumber(date.split("/").at(1)) +
+      "/" +
+      toNepaliNumber(date.split("/").at(2))
+    );
+  };
 
   const handleShowDatePicker = (event) => {
     setAnchorEl(event.currentTarget);
@@ -40,15 +50,9 @@ const NepDatePicker = ({ selectedDate, onChange }) => {
   return (
     <div className="nepali-date-picker">
       <label htmlFor="date">
-        <p className="sub-heading" style={{ textAlign: "center", marginBottom: "0px" }}>
-          Date in B.S.
-        </p>
-        <p
-          className="text"
-          style={{ textAlign: "center", marginTop: "15px", marginBottom: "15px" }}
-        >
-          Selected date in B.S. <span className="text-imp">{selectedDate}</span>
-        </p>
+        <h2 style={{ textAlign: "center", marginTop: "15px", marginBottom: "15px" }}>
+          बि .सं. &nbsp; {formattedNepaliDate(selectedDate)}
+        </h2>
       </label>
 
       <div className="header" style={styles.box}>

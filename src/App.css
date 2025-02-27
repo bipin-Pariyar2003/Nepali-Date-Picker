@@ -1,9 +1,7 @@
 #root {
-  background-color: rgb(240, 240, 240);
-  /* background-color: #dcd7c9; */
-  /* background-color: #eddbc7; */
-  /* background-color: #f5f1e0; */
-  /* background-color: #9DC08B; */
+  /* background-color: rgb(240, 240, 240); */
+  /* background-color: #f6f6f6; */
+  background-color: #cecfe8;
 }
 
 .card {
@@ -25,6 +23,7 @@
   border: 1px solid #ccc;
   border-radius: 4px;
   width: 200px;
+  /* background-color: #786f99; */
 }
 
 .date-picker-calendar {
@@ -47,11 +46,11 @@
   #root {
     background-color: #f5f1e0; /* Example: Change background for mobile */
   }
-  
+
   .card {
     padding: 1em; /* Reduce padding for mobile */
   }
-  
+
   .date-picker {
     display: block; /* Stack elements vertically */
     width: 100%; /* Full width on mobile */

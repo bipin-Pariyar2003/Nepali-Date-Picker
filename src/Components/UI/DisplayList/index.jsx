@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 
 import "./index.css";
+import { Box, Stack } from "@mui/material";
 
 const DisplayList = ({
   handleClick,
@@ -18,28 +19,44 @@ const DisplayList = ({
   }, [viewDate]);
 
   return (
-    <div style={{ overflow: "auto", position: "relative", width: "100%" }}>
+    <Stack
+      style={{
+        overflow: "auto",
+        position: "relative",
+        width: "100%",
+      }}
+    >
       <h3
         style={{
           textDecoration: "underline",
           textAlign: "center",
           position: "sticky",
           top: 0,
-          backgroundColor: "rgb(240, 240, 240)",
+          // backgroundColor: "rgb(240, 240, 240)",
+          backgroundColor: "#938BAE",
         }}
       >
         {title}
       </h3>
-      <div style={{ padding: "10px 20px" }}>
+      <Box
+        sx={{
+          padding: "10px 20px",
+          gap: 1,
+          display: "flex",
+          flexDirection: { xs: "row", md: "column" },
+        }}
+      >
         {options.map((option, index) => {
           const isCurrent = isToday({ display: option.value, index });
           const isSelected = isSelectedValue({ display: option.value, index });
 
           return (
-            <div style={{ display: "flex", flexDirection: "column", width: "100%", }}>
-            <React.Fragment key={index}>
-              <div>
+            <>
+              <div key={option.value}>
                 <button
+                  style={{
+                    marginBottom: "5px",
+                  }}
                   ref={isSelected ? ref : null}
                   className={`${isCurrent ? "today" : ""} ${
                     isSelected ? "selected" : ""
@@ -49,13 +66,11 @@ const DisplayList = ({
                   {option.display}
                 </button>
               </div>
-              <br />
-            </React.Fragment>
-            </div>
+            </>
           );
         })}
-      </div>
-    </div>
+      </Box>
+    </Stack>
   );
 };
 

@@ -34,7 +34,11 @@ const AdView = ({ selectedDate, onChange }) => {
   }, [selectedDate]);
 
   return (
-    <Stack direction="row" gap={4} style={{ overflow: "hidden" }}>
+    <Stack
+      direction={{ xs: "column", md: "row" }}
+      gap={4}
+      style={{ overflow: "hidden", backgroundColor: "#938BAE" }}
+    >
       <YearDisplayList
         onChange={onChange}
         setViewDate={setViewDate}

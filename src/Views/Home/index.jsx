@@ -8,7 +8,7 @@ import BsView from "Views/BsView";
 import AdView from "Views/AdView";
 
 import EngDatePicker from "Components/EngDatePicker";
-import { Box, Stack } from "@mui/material";
+import { Stack } from "@mui/material";
 
 function Home() {
   const initialEnglishDate = moment().format("YYYY/MM/DD");
@@ -41,18 +41,25 @@ function Home() {
       <div className="heading">
         <h2>Nepali Date Converter (B.S - A.D) </h2>
       </div>
-      <Stack direction="row" gap={4} pl={4} sx={{ overflow: "hidden" }}>
-        <Stack gap={2} sx={{ overflow: "hidden" }}>
-          <h2 style={{ textDecoration: "underline" }}>Select date in B.S.</h2>
+      <Stack direction="row" gap={2} pl={4} sx={{ overflow: "hidden" }}>
+        <Stack overflow={{ xs: "auto", md: "hidden" }}>
+          <h2
+            style={{
+              textDecoration: "underline",
+              backgroundColor: "#786F99",
+              paddingTop: "6px",
+              paddingBottom: "6px",
+            }}
+          >
+            Select date in B.S.
+          </h2>
           <BsView selectedDate={selectedNepaliDate} onChange={handleNepaliDateChange} />
         </Stack>
 
         <div
           style={{
-            // margin: "60px",
-            // marginTop: "60px",
-            width: "min-content", // Set explicit width for more space
-            minWidth: "350px", // Ensure it doesn't get too small
+            width: "min-content",
+            minWidth: "350px",
             display: "flex",
             flexDirection: "column",
             gap: "20px",
@@ -73,9 +80,17 @@ function Home() {
             onChange={handleEngDateChange}
           />
         </div>
-
-        <Stack gap={2}>
-          <h2 style={{ textDecoration: "underline" }}>Select Date in A.D.</h2>
+        <Stack overflow={{ xs: "auto", md: "hidden" }}>
+          <h2
+            style={{
+              textDecoration: "underline",
+              backgroundColor: "#786F99",
+              paddingTop: "6px",
+              paddingBottom: "6px",
+            }}
+          >
+            Select Date in A.D.
+          </h2>
           <AdView selectedDate={selectedEnglishDate} onChange={handleEngDateChange} />
         </Stack>
       </Stack>

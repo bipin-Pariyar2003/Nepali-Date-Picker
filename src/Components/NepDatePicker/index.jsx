@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import { Button } from "@mui/material";
+import { Button, Typography } from "@mui/material";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import DatePickerUI from "Components/DatePickerUI";
 import styles from "./styles";
@@ -50,9 +50,12 @@ const NepDatePicker = ({ selectedDate, onChange }) => {
   return (
     <div className="nepali-date-picker">
       <label htmlFor="date">
-        <h2 style={{ textAlign: "center", marginTop: "15px", marginBottom: "15px" }}>
+        <Typography
+          variant="h5"
+          sx={{ textAlign: "center", marginTop: "15px", marginBottom: "15px" }}
+        >
           बि .सं. &nbsp; {formattedNepaliDate(selectedDate)}
-        </h2>
+        </Typography>
       </label>
 
       <div className="header" style={styles.box}>

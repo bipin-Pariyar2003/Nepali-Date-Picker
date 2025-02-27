@@ -9,7 +9,6 @@
   line-height: 1.5;
   font-weight: 400;
   background-color: #cecfe8;
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -49,19 +48,6 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #cecfe8;
-  }
-}
-
 h2 {
   font-size: 1.5em;
   text-align: center;
@@ -69,16 +55,16 @@ h2 {
 
 .heading {
   max-width: 100%;
-  height: px; /* Adjust height if needed */
-  padding: 10px; /* Add some padding */
+  height: 50px;
+  padding: 10px;
   display: flex;
   align-items: center; /* Align items vertically inside */
   justify-content: center; /* Center text horizontally */
   color: rgba(0, 0, 0, 0.8);
+
   cursor: default;
-  /* background-color: #8bae8d; */
-  background-color: #786f80;
-  border: 1px solid rgba(0, 0, 0, 0.3);
+  background-color: #696969;
+  border: 1px solid rgba(0, 0, 0);
 }
 
 .text-imp {
@@ -107,13 +93,11 @@ h2 {
 
 /* Track */
 ::-webkit-scrollbar-track {
-  /* background: #f1f1f1; Track color */
   background-color: #cecfe8;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  /* background: #888; Handle color */
   background: #786f99;
 }
 
@@ -122,82 +106,15 @@ h2 {
   background: #555; /* Handle color on hover */
 }
 
-/* for responsive design for smaller screens  */
-@media screen and (max-width: 600px) {
-  h1 {
-    font-size: 1em;
-    line-height: 0.1;
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
   }
-
-  h2 {
-    font-size: 0.8em;
-    text-align: center;
+  a:hover {
+    color: #747bff;
   }
-
   button {
-    border: none;
-    box-shadow: #213547 1px;
-    border-radius: 8px;
-    padding: 1.2em 0.5em;
-    font-size: 0.5em;
-    font-family: inherit;
-    cursor: pointer;
-    transition: border-color 0.25s;
-  }
-  button:hover {
-    box-shadow: #646cff 1px;
-  }
-
-  button:focus,
-  button:focus-visible {
-    outline: 4px auto -webkit-focus-ring-color;
-  }
-
-  .heading {
-    max-width: 100%;
-    height: 40px; /* Adjust height if needed */
-    padding: 10px; /* Add some padding */
-    display: flex;
-    align-items: center; /* Align items vertically inside */
-    justify-content: center; /* Center text horizontally */
-    background-color: rgb(48, 48, 48);
-    color: rgba(255, 255, 255, 0.8);
-    cursor: default;
-  }
-
-  .text-imp {
-    color: rgba(0, 0, 0, 0.8);
-    font-weight: bold;
-    font-size: 1.2rem;
-  }
-
-  .text {
-    color: rgba(0, 0, 0, 0.8);
-  }
-
-  .sub-heading {
-    color: rgba(0, 0, 0, 0.8);
-    font-weight: bold;
-    font-size: 1.3rem;
-    margin-bottom: 20px;
-    margin-top: 0px;
-    text-decoration: underline;
-  }
-}
-
-/* Responsive Styles */
-@media (max-width: 480px) {
-  :root {
-    font-size: 14px; /* Adjust font size for mobile */
-  }
-
-  a {
-    font-size: 16px; /* Increase link font size for better readability */
-  }
-}
-
-@media (max-width: 768px) {
-  :root {
-    font-size: 15px; /* Adjust font size for tablets */
+    background-color: #cecfe8;
   }
 }

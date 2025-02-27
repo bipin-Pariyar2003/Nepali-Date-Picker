@@ -32,7 +32,6 @@ const DisplayList = ({
           textAlign: "center",
           position: "sticky",
           top: 0,
-          // backgroundColor: "rgb(240, 240, 240)",
           backgroundColor: "#938BAE",
         }}
       >
@@ -51,9 +50,10 @@ const DisplayList = ({
           const isSelected = isSelectedValue({ display: option.value, index });
 
           return (
-            <>
-              <div key={option.value}>
+       
+  
                 <button
+                key={option.value}
                   style={{
                     marginBottom: "5px",
                   }}
@@ -65,8 +65,8 @@ const DisplayList = ({
                 >
                   {option.display}
                 </button>
-              </div>
-            </>
+          
+          
           );
         })}
       </Box>

@@ -49,6 +49,7 @@ const DayDisplayList = ({ onChange, setViewDate, viewDate, dateType = "BS" }) =>
       handleClickDayAD(index);
     }
   };
+
   const checkIsToday = ({ index }) => {
     if (dateType === "BS")
       return (

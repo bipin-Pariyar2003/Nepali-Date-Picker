@@ -8,7 +8,7 @@ import BsView from "Views/BsView";
 import AdView from "Views/AdView";
 
 import EngDatePicker from "Components/EngDatePicker";
-import { Stack } from "@mui/material";
+import { Box, Stack, Typography } from "@mui/material";
 
 function Home() {
   const initialEnglishDate = moment().format("YYYY/MM/DD");
@@ -38,9 +38,11 @@ function Home() {
         height: "100svh",
       }}
     >
-      <div className="heading">
-        <h2>Nepali Date Converter (B.S - A.D) </h2>
-      </div>
+      <Box className="heading" sx={{ fontSize: { xs: "0.5rem" } }}>
+        <Typography sx={{ fontSize: { sm: "0.5rem", md: "1.5rem" } }}>
+          Nepali Date Converter (B.S - A.D){" "}
+        </Typography>
+      </Box>
       <Stack direction="row" gap={2} pl={4} sx={{ overflow: "hidden" }}>
         <Stack overflow={{ xs: "auto", md: "hidden" }}>
           <h2
@@ -56,23 +58,19 @@ function Home() {
           <BsView selectedDate={selectedNepaliDate} onChange={handleNepaliDateChange} />
         </Stack>
 
-        <div
+        <Box
           style={{
             width: "min-content",
-            // height: "min-content",
-            minHeight: "350px",
-            // maxHeight: "450px",
             minWidth: "350px",
             display: "flex",
             flexDirection: "column",
             gap: "20px",
-            // border: "1px solid rgba(0, 0, 0, 0.4)",
-            // borderRadius: "10px",
             padding: "20px",
             alignItems: "center",
             justifyContent: "center",
             flex: 1,
           }}
+          sx={{ minWidth: { sx: "100px", md: "350px" } }}
         >
           <NepDatePicker
             selectedDate={selectedNepaliDate}
@@ -82,7 +80,7 @@ function Home() {
             selectedDate={selectedEnglishDate}
             onChange={handleEngDateChange}
           />
-        </div>
+        </Box>
         <Stack overflow={{ xs: "auto", md: "hidden" }}>
           <h2
             style={{

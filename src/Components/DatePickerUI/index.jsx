@@ -50,6 +50,7 @@ const PopUp = ({ selectedDate, onDateSelect, handleClose }) => {
     year: selectedDate.split("/").at(0),
     month: selectedDate.split("/").at(1),
   });
+
   // Update viewDate when selectedDate changes
   useEffect(() => {
     setViewDate({
@@ -77,10 +78,12 @@ const PopUp = ({ selectedDate, onDateSelect, handleClose }) => {
   const handleYearChange = (event) => {
     setViewDate({ ...viewDate, year: event.target.value });
   };
+
   //handling month change
   const handleMonthChange = (event) => {
     setViewDate({ ...viewDate, month: event.target.value });
   };
+
   const handleDayChange = (date) => {
     if (!date) return;
     onDateSelect(

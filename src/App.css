@@ -1,6 +1,4 @@
 #root {
-  /* background-color: rgb(240, 240, 240); */
-  /* background-color: #f6f6f6; */
   background-color: #cecfe8;
 }
 
@@ -23,7 +21,6 @@
   border: 1px solid #ccc;
   border-radius: 4px;
   width: 200px;
-  /* background-color: #786f99; */
 }
 
 .date-picker-calendar {
@@ -39,26 +36,4 @@
 
 .date-picker:hover .date-picker-calendar {
   display: block;
-}
-
-/* Responsive Styles */
-@media (max-width: 480px) {
-  #root {
-    background-color: #f5f1e0; /* Example: Change background for mobile */
-  }
-
-  .card {
-    padding: 1em; /* Reduce padding for mobile */
-  }
-
-  .date-picker {
-    display: block; /* Stack elements vertically */
-    width: 100%; /* Full width on mobile */
-  }
-}
-
-@media (max-width: 768px) {
-  .card {
-    padding: 1.5em; /* Adjust padding for tablets */
-  }
 }

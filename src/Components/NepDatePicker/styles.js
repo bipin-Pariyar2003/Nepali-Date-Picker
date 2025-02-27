@@ -17,8 +17,6 @@ const styles = {
     borderRadius: "5px",
     color: "rgba(0, 0, 0, 0.8)",
     backgroundColor: "#cecfe8",
-
-    // backgroundColor: "#dcd7c9",
   },
 };
 

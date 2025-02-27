@@ -77,7 +77,8 @@ h2 {
   color: rgba(0, 0, 0, 0.8);
   cursor: default;
   /* background-color: #8bae8d; */
-  background-color: #00000058;
+  background-color: #786f80;
+  border: 1px solid rgba(0, 0, 0, 0.3);
 }
 
 .text-imp {
@@ -106,12 +107,14 @@ h2 {
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #f1f1f1; /* Track color */
+  /* background: #f1f1f1; Track color */
+  background-color: #cecfe8;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #888; /* Handle color */
+  /* background: #888; Handle color */
+  background: #786f99;
 }
 
 /* Handle on hover */

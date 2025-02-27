@@ -129,7 +129,7 @@ const PopUp = ({ selectedDate, onDateSelect, handleClose }) => {
       style={{
         width: "350px",
         height: "360px",
-        backgroundColor: "#F8F5E9", //cream
+        backgroundColor: "#cecfe8", //cream
       }}
     >
       {/* header section  */}
@@ -143,7 +143,7 @@ const PopUp = ({ selectedDate, onDateSelect, handleClose }) => {
           alignContent: "center",
           alignItems: "center",
           justifyContent: "space-between",
-          backgroundColor: "#9DC08B", //greenish
+          backgroundColor: "#786F99", //greenish
         }}
       >
         {/* previous btn  */}
@@ -232,7 +232,7 @@ const PopUp = ({ selectedDate, onDateSelect, handleClose }) => {
           style={{
             width: "100%",
             height: "40px",
-            backgroundColor: "#DF6D14",
+            backgroundColor: "#938BAE",
             display: "grid",
             gridTemplateColumns: "repeat(7,1fr)",
             alignContent: "center",

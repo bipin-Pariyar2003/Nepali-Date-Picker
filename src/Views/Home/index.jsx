@@ -59,12 +59,15 @@ function Home() {
         <div
           style={{
             width: "min-content",
+            // height: "min-content",
+            minHeight: "350px",
+            // maxHeight: "450px",
             minWidth: "350px",
             display: "flex",
             flexDirection: "column",
             gap: "20px",
-            border: "1px solid rgba(0, 0, 0, 0.4)",
-            borderRadius: "10px",
+            // border: "1px solid rgba(0, 0, 0, 0.4)",
+            // borderRadius: "10px",
             padding: "20px",
             alignItems: "center",
             justifyContent: "center",

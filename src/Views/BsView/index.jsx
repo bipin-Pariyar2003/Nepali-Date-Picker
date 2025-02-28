@@ -36,8 +36,8 @@ const BsView = ({ selectedDate, onChange }) => {
 
   return (
     <Stack
-      direction={{ xs: "column", md: "row" }}
-      gap={4}
+      direction={{ xs: "col", md: "row" }}
+      gap={{ xs: 0, md: 4 }}
       style={{ overflow: "hidden", backgroundColor: "#938BAE" }}
     >
       {/* showing the years  */}

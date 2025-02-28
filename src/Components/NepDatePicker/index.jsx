@@ -52,13 +52,19 @@ const NepDatePicker = ({ selectedDate, onChange }) => {
       <label htmlFor="date">
         <Typography
           variant="h5"
-          sx={{ textAlign: "center", marginTop: "15px", marginBottom: "15px" }}
+          sx={{
+            textAlign: "center",
+            marginTop: "15px",
+            marginBottom: "15px",
+            fontSize: { xs: "0.8rem", md: "1.5rem" },
+            fontWeight: "bold",
+          }}
         >
           बि .सं. &nbsp; {formattedNepaliDate(selectedDate)}
         </Typography>
       </label>
 
-      <div className="header" style={styles.box}>
+      <div style={styles.box}>
         <input
           className="input-field"
           type="text"

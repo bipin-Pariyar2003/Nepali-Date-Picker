@@ -106,6 +106,22 @@ h2 {
   background: #555; /* Handle color on hover */
 }
 
+/* Hide scrollbar for mobile devices */
+@media (max-width: 768px) {
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* For Firefox */
+  html {
+    scrollbar-width: none;
+  }
+
+  /* For Internet Explorer, Edge */
+  * {
+    -ms-overflow-style: none;
+  }
+}
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;

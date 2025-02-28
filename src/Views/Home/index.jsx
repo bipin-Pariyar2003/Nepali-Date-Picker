@@ -43,34 +43,43 @@ function Home() {
           Nepali Date Converter (B.S - A.D){" "}
         </Typography>
       </Box>
-      <Stack direction="row" gap={2} pl={4} sx={{ overflow: "hidden" }}>
-        <Stack overflow={{ xs: "auto", md: "hidden" }}>
-          <h2
-            style={{
+      <Stack
+        direction={{ xs: "column", md: "row" }}
+        gap={{ xs: 2, md: 2 }}
+        sx={{ overflow: "hidden" }}
+      >
+        {/* bs view  */}
+        <Stack overflow={{ xs: "auto", md: "hidden" }} sx={{ height: { md: "100svh" } }}>
+          <Typography
+            variant="h5"
+            sx={{
+              fontWeight: "bold",
+              textAlign: "center",
               textDecoration: "underline",
               backgroundColor: "#786F99",
               paddingTop: "6px",
               paddingBottom: "6px",
+              fontSize: { xs: "1rem", md: "1.5rem" },
             }}
           >
             Select date in B.S.
-          </h2>
+          </Typography>
           <BsView selectedDate={selectedNepaliDate} onChange={handleNepaliDateChange} />
         </Stack>
 
+        {/* date pickers  */}
         <Box
-          style={{
-            width: "min-content",
-            minWidth: "350px",
+          sx={{
             display: "flex",
             flexDirection: "column",
-            gap: "20px",
-            padding: "20px",
+            gap: { sx: 0, md: "20px" },
+            padding: { xs: "0px", md: "20px" },
             alignItems: "center",
             justifyContent: "center",
             flex: 1,
+            width: "min-content",
+            minWidth: { sx: "100px", md: "350px" },
           }}
-          sx={{ minWidth: { sx: "100px", md: "350px" } }}
         >
           <NepDatePicker
             selectedDate={selectedNepaliDate}
@@ -81,17 +90,23 @@ function Home() {
             onChange={handleEngDateChange}
           />
         </Box>
-        <Stack overflow={{ xs: "auto", md: "hidden" }}>
-          <h2
-            style={{
+
+        {/* AD view  */}
+        <Stack overflow={{ xs: "auto", md: "hidden" }} sx={{ height: { md: "100svh" } }}>
+          <Typography
+            variant="h5"
+            sx={{
+              fontWeight: "bold",
+              textAlign: "center",
               textDecoration: "underline",
               backgroundColor: "#786F99",
               paddingTop: "6px",
               paddingBottom: "6px",
+              fontSize: { xs: "1rem", md: "1.5rem" },
             }}
           >
             Select Date in A.D.
-          </h2>
+          </Typography>
           <AdView selectedDate={selectedEnglishDate} onChange={handleEngDateChange} />
         </Stack>
       </Stack>

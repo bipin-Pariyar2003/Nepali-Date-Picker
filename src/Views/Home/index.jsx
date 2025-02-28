@@ -39,7 +39,7 @@ function Home() {
       }}
     >
       <Box className="heading" sx={{ fontSize: { xs: "0.5rem" } }}>
-        <Typography sx={{ fontSize: { sm: "0.5rem", md: "1.5rem" } }}>
+        <Typography sx={{ fontSize: { sm: "0.5rem", md: "1.5rem" }, fontWeight: "bold" }}>
           Nepali Date Converter (B.S - A.D){" "}
         </Typography>
       </Box>

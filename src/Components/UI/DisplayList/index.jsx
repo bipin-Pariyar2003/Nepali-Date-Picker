@@ -42,7 +42,7 @@ const DisplayList = ({
           padding: "10px 20px",
           gap: 1,
           display: "flex",
-          flexDirection: { xs: "row", md: "column" },
+          flexDirection: { xs: "row", sm: "row", md: "column" },
         }}
       >
         {options.map((option, index) => {
@@ -50,23 +50,19 @@ const DisplayList = ({
           const isSelected = isSelectedValue({ display: option.value, index });
 
           return (
-       
-  
-                <button
-                key={option.value}
-                  style={{
-                    marginBottom: "5px",
-                  }}
-                  ref={isSelected ? ref : null}
-                  className={`${isCurrent ? "today" : ""} ${
-                    isSelected ? "selected" : ""
-                  } box`}
-                  onClick={() => handleClick(option.value, index)}
-                >
-                  {option.display}
-                </button>
-          
-          
+            <button
+              key={option.value}
+              style={{
+                marginBottom: "5px",
+              }}
+              ref={isSelected ? ref : null}
+              className={`${isCurrent ? "today" : ""} ${
+                isSelected ? "selected" : ""
+              } box`}
+              onClick={() => handleClick(option.value, index)}
+            >
+              {option.display}
+            </button>
           );
         })}
       </Box>

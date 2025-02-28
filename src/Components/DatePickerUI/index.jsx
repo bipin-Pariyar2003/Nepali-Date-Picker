@@ -31,7 +31,7 @@ export default function DatePickerUI({
           vertical: "bottom",
           horizontal: "left",
         }}
-        sx={{ mt: 1.5, ml: -25.5 }}
+        sx={{ md: { mt: 1.5, ml: -25.5 }, sm: { mt: 1.5, ml: -25.5 } }}
       >
         <PopUp
           selectedDate={selectedDate}

@@ -49,7 +49,7 @@ function Home() {
         sx={{ overflow: "hidden" }}
       >
         {/* bs view  */}
-        <Stack overflow={{ xs: "auto", md: "hidden" }} sx={{ height: { md: "100svh" } }}>
+        <Stack overflow={{ xs: "auto", md: "hidden" }}>
           <Typography
             variant="h5"
             sx={{
@@ -92,7 +92,7 @@ function Home() {
         </Box>
 
         {/* AD view  */}
-        <Stack overflow={{ xs: "auto", md: "hidden" }} sx={{ height: { md: "100svh" } }}>
+        <Stack overflow={{ xs: "auto", md: "hidden" }}>
           <Typography
             variant="h5"
             sx={{

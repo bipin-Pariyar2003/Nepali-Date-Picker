@@ -21,7 +21,6 @@ const DisplayList = ({
   return (
     <Stack
       style={{
-        display: "flex",
         flexDirection: { xs: "column", md: "row" },
         overflow: "auto",
         position: "relative",

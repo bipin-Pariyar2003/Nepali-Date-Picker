@@ -20,12 +20,12 @@ export default defineConfig({
         display: "standalone",
         icons: [
           {
-            src: "public/images/nepal.png",
+            src: "/images/nepal.png",
             sizes: "512x512",
             type: "image/png",
           },
           {
-            src: "public/images/calendar.png",
+            src: "/images/calendar.png",
             sizes: "192x192",
             type: "image/png",
           },

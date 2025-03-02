@@ -3,9 +3,40 @@ import react from "@vitejs/plugin-react";
 import tsconfigPaths from "vite-tsconfig-paths";
 import { Component } from "react";
 import path from "path";
+import { VitePWA } from "vite-plugin-pwa";
 
 export default defineConfig({
-  plugins: [react()],
+  plugins: [
+    react(),
+    VitePWA({
+      registerType: "autoUpdate",
+      includeAssets: [],
+      manifest: {
+        name: "Nepali Date Picker",
+        short_name: "Nepali Date Picker",
+        description: "Nepali Date Picker",
+        theme_color: "#ffffff",
+        start_url: "/",
+        display: "standalone",
+        icons: [
+          {
+            src: "public/images/nepal.png",
+            sizes: "512x512",
+            type: "image/png",
+          },
+          {
+            src: "public/images/calendar.png",
+            sizes: "192x192",
+            type: "image/png",
+          },
+        ],
+      },
+      devOptions: {
+        enabled: true,
+        type: "module",
+      },
+    }),
+  ],
   server: {
     allowedHosts: "all",
     host: true,

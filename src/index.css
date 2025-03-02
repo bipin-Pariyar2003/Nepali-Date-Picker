@@ -39,12 +39,31 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
+
+.reset-btn {
+  font-weight: bold;
+  font-size: 1.2em;
+  width: 180px;
+  height: 50px;
+  background-color: #cecfe8;
+  box-shadow: #213547 0px 3px 8px;
+  margin: 0;
+}
 /* Apply smaller button size on smaller screens */
 @media (max-width: 600px) {
   button {
     padding: 0.4em 0.8em; /* Reduce padding */
     font-size: 0.8em; /* Reduce font size */
     border-radius: 5px; /* Slightly smaller border radius */
+  }
+  .reset-btn {
+    font-weight: bold;
+    font-size: 0.8em;
+    width: 120px;
+    height: 30px;
+    background-color: #cecfe8;
+    box-shadow: #213547 0px 3px 8px;
+    margin: 10px;
   }
 }
 
@@ -97,7 +116,7 @@ h2 {
 
 /* For WebKit browsers (Chrome, Safari) */
 ::-webkit-scrollbar {
-  width: 3px; /* Adjust the width as needed */
+  width: 10px; /* Adjust the width as needed */
 }
 
 /* Track */

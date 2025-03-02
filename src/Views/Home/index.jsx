@@ -10,6 +10,7 @@ import AdView from "Views/AdView";
 import EngDatePicker from "Components/EngDatePicker";
 import { Box, Stack, Typography } from "@mui/material";
 import { Height } from "@mui/icons-material";
+import ResetBtn from "Views/ResetBtn";
 
 function Home() {
   const initialEnglishDate = moment().format("YYYY/MM/DD");
@@ -46,12 +47,12 @@ function Home() {
             fontWeight: "bold",
           }}
         >
-          Nepali Date Converter (B.S - A.D){" "}
+          Nepali Date Converter (B.S - A.D)
         </Typography>
       </Box>
       <Stack
         direction={{ xs: "column", md: "row" }}
-        gap={{ xs: 2, md: 2 }}
+        gap={{ xs: 0, md: 2 }}
         sx={{ overflow: "hidden" }}
       >
         {/* bs view  */}
@@ -78,7 +79,7 @@ function Home() {
           sx={{
             display: "flex",
             flexDirection: "column",
-            gap: { sx: 0, md: "20px" },
+            gap: { xs: "0px", md: "20px" },
             padding: { xs: "0px", md: "20px" },
             alignItems: "center",
             justifyContent: "center",
@@ -94,6 +95,10 @@ function Home() {
           />
           <EngDatePicker
             selectedDate={selectedEnglishDate}
+            onChange={handleEngDateChange}
+          />
+          <ResetBtn
+            setSelectedEnglishDate={setSelectedEnglishDate}
             onChange={handleEngDateChange}
           />
         </Box>

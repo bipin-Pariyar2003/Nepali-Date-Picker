@@ -39,7 +39,7 @@ const AdView = ({ selectedDate, onChange }) => {
       gap={{ xs: 0, md: 4 }}
       style={{ overflow: "hidden", backgroundColor: "#938BAE" }}
     >
-      <YearDisplayList
+      <DayDisplayList
         onChange={onChange}
         setViewDate={setViewDate}
         viewDate={viewDate}
@@ -53,7 +53,7 @@ const AdView = ({ selectedDate, onChange }) => {
         dateType="AD"
       />
 
-      <DayDisplayList
+      <YearDisplayList
         onChange={onChange}
         setViewDate={setViewDate}
         viewDate={viewDate}

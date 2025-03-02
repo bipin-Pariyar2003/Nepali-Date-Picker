@@ -49,7 +49,7 @@ const NepDatePicker = ({ selectedDate, onChange }) => {
 
   return (
     <div className="nepali-date-picker">
-      <label htmlFor="date">
+      <label>
         <Typography
           variant="h5"
           sx={{

@@ -21,7 +21,7 @@ const DisplayList = ({
   return (
     <Stack
       style={{
-        flexDirection: { xs: "column", md: "row" },
+        flexDirection: { xs: "row", md: "row" },
         overflow: "auto",
         position: "relative",
         width: "100%",
@@ -44,7 +44,7 @@ const DisplayList = ({
       </Typography>
       <Box
         sx={{
-          padding: "10px 20px",
+          padding: { xs: "2px", md: "10px 20px" },
           gap: 1,
           display: "flex",
           flexDirection: { xs: "row", md: "column" },

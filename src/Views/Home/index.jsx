@@ -9,6 +9,7 @@ import AdView from "Views/AdView";
 
 import EngDatePicker from "Components/EngDatePicker";
 import { Box, Stack, Typography } from "@mui/material";
+import { Height } from "@mui/icons-material";
 
 function Home() {
   const initialEnglishDate = moment().format("YYYY/MM/DD");
@@ -35,11 +36,16 @@ function Home() {
   return (
     <Stack
       sx={{
-        height: "100svh",
+        height: { xs: "100%", md: "100svh" },
       }}
     >
-      <Box className="heading" sx={{ fontSize: { xs: "0.5rem" } }}>
-        <Typography sx={{ fontSize: { sm: "0.5rem", md: "1.5rem" }, fontWeight: "bold" }}>
+      <Box className="heading" sx={{ height: { xs: "20px", md: "50px" } }}>
+        <Typography
+          sx={{
+            fontSize: { xs: "0.8rem", md: "1.5rem" },
+            fontWeight: "bold",
+          }}
+        >
           Nepali Date Converter (B.S - A.D){" "}
         </Typography>
       </Box>
@@ -53,13 +59,13 @@ function Home() {
           <Typography
             variant="h5"
             sx={{
-              fontWeight: "bold",
+              fontWeight: { xs: "bolder", md: "bold" },
               textAlign: "center",
-              textDecoration: "underline",
+              textDecoration: { xs: "none", md: "underline" },
+              padding: { xs: "0px", md: "6px" },
               backgroundColor: "#786F99",
-              paddingTop: "6px",
-              paddingBottom: "6px",
-              fontSize: { xs: "1rem", md: "1.5rem" },
+              fontSize: { xs: "0.8rem", md: "1.5rem" },
+              height: { xs: "20px", md: "40px" },
             }}
           >
             Select date in B.S.
@@ -79,6 +85,7 @@ function Home() {
             flex: 1,
             width: "min-content",
             minWidth: { sx: "100px", md: "350px" },
+            margin: { xs: "0 auto", md: "0" }, // Center in mobile view only
           }}
         >
           <NepDatePicker
@@ -96,13 +103,13 @@ function Home() {
           <Typography
             variant="h5"
             sx={{
-              fontWeight: "bold",
+              fontWeight: { xs: "bolder", md: "bold" },
               textAlign: "center",
-              textDecoration: "underline",
+              padding: { xs: "0px", md: "6px" },
+              textDecoration: { xs: "none", md: "underline" },
               backgroundColor: "#786F99",
-              paddingTop: "6px",
-              paddingBottom: "6px",
-              fontSize: { xs: "1rem", md: "1.5rem" },
+              fontSize: { xs: "0.8rem", md: "1.5rem" },
+              height: { xs: "20px", md: "40px" },
             }}
           >
             Select Date in A.D.

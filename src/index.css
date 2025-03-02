@@ -39,6 +39,15 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
+/* Apply smaller button size on smaller screens */
+@media (max-width: 600px) {
+  button {
+    padding: 0.4em 0.8em; /* Reduce padding */
+    font-size: 0.8em; /* Reduce font size */
+    border-radius: 5px; /* Slightly smaller border radius */
+  }
+}
+
 button:hover {
   box-shadow: #646cff 1px;
 }

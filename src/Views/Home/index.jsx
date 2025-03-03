@@ -9,64 +9,69 @@ import AdView from "Views/AdView";
 
 import EngDatePicker from "Components/EngDatePicker";
 import { Box, Stack, Typography } from "@mui/material";
-import { Height } from "@mui/icons-material";
 import ResetBtn from "Views/ResetBtn";
 
 function Home() {
   const initialEnglishDate = moment().format("YYYY/MM/DD");
-
   const initialNepaliDate = ad2bsHandler(initialEnglishDate);
 
-  //state
+  // State
   const [selectedNepaliDate, setSelectedNepaliDate] = useState(initialNepaliDate);
   const [selectedEnglishDate, setSelectedEnglishDate] = useState(initialEnglishDate);
 
-  //handling nepali date change
+  // Handling Nepali date change
   const handleNepaliDateChange = (date) => {
     setSelectedNepaliDate(date);
     const engDate = bs2adHandler(date);
     setSelectedEnglishDate(engDate);
   };
 
-  //handling eng date change
+  // Handling English date change
   const handleEngDateChange = (date) => {
     setSelectedEnglishDate(date);
     const nepDate = ad2bsHandler(date);
     setSelectedNepaliDate(nepDate);
   };
+
   return (
     <Stack
       sx={{
-        height: { xs: "100%", md: "100svh" },
+        height: { xs: "auto", md: "100svh" },
       }}
     >
-      <Box className="heading" sx={{ height: { xs: "20px", md: "50px" } }}>
+      {/* Heading */}
+      <Box
+        className="heading"
+        sx={{ height: { xs: "30px", md: "50px" }, textAlign: "center" }}
+      >
         <Typography
           sx={{
-            fontSize: { xs: "0.8rem", md: "1.5rem" },
+            fontSize: { xs: "1rem", md: "1.5rem" },
             fontWeight: "bold",
           }}
         >
           Nepali Date Converter (B.S - A.D)
         </Typography>
       </Box>
+
+      {/* Main Container */}
       <Stack
         direction={{ xs: "column", md: "row" }}
-        gap={{ xs: 0, md: 2 }}
-        sx={{ overflow: "hidden" }}
+        gap={{ xs: 2, md: 2 }}
+        sx={{ overflow: "hidden", width: "100%" }}
       >
-        {/* bs view  */}
-        <Stack overflow={{ xs: "auto", md: "hidden" }}>
+        {/* B.S View */}
+        <Stack sx={{ width: "100%" }}>
           <Typography
             variant="h5"
             sx={{
-              fontWeight: { xs: "bolder", md: "bold" },
+              fontWeight: "bold",
               textAlign: "center",
               textDecoration: { xs: "none", md: "underline" },
-              padding: { xs: "0px", md: "6px" },
+              padding: "6px",
               backgroundColor: "#786F99",
-              fontSize: { xs: "0.8rem", md: "1.5rem" },
-              height: { xs: "20px", md: "40px" },
+              fontSize: { xs: "1rem", md: "1.5rem" },
+              height: { xs: "30px", md: "40px" },
             }}
           >
             Select date in B.S.
@@ -74,19 +79,19 @@ function Home() {
           <BsView selectedDate={selectedNepaliDate} onChange={handleNepaliDateChange} />
         </Stack>
 
-        {/* date pickers  */}
+        {/* Date Pickers */}
         <Box
           sx={{
             display: "flex",
             flexDirection: "column",
-            gap: { xs: "0px", md: "20px" },
-            padding: { xs: "0px", md: "20px" },
+            gap: { xs: "10px", md: "20px" },
+            padding: { xs: "10px", md: "20px" },
             alignItems: "center",
             justifyContent: "center",
             flex: 1,
-            width: "min-content",
-            minWidth: { sx: "100px", md: "350px" },
-            margin: { xs: "0 auto", md: "0" }, // Center in mobile view only
+            width: { xs: "100%", md: "auto" },
+            minWidth: { md: "350px" },
+            margin: "0 auto",
           }}
         >
           <NepDatePicker
@@ -103,18 +108,18 @@ function Home() {
           />
         </Box>
 
-        {/* AD view  */}
-        <Stack overflow={{ xs: "auto", md: "hidden" }}>
+        {/* A.D View */}
+        <Stack sx={{ width: "100%" }}>
           <Typography
             variant="h5"
             sx={{
-              fontWeight: { xs: "bolder", md: "bold" },
+              fontWeight: "bold",
               textAlign: "center",
-              padding: { xs: "0px", md: "6px" },
+              padding: "6px",
               textDecoration: { xs: "none", md: "underline" },
               backgroundColor: "#786F99",
-              fontSize: { xs: "0.8rem", md: "1.5rem" },
-              height: { xs: "20px", md: "40px" },
+              fontSize: { xs: "1rem", md: "1.5rem" },
+              height: { xs: "30px", md: "40px" },
             }}
           >
             Select Date in A.D.

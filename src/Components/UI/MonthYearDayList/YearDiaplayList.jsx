@@ -1,7 +1,7 @@
 import { calendar_data } from "assets/RNepaliCalendar/data";
 import { getDaysInMonth, getCurrentBS, toNepaliNumber } from "assets/RNepaliCalendar";
 import DisplayList from "../DisplayList";
-import { getDaysInMonthAD } from "../../../utils";
+import { bsYearToAdYear, getDaysInMonthAD } from "utils";
 import { isValidDate, isValidDateAD } from "./setup";
 import { useMemo } from "react";
 
@@ -80,17 +80,25 @@ const YearDisplayList = ({ onChange, setViewDate, viewDate, dateType = "BS" }) =
   };
 
   const yearOptions = useMemo(() => {
-    if (dateType === "BS")
+    if (dateType === "BS") {
       return Object.keys(calendar_data).map((v) => ({
         display: toNepaliNumber(v),
         value: v,
       }));
-    return Object.keys(calendar_data).map((v) => ({ display: v, value: v }));
-  }, []);
+    }
+
+    return Object.keys(calendar_data)
+      .map((v) => {
+        const adYear = bsYearToAdYear(v);
+        return {
+          display: adYear,
+          value: adYear,
+        };
+      })
+      .filter((item) => !isNaN(item.display)); // Filter out NaN values from display
+  }, [calendar_data, dateType]); // Added dependencies for useMemo to re-run when these change
 
   return (
-      
-   
     <DisplayList
       title={dateType === "BS" ? "Year (B.S.)" : "Year (A.D.)"}
       handleClick={handleClickYear}

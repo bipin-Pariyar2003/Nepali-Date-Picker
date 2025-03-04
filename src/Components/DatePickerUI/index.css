@@ -3,7 +3,9 @@
 }
 
 .selected-day {
-  background-color: #786f80;
+  /* background-color: #786f80; */
+  background-color: #18181b;
+  color: #ffffff;
 }
 
 .today {

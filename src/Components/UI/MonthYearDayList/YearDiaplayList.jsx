@@ -95,8 +95,8 @@ const YearDisplayList = ({ onChange, setViewDate, viewDate, dateType = "BS" }) =
           value: adYear,
         };
       })
-      .filter((item) => !isNaN(item.display)); // Filter out NaN values from display
-  }, [calendar_data, dateType]); // Added dependencies for useMemo to re-run when these change
+      .filter((item) => !isNaN(item.display));
+  }, [calendar_data, dateType]);
 
   return (
     <DisplayList

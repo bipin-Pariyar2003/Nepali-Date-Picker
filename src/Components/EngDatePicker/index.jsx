@@ -16,12 +16,13 @@ const EngDatePicker = ({ selectedDate, onChange }) => {
       <div style={{ textAlign: "center" }}>
         <label>
           <hr
-            style={{ border: "1px solid black", marginTop: "15px", marginBottom: "15px" }}
+            style={{ border: "1px solid black", marginTop: "15px", marginBottom: "0px" }}
           />
           <Typography
             variant="h5"
             sx={{
               marginTop: "15px",
+              marginBottom: "0px",
               fontSize: { xs: "0.8rem", md: "1.5rem" },
               fontWeight: "bold",
             }}
@@ -40,8 +41,10 @@ const EngDatePicker = ({ selectedDate, onChange }) => {
                 xs: "245px",
               },
               height: {
-                xs: "50px",
+                xs: "30px",
               },
+              marginBottom: { xs: "20px" },
+              marginTop: { xs: "0px" },
             }}
           />
         </LocalizationProvider>

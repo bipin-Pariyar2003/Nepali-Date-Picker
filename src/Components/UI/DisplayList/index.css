@@ -1,13 +1,16 @@
 .box {
   width: 120px;
   font-weight: bold;
-  background-color: #cecfe8;
+  /* background-color: #cecfe8; */
+  background-color: #ffffff;
   box-shadow: #213547 0px 3px 8px;
   margin: 0;
 }
 
 .selected {
-  background-color: #786f80;
+  /* background-color: #786f80; */
+  background-color: #18181b;
+  color: #ffffff;
 }
 
 .today {

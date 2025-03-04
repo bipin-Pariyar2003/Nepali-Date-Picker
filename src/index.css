@@ -8,7 +8,7 @@
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-  background-color: #cecfe8;
+  background-color: #ffffff;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -45,7 +45,7 @@ button {
   font-size: 1.2em;
   width: 180px;
   height: 50px;
-  background-color: #cecfe8;
+  background-color: #ffffff;
   box-shadow: #213547 0px 3px 8px;
   margin: 0;
 }
@@ -62,7 +62,7 @@ button {
     font-size: 0.8em;
     width: 120px;
     height: 30px;
-    background-color: #cecfe8;
+    background-color: #ffffff;
     box-shadow: #213547 0px 3px 8px;
     margin: 10px;
   }
@@ -91,8 +91,10 @@ h2 {
   justify-content: center; /* Center text horizontally */
   color: rgba(0, 0, 0, 0.8);
   cursor: default;
-  background-color: #2a3439;
-  color: #e6e6fa;
+  /* background-color: #2a3439; */
+  background-color: #18181b;
+  /* color: #e6e6fa; */
+  color: #ffffff;
   border: 1px solid rgba(0, 0, 0);
 }
 
@@ -122,17 +124,19 @@ h2 {
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background-color: #786f99;
+  background: #ffffff;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #cecfe8;
+  /* background: #cecfe8; */
+  /* background-color: #786f99; */
+  background-color: #18181b;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #555; /* Handle color on hover */
+  background: #555;
 }
 
 /* Hide scrollbar for mobile devices */
@@ -160,6 +164,7 @@ h2 {
     color: #747bff;
   }
   button {
-    background-color: #cecfe8;
+    /* background-color: #cecfe8; */
+    background-color: #ffffff;
   }
 }

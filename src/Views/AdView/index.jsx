@@ -37,7 +37,7 @@ const AdView = ({ selectedDate, onChange }) => {
     <Stack
       direction={{ xs: "column", md: "row" }}
       gap={{ xs: 0, md: 4 }}
-      style={{ overflow: "hidden", backgroundColor: "#938BAE" }}
+      style={{ overflow: "hidden" }}
     >
       <DayDisplayList
         onChange={onChange}

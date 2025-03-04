@@ -32,18 +32,18 @@ const DisplayList = ({
         fontWeight="bold"
         sx={{
           fontSize: { xs: "0.5rem", md: "1.2rem" },
-          textDecoration: "underline",
           textAlign: "center",
           position: "sticky",
           left: 0,
           top: 0,
-          backgroundColor: "#938BAE",
+          backgroundColor: "#ffffff",
         }}
       >
         {title}
       </Typography>
       <Box
         sx={{
+          // height: "100%",
           padding: { xs: "2px", md: "10px 20px" },
           gap: 1,
           display: "flex",

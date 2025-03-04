@@ -36,7 +36,8 @@ function Home() {
   return (
     <Stack
       sx={{
-        height: { xs: "auto", md: "100svh" },
+        height: { xs: "100vh", md: "100svh" },
+        gap: { xs: 0, md: 2 },
       }}
     >
       {/* Heading */}
@@ -57,11 +58,18 @@ function Home() {
       {/* Main Container */}
       <Stack
         direction={{ xs: "column", md: "row" }}
-        gap={{ xs: 2, md: 2 }}
-        sx={{ overflow: "hidden", width: "100%" }}
+        gap={{ xs: 0, md: 2 }}
+        sx={{ overflow: "hidden", width: "100%", display: "flex", flex: 1 }}
       >
         {/* B.S View */}
-        <Stack sx={{ width: "100%" }}>
+        <Stack
+          sx={{
+            width: "100%",
+            gap: { xs: 0, md: 2 },
+            border: "1px solid black",
+            flex: 1,
+          }}
+        >
           <Typography
             variant="h5"
             sx={{
@@ -69,7 +77,6 @@ function Home() {
               textAlign: "center",
               textDecoration: { xs: "none", md: "underline" },
               padding: "6px",
-              backgroundColor: "#786F99",
               fontSize: { xs: "1rem", md: "1.5rem" },
               height: { xs: "30px", md: "40px" },
             }}
@@ -85,13 +92,24 @@ function Home() {
             display: "flex",
             flexDirection: "column",
             gap: { xs: "10px", md: "20px" },
-            padding: { xs: "10px", md: "20px" },
+            padding: { xs: "0px", md: "20px" },
             alignItems: "center",
             justifyContent: "center",
             flex: 1,
-            width: { xs: "100%", md: "auto" },
+            width: { xs: "100%" },
             minWidth: { md: "350px" },
             margin: "0 auto",
+            // display: "flex",
+            // flexDirection: "column",
+            // gap: { xs: "10px", md: "15px" }, // Decreased gap between date pickers
+            // padding: { xs: "0px", md: "10px" }, // Decreased padding for smaller height
+            // alignItems: "center",
+            // justifyContent: "center",
+            // flex: 1,
+            // width: { xs: "100%" },
+            // minWidth: { md: "350px" },
+            // maxHeight: { xs: "150px", md: "250px" }, // Decreased maxHeight for smaller container
+            // margin: "0 auto",
           }}
         >
           <NepDatePicker
@@ -109,7 +127,16 @@ function Home() {
         </Box>
 
         {/* A.D View */}
-        <Stack sx={{ width: "100%" }}>
+        <Stack
+          sx={{
+            width: "100%",
+            height: "100%",
+            gap: { xs: 0, md: 2 },
+            border: "1px solid black",
+            flex: 1,
+            justifyContent: "flex-end",
+          }}
+        >
           <Typography
             variant="h5"
             sx={{
@@ -117,7 +144,6 @@ function Home() {
               textAlign: "center",
               padding: "6px",
               textDecoration: { xs: "none", md: "underline" },
-              backgroundColor: "#786F99",
               fontSize: { xs: "1rem", md: "1.5rem" },
               height: { xs: "30px", md: "40px" },
             }}

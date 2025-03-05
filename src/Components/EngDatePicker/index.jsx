@@ -48,6 +48,27 @@ const EngDatePicker = ({ selectedDate, onChange }) => {
               padding: { xs: "5px", md: "10px" },
               marginBottom: { xs: "20px" },
               marginTop: { xs: "0px" },
+              ":focus": {
+                outline: "none",
+              },
+              ":active": {
+                outline: "none",
+              },
+            }}
+            //to remove the default outline and box-shadow
+            slotProps={{
+              openPickerButton: {
+                sx: {
+                  "&:focus": {
+                    outline: "none", // Remove default outline
+                    boxShadow: "none", // Remove any box-shadow
+                  },
+                  "&:focus-visible": {
+                    outline: "none",
+                    boxShadow: "none",
+                  },
+                },
+              },
             }}
           />
         </LocalizationProvider>

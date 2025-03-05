@@ -99,17 +99,6 @@ function Home() {
             width: { xs: "100%" },
             minWidth: { md: "350px" },
             margin: "0 auto",
-            // display: "flex",
-            // flexDirection: "column",
-            // gap: { xs: "10px", md: "15px" }, // Decreased gap between date pickers
-            // padding: { xs: "0px", md: "10px" }, // Decreased padding for smaller height
-            // alignItems: "center",
-            // justifyContent: "center",
-            // flex: 1,
-            // width: { xs: "100%" },
-            // minWidth: { md: "350px" },
-            // maxHeight: { xs: "150px", md: "250px" }, // Decreased maxHeight for smaller container
-            // margin: "0 auto",
           }}
         >
           <NepDatePicker

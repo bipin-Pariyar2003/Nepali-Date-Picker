@@ -43,7 +43,7 @@ const EngDatePicker = ({ selectedDate, onChange }) => {
               },
               height: {
                 xs: "30px",
-                md: "100%",
+                md: "53px",
               },
               padding: { xs: "5px", md: "10px" },
               marginBottom: { xs: "20px" },

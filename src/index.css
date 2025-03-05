@@ -50,7 +50,6 @@ button:active {
 }
 
 .reset-btn {
-  outline: none;
   font-weight: bold;
   font-size: 1.2em;
   width: 180px;

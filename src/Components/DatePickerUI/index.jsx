@@ -31,7 +31,7 @@ export default function DatePickerUI({
           vertical: "bottom",
           horizontal: "left",
         }}
-        sx={{ md: { mt: 1.5, ml: -25.5 }, sm: { mt: 1.5, ml: -25.5 } }}
+        sx={{ sm: { mt: 1.5, ml: -25.5 }, ml: { mt: 1.5 } }}
       >
         <PopUp
           selectedDate={selectedDate}
@@ -132,7 +132,6 @@ const PopUp = ({ selectedDate, onDateSelect, handleClose }) => {
       style={{
         width: "350px",
         height: "360px",
-        // backgroundColor: "#cecfe8", //cream
         backgroundColor: "#ffffff",
       }}
     >
@@ -146,8 +145,6 @@ const PopUp = ({ selectedDate, onDateSelect, handleClose }) => {
           textAlign: "center",
           alignContent: "center",
           alignItems: "center",
-          // justifyContent: "space-between",
-          // backgroundColor: "#786F99", //greenish
           backgroundColor: "#18181b",
           border: "1px solid white",
         }}
@@ -238,7 +235,6 @@ const PopUp = ({ selectedDate, onDateSelect, handleClose }) => {
           style={{
             width: "100%",
             height: "40px",
-            // backgroundColor: "#938BAE",
             backgroundColor: "#18181b",
             color: "#ffffff",
             display: "grid",

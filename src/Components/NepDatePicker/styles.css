@@ -1,21 +1,9 @@
-/* styles.css */
-
 /* Overall container */
 .nepali-date-picker {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 250px; /* Reduced width for the Nepali Date Picker component */
-  margin: 0 auto; /* Centers the component horizontally */
-}
-
-/* Label for Nepali Date */
-.nepali-date-picker label {
-  text-align: center;
-  margin-top: 15px;
-  margin-bottom: 15px;
-  font-size: 1rem; /* Adjusted font size */
-  font-weight: bold;
 }
 
 /* The Nepali formatted date text */
@@ -29,34 +17,27 @@
 .nepali-date-picker .box {
   display: flex;
   align-items: center;
-  gap: 10px; /* Add a gap between the input and button */
   border: 1px solid rgba(0, 0, 0, 0.3);
   border-radius: 5px;
-  width: 100%; /* Make sure the box takes up the full width of the parent container */
-  box-shadow: none; /* Remove any box-shadow */
+  width: 100%;
+  box-shadow: none;
 }
 
 /* Styling for input field */
 .nepali-date-picker .input {
-  flex: 1;
-  padding: 10px 15px;
+  padding: 15px;
   font-size: 16px;
   border: none;
-  position: relative;
   width: 100%;
   height: 50px;
   color: rgba(0, 0, 0, 0.8);
-  background-color: #ffffff;
   border-radius: 5px;
-  outline: none;
 }
 
 /* Focus and active state for input */
 .nepali-date-picker .input:focus,
 .nepali-date-picker .input:active {
   outline: none;
-  border: none;
-  box-shadow: none; /* Ensure no box shadow when focused */
 }
 
 /* Button styles */
@@ -65,10 +46,7 @@
   width: 40px;
   min-width: 40px;
   border-radius: 50%;
-  /* border: none; */
-  outline: none;
   cursor: pointer;
-  box-shadow: none;
 }
 
 /* Button hover state */
@@ -87,11 +65,11 @@
 /* Responsiveness */
 @media (max-width: 768px) {
   .nepali-date-picker .input {
-    width: 180px; /* Adjust width for smaller screens */
-    height: 40px; /* Adjust height for smaller screens */
+    width: 180px;
+    height: 52px;
   }
 
   .nepali-date-picker .box {
-    width: 250px; /* Adjust box width for smaller screens */
+    width: 250px;
   }
 }

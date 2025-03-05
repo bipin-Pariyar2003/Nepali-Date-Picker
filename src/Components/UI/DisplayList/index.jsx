@@ -1,5 +1,4 @@
-import React, { useEffect, useRef } from "react";
-
+import React, { useEffect, useRef, useState } from "react";
 import "./index.css";
 import { Box, Stack, Typography } from "@mui/material";
 
@@ -12,11 +11,35 @@ const DisplayList = ({
   viewDate,
 }) => {
   const ref = useRef(null);
+  const [windowSize, setWindowSize] = useState({
+    width: window.innerWidth,
+    height: window.innerHeight,
+  });
+
+  // Function to handle window resizing
+  const handleResize = () => {
+    setWindowSize({
+      width: window.innerWidth,
+      height: window.innerHeight,
+    });
+  };
+
+  useEffect(() => {
+    // Add the resize event listener to track screen size changes
+    window.addEventListener("resize", handleResize);
+
+    // Clean up event listener on component unmount
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   useEffect(() => {
     if (ref.current) {
+      // Scroll to the selected element when the viewDate changes or the screen size changes
       ref.current.scrollIntoView({ block: "center", behavior: "smooth" });
     }
-  }, [viewDate]);
+  }, [viewDate, windowSize]); // Trigger scroll when viewDate or windowSize changes
 
   return (
     <Stack
@@ -43,7 +66,6 @@ const DisplayList = ({
       </Typography>
       <Box
         sx={{
-          // height: "100%",
           padding: { xs: "2px", md: "10px 20px" },
           gap: 1,
           display: "flex",
@@ -60,7 +82,7 @@ const DisplayList = ({
               style={{
                 marginBottom: "5px",
               }}
-              ref={isSelected ? ref : null}
+              ref={isSelected ? ref : null} // Attach ref to selected item
               className={`${isCurrent ? "today" : ""} ${
                 isSelected ? "selected" : ""
               } box`}

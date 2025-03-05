@@ -201,7 +201,15 @@ const NepDatePicker = ({ selectedDate, onChange }) => {
   return (
     <div className="nepali-date-picker">
       <label>
-        <Typography variant="h5" className="nepali-date-picker-text">
+        <Typography
+          variant="h5"
+          sx={{
+            marginTop: "15px",
+            marginBottom: "15px",
+            fontSize: { xs: "0.8rem", md: "1.5rem" },
+            fontWeight: "bold",
+          }}
+        >
           बि .सं. &nbsp; {formattedNepaliDate(selectedDate)}
         </Typography>
       </label>

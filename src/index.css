@@ -31,7 +31,9 @@ h1 {
 
 button {
   border: none;
-  box-shadow: #213547 1px;
+  outline: none;
+  /* box-shadow: #213547 1px; */
+  box-shadow: none;
   border-radius: 8px;
   padding: 0.6em 1.2em;
   font-size: 1em;
@@ -40,15 +42,25 @@ button {
   transition: border-color 0.25s;
 }
 
+button:focus,
+button:active {
+  outline: none;
+  box-shadow: none;
+  border: none;
+}
+
 .reset-btn {
+  outline: none;
   font-weight: bold;
   font-size: 1.2em;
   width: 180px;
   height: 50px;
   background-color: #ffffff;
   box-shadow: #213547 0px 3px 8px;
+  transition: box-shadow 0.2s ease-in-out; /* Smooth transition */
   margin: 0;
 }
+
 /* Apply smaller button size on smaller screens */
 @media (max-width: 600px) {
   button {

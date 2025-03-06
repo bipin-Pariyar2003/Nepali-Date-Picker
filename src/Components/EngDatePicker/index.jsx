@@ -38,7 +38,7 @@ const EngDatePicker = ({ selectedDate, onChange }) => {
             value={moment(selectedDate, "YYYY/MM/DD")}
             sx={{
               width: {
-                xs: "200px",
+                xs: "210px",
                 md: "100%",
               },
               height: {

@@ -106,6 +106,7 @@ function Home() {
             onChange={handleNepaliDateChange}
           />
           <EngDatePicker
+            sx={{ height: "min-content" }}
             selectedDate={selectedEnglishDate}
             onChange={handleEngDateChange}
           />
@@ -123,7 +124,6 @@ function Home() {
             gap: { xs: 0, md: 2 },
             border: "1px solid black",
             flex: 1,
-            justifyContent: "flex-end",
           }}
         >
           <Typography

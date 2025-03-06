@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { AdapterMoment } from "@mui/x-date-pickers/AdapterMoment";
@@ -38,7 +38,7 @@ const EngDatePicker = ({ selectedDate, onChange }) => {
             value={moment(selectedDate, "YYYY/MM/DD")}
             sx={{
               width: {
-                xs: "245px",
+                xs: "200px",
                 md: "100%",
               },
               height: {
@@ -48,12 +48,6 @@ const EngDatePicker = ({ selectedDate, onChange }) => {
               padding: { xs: "5px", md: "10px" },
               marginBottom: { xs: "20px" },
               marginTop: { xs: "0px" },
-              ":focus": {
-                outline: "none",
-              },
-              ":active": {
-                outline: "none",
-              },
             }}
             //to remove the default outline and box-shadow
             slotProps={{

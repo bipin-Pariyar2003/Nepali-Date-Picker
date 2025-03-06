@@ -68,11 +68,12 @@
 /* Responsiveness */
 @media (max-width: 768px) {
   .nepali-date-picker .input {
-    width: 180px;
+    width: 150px;
+    margin-right: 8px;
     height: 52px;
   }
 
   .nepali-date-picker .box {
-    width: 250px;
+    width: 200px;
   }
 }

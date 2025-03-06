@@ -1,6 +1,7 @@
 import React, { useState, useRef } from "react";
 import { Button, Typography } from "@mui/material";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
+import InsertInvitationIcon from "@mui/icons-material/InsertInvitation";
 import DatePickerUI from "Components/DatePickerUI";
 import { toNepaliNumber } from "assets/RNepaliCalendar";
 import "./styles.css"; // Import your CSS file
@@ -73,8 +74,14 @@ const NepDatePicker = ({ selectedDate, onChange }) => {
           ref={inputRef}
         />
 
-        <Button onClick={handleShowDatePicker} className="button">
-          <CalendarMonthIcon sx={{ height: "25px", width: "25px" }} />
+        <Button
+          variant="text"
+          onClick={handleShowDatePicker}
+          className="button"
+          disableRipple
+          sx={{ color: "#757575" }}
+        >
+          <InsertInvitationIcon sx={{ height: "25px", width: "25px" }} />
         </Button>
       </div>
 

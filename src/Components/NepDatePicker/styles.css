@@ -49,6 +49,7 @@
 
 /* Button styles */
 .nepali-date-picker .button {
+  margin-right: 2px;
   height: 40px;
   width: 40px;
   min-width: 40px;
@@ -58,7 +59,7 @@
 
 /* Button hover state */
 .nepali-date-picker .button:hover {
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: #f5f5f5;
 }
 
 /* Button focus and active state */

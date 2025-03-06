@@ -60,6 +60,11 @@ button:active {
   margin: 0;
 }
 
+.reset-btn:hover {
+  background-color: #ccc;
+  border: 1px solid #ccc;
+}
+
 /* Apply smaller button size on smaller screens */
 @media (max-width: 600px) {
   button {

@@ -83,9 +83,9 @@ const DisplayList = ({
                 marginBottom: "5px",
               }}
               ref={isSelected ? ref : null} // Attach ref to selected item
-              className={`${isCurrent ? "today" : ""} ${
+              className={`${isCurrent ? "today" : "box1"} ${
                 isSelected ? "selected" : ""
-              } box`}
+              } box1`}
               onClick={() => handleClick(option.value, index)}
             >
               {option.display}

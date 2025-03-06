@@ -1,6 +1,5 @@
 import React, { useState, useRef } from "react";
 import { Button, Typography } from "@mui/material";
-import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import InsertInvitationIcon from "@mui/icons-material/InsertInvitation";
 import DatePickerUI from "Components/DatePickerUI";
 import { toNepaliNumber } from "assets/RNepaliCalendar";

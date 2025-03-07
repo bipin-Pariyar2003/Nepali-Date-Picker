@@ -19,7 +19,7 @@ const EngDatePicker = ({ selectedDate, onChange }) => {
           <hr
             style={{
               border: "1px solid black",
-              marginTop: "10px",
+              marginTop: "5px",
               marginBottom: "0px",
             }}
           />
@@ -27,7 +27,7 @@ const EngDatePicker = ({ selectedDate, onChange }) => {
             variant="h5"
             sx={{
               marginTop: "15px",
-              marginBottom: "5px",
+              marginBottom: "15px",
               fontSize: { xs: "0.8rem", md: "1.5rem" },
               fontWeight: "bold",
             }}
@@ -47,7 +47,7 @@ const EngDatePicker = ({ selectedDate, onChange }) => {
                   sx: {
                     height: {
                       xs: "43px", // Smaller height for mobile
-                      md: "53px", // Default height for desktop
+                      md: "55px", // Default height for desktop
                     },
                     width: {
                       xs: "200px", // Full width for mobile

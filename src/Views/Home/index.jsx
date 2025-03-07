@@ -36,7 +36,7 @@ function Home() {
   return (
     <Stack
       sx={{
-        height: { xs: "100%", md: "100svh" },
+        height: { xs: "100svh", md: "100svh" },
         gap: { xs: 0, md: 2 },
       }}
     >
@@ -129,6 +129,8 @@ function Home() {
             gap: { xs: 0, md: 2 },
             border: "1px solid black",
             flex: 1,
+            display: "flex",
+            justifyContent: { xs: "flex-end" },
           }}
         >
           <Typography

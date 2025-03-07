@@ -16,13 +16,13 @@ const EngDatePicker = ({ selectedDate, onChange }) => {
       <div style={{ textAlign: "center" }}>
         <label>
           <hr
-            style={{ border: "1px solid black", marginTop: "15px", marginBottom: "0px" }}
+            style={{ border: "1px solid black", marginTop: "10px", marginBottom: "0px" }}
           />
           <Typography
             variant="h5"
             sx={{
               marginTop: "15px",
-              marginBottom: "0px",
+              marginBottom: "5px",
               fontSize: { xs: "0.8rem", md: "1.5rem" },
               fontWeight: "bold",
             }}
@@ -30,7 +30,7 @@ const EngDatePicker = ({ selectedDate, onChange }) => {
             {selectedDate} &nbsp; A.D.
           </Typography>{" "}
         </label>
-        <br />
+
         <LocalizationProvider dateAdapter={AdapterMoment}>
           <DatePicker
             onChange={handleDateChange}

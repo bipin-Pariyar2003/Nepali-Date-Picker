@@ -20,3 +20,12 @@
 .today {
   background-color: #8b8000;
 }
+
+@media screen and (max-width: 600px) {
+  .box1 {
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

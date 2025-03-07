@@ -54,7 +54,7 @@ const NepDatePicker = ({ selectedDate, onChange }) => {
         <Typography
           variant="h5"
           sx={{
-            marginTop: "15px",
+            marginTop: { xs: 0, md: "15px" },
             marginBottom: "15px",
             fontSize: { xs: "0.8rem", md: "1.5rem" },
             fontWeight: "bold",

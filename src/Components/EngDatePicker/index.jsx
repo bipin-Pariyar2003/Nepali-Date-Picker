@@ -4,6 +4,7 @@ import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { AdapterMoment } from "@mui/x-date-pickers/AdapterMoment";
 import moment from "moment";
 import { Typography } from "@mui/material";
+
 const EngDatePicker = ({ selectedDate, onChange }) => {
   const handleDateChange = (date) => {
     // convert moment obj to YYYY/MM/DD format
@@ -16,7 +17,11 @@ const EngDatePicker = ({ selectedDate, onChange }) => {
       <div style={{ textAlign: "center" }}>
         <label>
           <hr
-            style={{ border: "1px solid black", marginTop: "10px", marginBottom: "0px" }}
+            style={{
+              border: "1px solid black",
+              marginTop: "10px",
+              marginBottom: "0px",
+            }}
           />
           <Typography
             variant="h5"
@@ -36,21 +41,22 @@ const EngDatePicker = ({ selectedDate, onChange }) => {
             onChange={handleDateChange}
             format={"YYYY/MM/DD"}
             value={moment(selectedDate, "YYYY/MM/DD")}
-            sx={{
-              width: {
-                xs: "210px",
-                md: "100%",
-              },
-              height: {
-                xs: "30px",
-                md: "53px",
-              },
-              padding: { xs: "5px", md: "10px" },
-              marginBottom: { xs: "20px" },
-              marginTop: { xs: "0px" },
-            }}
-            //to remove the default outline and box-shadow
             slotProps={{
+              textField: {
+                InputProps: {
+                  sx: {
+                    height: {
+                      xs: "43px", // Smaller height for mobile
+                      md: "53px", // Default height for desktop
+                    },
+                    width: {
+                      xs: "200px", // Full width for mobile
+                      md: "100%", // Full width for desktop
+                    },
+                    padding: { xs: "5px", md: "10px" },
+                  },
+                },
+              },
               openPickerButton: {
                 sx: {
                   "&:focus": {

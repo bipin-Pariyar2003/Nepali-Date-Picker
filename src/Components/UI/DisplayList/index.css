@@ -23,7 +23,9 @@
 
 @media screen and (max-width: 600px) {
   .box1 {
-    height: 25px;
+    height: 40px;
+    padding: "8px";
+    font-size: 1em;
     display: flex;
     align-items: center;
     justify-content: center;

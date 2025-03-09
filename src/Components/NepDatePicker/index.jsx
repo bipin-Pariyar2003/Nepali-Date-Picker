@@ -77,10 +77,9 @@ const NepDatePicker = ({ selectedDate, onChange }) => {
           variant="text"
           onClick={handleShowDatePicker}
           className="button"
-          disableRipple
           sx={{ color: "#757575" }}
         >
-          <InsertInvitationIcon sx={{ height: "25px", width: "25px" }} />
+          <InsertInvitationIcon sx={{ height: "24px", width: "24px" }} />
         </Button>
       </div>
 

@@ -54,7 +54,7 @@ const DisplayList = ({
         variant="h6"
         fontWeight="bold"
         sx={{
-          fontSize: { xs: "0.5rem", md: "1.2rem" },
+          fontSize: { xs: 0, md: "1.2rem" },
           textAlign: "center",
           position: "sticky",
           left: 0,

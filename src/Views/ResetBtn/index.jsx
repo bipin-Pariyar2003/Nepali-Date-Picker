@@ -9,7 +9,7 @@ const ResetBtn = ({ setSelectedEnglishDate, onChange }) => {
 
   return (
     <button className="reset-btn" onClick={handleReset}>
-      Current Date
+      Go to Today
     </button>
   );
 };

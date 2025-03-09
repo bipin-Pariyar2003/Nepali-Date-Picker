@@ -51,11 +51,12 @@ button:active {
 
 .reset-btn {
   font-weight: bold;
-  font-size: 1.2em;
+  font-size: 1em;
   width: 180px;
   height: 50px;
   background-color: #ffffff;
-  box-shadow: #213547 0px 3px 8px;
+  /* box-shadow: #213547 0px 3px 8px; */
+  border: 1px solid #ccc;
   transition: box-shadow 0.2s ease-in-out; /* Smooth transition */
   margin: 0;
 }
@@ -135,7 +136,7 @@ h2 {
 
 /* For WebKit browsers (Chrome, Safari) */
 ::-webkit-scrollbar {
-  width: 10px; /* Adjust the width as needed */
+  width: 7px; /* Adjust the width as needed */
 }
 
 /* Track */
@@ -147,12 +148,13 @@ h2 {
 ::-webkit-scrollbar-thumb {
   /* background: #cecfe8; */
   /* background-color: #786f99; */
-  background-color: #18181b;
+  background-color: #dedede;
+  border-radius: 10px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  background: #ccc;
 }
 
 /* Hide scrollbar for mobile devices */

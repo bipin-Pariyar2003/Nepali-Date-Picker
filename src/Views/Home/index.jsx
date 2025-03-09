@@ -75,13 +75,13 @@ function Home() {
         <Stack
           sx={{
             gap: { xs: 0, md: 2 },
-            border: "1px solid black",
+            // border: "1px solid black",
             flex: 1,
             m: { xs: 1, md: 2 },
             mt: { xs: 1, md: 0 },
           }}
         >
-          {isDesktop && ( // Only show this on desktop views
+          {/* {isDesktop && ( // Only show this on desktop views
             <Typography
               variant="h5"
               sx={{
@@ -95,7 +95,7 @@ function Home() {
             >
               Select date in B.S.
             </Typography>
-          )}
+          )} */}
           <BsView selectedDate={selectedNepaliDate} onChange={handleNepaliDateChange} />
         </Stack>
 
@@ -133,13 +133,13 @@ function Home() {
         <Stack
           sx={{
             gap: { xs: 0, md: 2 },
-            border: "1px solid black",
+            // border: "1px solid black",
             flex: 1,
             m: { xs: 1, md: 2 },
             mt: { xs: 0, md: 0 },
           }}
         >
-          {isDesktop && ( // Only show this on desktop views
+          {/* {isDesktop && ( // Only show this on desktop views
             <Typography
               variant="h5"
               sx={{
@@ -153,7 +153,7 @@ function Home() {
             >
               Select Date in A.D.
             </Typography>
-          )}
+          )} */}
           <AdView selectedDate={selectedEnglishDate} onChange={handleEngDateChange} />
         </Stack>
       </Stack>

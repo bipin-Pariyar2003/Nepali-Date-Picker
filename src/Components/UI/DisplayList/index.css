@@ -3,7 +3,7 @@
   font-weight: bold;
   /* background-color: #cecfe8; */
   background-color: #ffffff;
-  box-shadow: #213547 0px 3px 8px;
+  /* box-shadow: #213547 0px 3px 8px; */
   margin: 0;
 }
 
@@ -18,7 +18,7 @@
 }
 
 .today {
-  background-color: #8b8000;
+  background-color: #dadada;
 }
 
 @media screen and (max-width: 600px) {

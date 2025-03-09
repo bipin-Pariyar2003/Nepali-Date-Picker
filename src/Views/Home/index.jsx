@@ -64,7 +64,7 @@ function Home() {
       {/* Main Container */}
       <Stack
         direction={{ xs: "column", md: "row" }}
-        gap={{ xs: 2, md: 2 }}
+        gap={{ xs: 1, md: 2 }}
         sx={{
           overflow: "hidden",
           width: "100%",

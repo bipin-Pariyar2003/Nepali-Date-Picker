@@ -52,7 +52,7 @@ const DisplayList = ({ handleClick, options, isToday, isSelectedValue, viewDate 
         }}
       >
         {/* Extra empty space for centering first elements */}
-        <Box sx={{ height: { xs: "0", md: "200px" } }}></Box>
+        <Box sx={{ height: { xs: "0", md: "310px" } }}></Box>
         {options.map((option, index) => {
           const isCurrent = isToday({ display: option.value, index });
           const isSelected = isSelectedValue({ display: option.value, index });
@@ -74,7 +74,7 @@ const DisplayList = ({ handleClick, options, isToday, isSelectedValue, viewDate 
           );
         })}
         {/* Extra empty space for centering last elements */}
-        <Box sx={{ height: { xs: "0px", md: "200px" } }}></Box>
+        <Box sx={{ height: { xs: "0px", md: "310px" } }}></Box>
       </Box>
     </Stack>
   );

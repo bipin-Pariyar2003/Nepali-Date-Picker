@@ -73,7 +73,6 @@ const DayDisplayList = ({ onChange, setViewDate, viewDate, dateType = "BS" }) =>
 
   return (
     <DisplayList
-      title="Days"
       handleClick={handleClickDay}
       isToday={checkIsToday}
       isSelectedValue={checkSelectedValue}

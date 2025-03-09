@@ -1,15 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./index.css";
-import { Box, Stack, Typography } from "@mui/material";
+import { Box, Stack } from "@mui/material";
 
-const DisplayList = ({
-  handleClick,
-  title,
-  options,
-  isToday,
-  isSelectedValue,
-  viewDate,
-}) => {
+const DisplayList = ({ handleClick, options, isToday, isSelectedValue, viewDate }) => {
   const ref = useRef(null);
   const [windowSize, setWindowSize] = useState({
     width: window.innerWidth,
@@ -50,20 +43,6 @@ const DisplayList = ({
         width: "100%",
       }}
     >
-      <Typography
-        variant="h6"
-        fontWeight="bold"
-        sx={{
-          fontSize: { xs: 0, md: "1.2rem" },
-          textAlign: "center",
-          position: "sticky",
-          left: 0,
-          top: 0,
-          backgroundColor: "#ffffff",
-        }}
-      >
-        {title}
-      </Typography>
       <Box
         sx={{
           padding: { xs: "2px", md: "10px 20px" },

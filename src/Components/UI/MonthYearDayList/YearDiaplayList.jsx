@@ -100,7 +100,6 @@ const YearDisplayList = ({ onChange, setViewDate, viewDate, dateType = "BS" }) =
 
   return (
     <DisplayList
-      title={dateType === "BS" ? "Year (B.S.)" : "Year (A.D.)"}
       handleClick={handleClickYear}
       isToday={checkIsToday}
       isSelectedValue={checkSelectedValue}

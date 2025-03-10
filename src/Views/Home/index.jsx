@@ -123,10 +123,13 @@ function Home() {
             selectedDate={selectedEnglishDate}
             onChange={handleEngDateChange}
           />
-          <ResetBtn
-            setSelectedEnglishDate={setSelectedEnglishDate}
-            onChange={handleEngDateChange}
-          />
+
+          {selectedEnglishDate !== initialEnglishDate && (
+            <ResetBtn
+              setSelectedEnglishDate={setSelectedEnglishDate}
+              onChange={handleEngDateChange}
+            />
+          )}
         </Box>
 
         {/* A.D View */}

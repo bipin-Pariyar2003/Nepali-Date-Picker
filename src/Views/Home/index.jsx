@@ -1,6 +1,6 @@
 import { useState } from "react";
 import moment from "moment";
-import { autocompleteClasses, useMediaQuery } from "@mui/material"; // Import useMediaQuery
+import { useMediaQuery } from "@mui/material"; // Import useMediaQuery
 import NepDatePicker from "Components/NepDatePicker";
 import { ad2bsHandler, bs2adHandler } from "utils";
 
@@ -12,8 +12,6 @@ import { Box, Stack, Typography } from "@mui/material";
 import ResetBtn from "Views/ResetBtn";
 
 function Home() {
-  const isDesktop = useMediaQuery("(min-width:900px)"); // Check if screen width is 900px or more
-
   const initialEnglishDate = moment().format("YYYY/MM/DD");
   const initialNepaliDate = ad2bsHandler(initialEnglishDate);
 
@@ -64,7 +62,7 @@ function Home() {
       {/* Main Container */}
       <Stack
         direction={{ xs: "column", md: "row" }}
-        gap={{ xs: 1, md: 2 }}
+        gap={{ xs: 8, md: 2 }}
         sx={{
           overflow: "hidden",
           width: "100%",
@@ -81,26 +79,12 @@ function Home() {
             mt: { xs: 1, md: 0 },
           }}
         >
-          {/* {isDesktop && ( // Only show this on desktop views
-            <Typography
-              variant="h5"
-              sx={{
-                fontWeight: "bold",
-                textAlign: "center",
-                textDecoration: "underline",
-                padding: "6px",
-                fontSize: "1.5rem",
-                minHeight: "40px",
-              }}
-            >
-              Select date in B.S.
-            </Typography>
-          )} */}
           <BsView selectedDate={selectedNepaliDate} onChange={handleNepaliDateChange} />
         </Stack>
 
         {/* Date Pickers */}
-        <Box
+
+        {/* <Box
           sx={{
             display: "flex",
             flexDirection: "column",
@@ -123,6 +107,7 @@ function Home() {
             selectedDate={selectedEnglishDate}
             onChange={handleEngDateChange}
           />
+          <Box sx={{ flexGrow: 1 }} />
 
           {selectedEnglishDate !== initialEnglishDate && (
             <ResetBtn
@@ -130,33 +115,71 @@ function Home() {
               onChange={handleEngDateChange}
             />
           )}
+        </Box> */}
+
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center", // Keeps everything centered
+            flex: 1,
+            width: { xs: "100%", md: "350px" },
+            margin: "0 auto",
+            position: "relative", // Make this a relative container for positioning elements
+            height: "100%", // Ensure full height is available to center content
+          }}
+        >
+          {/* Stack to center Date Pickers */}
+          <Stack
+            spacing={2}
+            alignItems="center"
+            sx={{
+              height: "auto", // Ensures height is based on content, no stretching
+              justifyContent: "center", // Keeps date pickers centered
+              position: "relative", // Relative positioning of content inside
+            }}
+          >
+            <NepDatePicker
+              selectedDate={selectedNepaliDate}
+              onChange={handleNepaliDateChange}
+              sx={{ width: { xs: "80%", sm: "100%" } }}
+            />
+            <EngDatePicker
+              sx={{ height: "min-content", width: { xs: "80%", sm: "100%" } }}
+              selectedDate={selectedEnglishDate}
+              onChange={handleEngDateChange}
+            />
+          </Stack>
+
+          {/* Reset Button positioned absolutely at the bottom */}
+          {selectedEnglishDate !== initialEnglishDate && (
+            <Box
+              sx={{
+                position: "absolute", // Position the reset button at the bottom
+                bottom: "80px",
+                width: "100%",
+                textAlign: "center",
+                paddingBottom: "16px", // Add some padding for spacing
+              }}
+            >
+              <ResetBtn
+                setSelectedEnglishDate={setSelectedEnglishDate}
+                onChange={handleEngDateChange}
+              />
+            </Box>
+          )}
         </Box>
 
         {/* A.D View */}
         <Stack
           sx={{
             gap: { xs: 0, md: 2 },
-            // border: "1px solid black",
             flex: 1,
             m: { xs: 1, md: 2 },
             mt: { xs: 0, md: 0 },
           }}
         >
-          {/* {isDesktop && ( // Only show this on desktop views
-            <Typography
-              variant="h5"
-              sx={{
-                fontWeight: "bold",
-                textAlign: "center",
-                textDecoration: "underline",
-                padding: "6px",
-                fontSize: "1.5rem",
-                minHeight: "40px",
-              }}
-            >
-              Select Date in A.D.
-            </Typography>
-          )} */}
           <AdView selectedDate={selectedEnglishDate} onChange={handleEngDateChange} />
         </Stack>
       </Stack>

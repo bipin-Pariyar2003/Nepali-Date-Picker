@@ -4,6 +4,7 @@ import InsertInvitationIcon from "@mui/icons-material/InsertInvitation";
 import DatePickerUI from "Components/DatePickerUI";
 import { toNepaliNumber } from "assets/RNepaliCalendar";
 import "./styles.css"; // Import your CSS file
+import { isValidDate } from "../UI/MonthYearDayList/setup";
 
 const NepDatePicker = ({ selectedDate, onChange }) => {
   const inputRef = useRef(selectedDate);
@@ -43,7 +44,7 @@ const NepDatePicker = ({ selectedDate, onChange }) => {
     e.target.value = formattedValue; // Update input field
 
     // Check if input matches YYYY/MM/DD format and trigger handleChange
-    if (/^\d{4}\/\d{2}\/\d{2}$/.test(formattedValue)) {
+    if (/^\d{4}\/\d{2}\/\d{2}$/.test(formattedValue) && isValidDate(formattedValue)) {
       onChange(formattedValue);
     }
   };

@@ -2,14 +2,13 @@
   background-color: #ccc;
 }
 
-.selected-day {
-  /* background-color: #786f80; */
-  background-color: #18181b;
-  color: #ffffff;
-}
-
 .today {
   background-color: #786f99;
+}
+
+.selected-day {
+  background-color: #18181b;
+  color: #ffffff;
 }
 
 .years-select {

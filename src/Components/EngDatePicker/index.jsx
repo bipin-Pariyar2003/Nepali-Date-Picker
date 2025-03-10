@@ -53,7 +53,6 @@ const EngDatePicker = ({ selectedDate, onChange }) => {
                       xs: "200px", // Full width for mobile
                       md: "100%", // Full width for desktop
                     },
-                    padding: { xs: "5px", md: "10px" },
                   },
                 },
               },

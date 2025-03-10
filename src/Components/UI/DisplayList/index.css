@@ -6,7 +6,7 @@
 }
 
 .box1:hover:not(.selected, .today) {
-  background-color: #ccc;
+  background-color: #eee;
 }
 .today {
   background-color: #dadada;

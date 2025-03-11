@@ -1,6 +1,5 @@
 import { ad2bs, bs2ad } from "assets/RNepaliCalendar";
 import { toNepaliNumber } from "assets/RNepaliCalendar";
-import { calendar_data } from "../assets/RNepaliCalendar/data";
 const ad2bsHandler = (adDate) => {
   const { year, month, date } = ad2bs(adDate);
 

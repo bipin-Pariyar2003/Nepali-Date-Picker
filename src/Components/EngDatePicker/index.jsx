@@ -46,12 +46,12 @@ const EngDatePicker = ({ selectedDate, onChange }) => {
                 InputProps: {
                   sx: {
                     height: {
-                      xs: "43px", // Smaller height for mobile
-                      md: "55px", // Default height for desktop
+                      xs: "43px",
+                      md: "55px",
                     },
                     width: {
-                      xs: "200px", // Full width for mobile
-                      md: "100%", // Full width for desktop
+                      xs: "200px",
+                      md: "100%",
                     },
                   },
                 },
@@ -59,8 +59,8 @@ const EngDatePicker = ({ selectedDate, onChange }) => {
               openPickerButton: {
                 sx: {
                   "&:focus": {
-                    outline: "none", // Remove default outline
-                    boxShadow: "none", // Remove any box-shadow
+                    outline: "none",
+                    boxShadow: "none",
                   },
                   "&:focus-visible": {
                     outline: "none",

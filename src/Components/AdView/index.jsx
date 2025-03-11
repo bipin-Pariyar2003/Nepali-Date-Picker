@@ -6,7 +6,7 @@ import {
   DayDisplayList,
   MonthDisplayList,
   YearDisplayList,
-} from "../../Components/UI/MonthYearDayList";
+} from "../UI/MonthYearDayList";
 
 const AdView = ({ selectedDate, onChange }) => {
   const [viewDate, setViewDate] = React.useState({

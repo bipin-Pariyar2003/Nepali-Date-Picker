@@ -3,12 +3,12 @@ import moment from "moment";
 import NepDatePicker from "Components/NepDatePicker";
 import { ad2bsHandler, bs2adHandler } from "utils";
 
-import BsView from "Views/BsView";
-import AdView from "Views/AdView";
+import BsView from "Components/BsView";
+import AdView from "Components/AdView";
 
 import EngDatePicker from "Components/EngDatePicker";
 import { Box, Stack, Typography } from "@mui/material";
-import ResetBtn from "Views/ResetBtn";
+import ResetBtn from "Components/ResetBtn";
 
 function Home() {
   const initialEnglishDate = moment().format("YYYY/MM/DD");

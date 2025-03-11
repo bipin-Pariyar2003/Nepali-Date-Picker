@@ -47,6 +47,7 @@ export default defineConfig({
       Views: path.resolve(__dirname, "src/Views"),
       utils: path.resolve(__dirname, "src/utils"),
       assets: path.resolve(__dirname, "src/assets"),
+      UI: path.resolve(__dirname, "src/Components/UI"),
     },
   },
 });

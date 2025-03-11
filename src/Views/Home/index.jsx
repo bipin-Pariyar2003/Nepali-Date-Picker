@@ -224,8 +224,8 @@ function Home() {
   return (
     <Stack
       sx={{
-        height: "100svh",
-        gap: { xs: 2, md: 2 }, // Added gap for mobile view
+        height: { xs: "100%", md: "100svh" },
+        gap: { xs: 0, md: 2 },
       }}
     >
       <Box
@@ -269,59 +269,6 @@ function Home() {
           <BsView selectedDate={selectedNepaliDate} onChange={handleNepaliDateChange} />
         </Stack>
 
-        {/* <Box
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-          
-            justifyContent: { xs: "flex-start", md: "center" },
-            flex: 1,
-            width: { xs: "100%", md: "350px" },
-            margin: "0 auto",
-            position: "relative",
-            height: "100%",
-          }}
-        >
- 
-          <Stack
-            spacing={2}
-            alignItems="center"
-            sx={{
-              height: "auto",
-              justifyContent: { md: "center" },
-              position: "relative",
-            }}
-          >
-            <NepDatePicker
-              selectedDate={selectedNepaliDate}
-              onChange={handleNepaliDateChange}
-              sx={{ width: { xs: "80%", sm: "100%" } }}
-            />
-            <EngDatePicker
-              sx={{ height: "min-content", width: { xs: "80%", sm: "100%" } }}
-              selectedDate={selectedEnglishDate}
-              onChange={handleEngDateChange}
-            />
-          </Stack>
-
-      
-          {selectedEnglishDate !== initialEnglishDate && (
-            <Box
-              sx={{
-                position: { xs: "static", md: "absolute" },
-                bottom: "80px",
-                width: "100%",
-                textAlign: "center",
-              }}
-            >
-              <ResetBtn
-                setSelectedEnglishDate={setSelectedEnglishDate}
-                onChange={handleEngDateChange}
-              />
-            </Box>
-          )}
-        </Box> */}
-
         <Box
           sx={{
             display: "flex",
@@ -332,7 +279,7 @@ function Home() {
             margin: "0 auto",
             position: "relative",
             height: "100%",
-            mt: { xs: "-20px", md: "0px" }, // Move date picker up on mobile (adjust the value as needed)
+            mt: { xs: "0px", md: "0px" }, // Move date picker up on mobile (adjust the value as needed)
           }}
         >
           {/* Stack to center Date Pickers */}

@@ -102,7 +102,7 @@ import InsertInvitationIcon from "@mui/icons-material/InsertInvitation";
 import DatePickerUI from "Components/DatePickerUI";
 import { toNepaliNumber } from "assets/RNepaliCalendar";
 import "./styles.css"; // Import your CSS file
-import { isValidDate } from "../UI/MonthYearDayList/setup"; // Ensure this function validates the Nepali date
+import { isValidDate } from "UI/MonthYearDayList/setup"; // Ensure this function validates the Nepali date
 
 const NepDatePicker = ({ selectedDate, onChange }) => {
   const inputRef = useRef(selectedDate);

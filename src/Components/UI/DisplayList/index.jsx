@@ -30,7 +30,11 @@ const DisplayList = ({ handleClick, options, isToday, isSelectedValue, viewDate 
   useEffect(() => {
     if (ref.current) {
       // Scroll to the selected element when the viewDate changes or the screen size changes
-      ref.current.scrollIntoView({ block: "center", behavior: "smooth" });
+      ref.current.scrollIntoView({
+        block: "center",
+        inline: "center",
+        behavior: "smooth",
+      });
     }
   }, [viewDate, windowSize]); // Trigger scroll when viewDate or windowSize changes
 

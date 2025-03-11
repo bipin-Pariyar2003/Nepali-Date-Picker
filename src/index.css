@@ -89,11 +89,6 @@ button:hover {
   box-shadow: #646cff 1px;
 }
 
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
 h2 {
   font-size: 1.5em;
   text-align: center;

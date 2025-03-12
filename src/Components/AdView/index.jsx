@@ -1,5 +1,4 @@
-import React from "react";
-import { getDaysInMonth } from "utils";
+import React, { useEffect } from "react";
 
 import { Stack } from "@mui/material";
 import {
@@ -8,37 +7,22 @@ import {
   YearDisplayList,
 } from "../UI/MonthYearDayList";
 import { useDispatch, useSelector } from "react-redux";
-import { setEnglishDate } from "features/dateSlice";
+import { setEnglishDate, setViewDateAD } from "features/dateSlice";
 
 const AdView = () => {
   const selectedDate = useSelector((state) => state.date.englishDate);
+  const viewDate = useSelector((state) => state.date.viewDateAD);
   const dispatch = useDispatch();
   const handleChange = (newDate) => {
     dispatch(setEnglishDate(newDate));
   };
-  const [viewDate, setViewDate] = React.useState({
-    year: selectedDate.split("/").at(0),
-    month: selectedDate.split("/").at(1),
-    date: selectedDate.split("/").at(2),
-    daysArray: [],
-  });
 
-  React.useEffect(() => {
-    const daysInMonth = getDaysInMonth(
-      selectedDate.split("/").at(0),
-      selectedDate.split("/").at(1)
-    );
-    const daysArray = Array.from({ length: daysInMonth }, (_, i) => i + 1);
-    setViewDate({
-      year: selectedDate.split("/").at(0),
-      month: selectedDate.split("/").at(1),
-      date: selectedDate.split("/").at(2),
-      daysArray: daysArray.map((v) => ({
-        display: v,
-        value: v,
-      })),
-    });
-  }, [selectedDate]);
+  useEffect(() => {
+    const year = selectedDate.split("/").at(0);
+    const month = selectedDate.split("/").at(1);
+    const date = selectedDate.split("/").at(2);
+    dispatch(setViewDateAD({ year, month, date }));
+  }, [selectedDate, dispatch]);
 
   return (
     <Stack
@@ -46,25 +30,10 @@ const AdView = () => {
       gap={{ xs: 1, md: 4 }}
       style={{ overflow: "auto" }}
     >
-      <DayDisplayList
-        onChange={handleChange}
-        setViewDate={setViewDate}
-        viewDate={viewDate}
-        dateType="AD"
-      />
-      <MonthDisplayList
-        onChange={handleChange}
-        setViewDate={setViewDate}
-        viewDate={viewDate}
-        dateType="AD"
-      />
+      <DayDisplayList onChange={handleChange} viewDate={viewDate} dateType="AD" />
+      <MonthDisplayList onChange={handleChange} viewDate={viewDate} dateType="AD" />
 
-      <YearDisplayList
-        onChange={handleChange}
-        setViewDate={setViewDate}
-        viewDate={viewDate}
-        dateType="AD"
-      />
+      <YearDisplayList onChange={handleChange} viewDate={viewDate} dateType="AD" />
     </Stack>
   );
 };

@@ -6,8 +6,16 @@ import {
   MonthDisplayList,
   YearDisplayList,
 } from "../UI/MonthYearDayList";
+import { useDispatch, useSelector } from "react-redux";
+import { setNepaliDate } from "../../features/dateSlice";
 
-const BsView = ({ selectedDate, onChange }) => {
+const BsView = () => {
+  const selectedDate = useSelector((state) => state.date.nepaliDate);
+  const dispatch = useDispatch();
+  const handleChange = (newDate) => {
+    dispatch(setNepaliDate(newDate));
+  };
+
   const [viewDate, setViewDate] = React.useState({
     year: selectedDate.split("/").at(0),
     month: selectedDate.split("/").at(1),
@@ -43,21 +51,21 @@ const BsView = ({ selectedDate, onChange }) => {
       {/* showing the years  */}
 
       <YearDisplayList
-        onChange={onChange}
+        onChange={handleChange}
         setViewDate={setViewDate}
         viewDate={viewDate}
         dateType="BS"
       />
 
       <MonthDisplayList
-        onChange={onChange}
+        onChange={handleChange}
         setViewDate={setViewDate}
         viewDate={viewDate}
         dateType="BS"
       />
 
       <DayDisplayList
-        onChange={onChange}
+        onChange={handleChange}
         setViewDate={setViewDate}
         viewDate={viewDate}
         dateType="BS"

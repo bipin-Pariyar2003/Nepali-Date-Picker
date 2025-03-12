@@ -1,6 +1,6 @@
 import moment from "moment";
 import { useDispatch } from "react-redux";
-import { setEnglishDate } from "../../features/dateSlice";
+import { setEnglishDate } from "features/dateSlice";
 
 const ResetBtn = () => {
   const dispatch = useDispatch();

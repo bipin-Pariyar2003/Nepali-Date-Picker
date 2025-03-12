@@ -10,7 +10,7 @@ import { getCurrentBS, toNepaliNumber } from "assets/RNepaliCalendar";
 import RNepaliCalendar from "assets/RNepaliCalendar";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setNepaliDate } from "../../features/dateSlice";
+import { setNepaliDate } from "features/dateSlice";
 
 // pass the formatted date too
 export default function DatePickerUI({ anchorEl, handleClose }) {

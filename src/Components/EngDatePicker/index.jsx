@@ -5,7 +5,7 @@ import { AdapterMoment } from "@mui/x-date-pickers/AdapterMoment";
 import moment from "moment";
 import { Typography } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
-import { setEnglishDate } from "../../features/dateSlice";
+import { setEnglishDate } from "features/dateSlice";
 
 const EngDatePicker = () => {
   const selectedDate = useSelector((state) => state.date.englishDate);

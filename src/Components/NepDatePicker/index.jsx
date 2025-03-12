@@ -6,7 +6,7 @@ import { toNepaliNumber } from "assets/RNepaliCalendar";
 import "./styles.css";
 import { isValidDate } from "UI/MonthYearDayList/setup"; // Ensure this function validates the Nepali date
 import { useDispatch, useSelector } from "react-redux";
-import { setNepaliDate } from "../../features/dateSlice";
+import { setNepaliDate } from "features/dateSlice";
 
 const NepDatePicker = () => {
   const selectedDate = useSelector((state) => state.date.nepaliDate);

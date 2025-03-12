@@ -7,7 +7,7 @@ import {
   YearDisplayList,
 } from "../UI/MonthYearDayList";
 import { useDispatch, useSelector } from "react-redux";
-import { setNepaliDate } from "../../features/dateSlice";
+import { setNepaliDate } from "features/dateSlice";
 
 const BsView = () => {
   const selectedDate = useSelector((state) => state.date.nepaliDate);

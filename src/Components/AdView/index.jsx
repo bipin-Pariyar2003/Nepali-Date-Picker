@@ -8,7 +8,7 @@ import {
   YearDisplayList,
 } from "../UI/MonthYearDayList";
 import { useDispatch, useSelector } from "react-redux";
-import { setEnglishDate } from "../../features/dateSlice";
+import { setEnglishDate } from "features/dateSlice";
 
 const AdView = () => {
   const selectedDate = useSelector((state) => state.date.englishDate);

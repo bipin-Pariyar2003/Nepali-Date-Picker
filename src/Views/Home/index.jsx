@@ -1,6 +1,6 @@
 import moment from "moment";
 
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import NepDatePicker from "Components/NepDatePicker";
 
 import BsView from "Components/BsView";
@@ -9,26 +9,17 @@ import AdView from "Components/AdView";
 import EngDatePicker from "Components/EngDatePicker";
 import { Box, Stack, Typography } from "@mui/material";
 import ResetBtn from "Components/ResetBtn";
-import { setEnglishDate, setNepaliDate } from "features/dateSlice";
 
 function Home() {
-  const dispatch = useDispatch();
-
-  const selectedNepaliDate = useSelector((state) => state.date.nepaliDate);
+  //for conditional rendering of reset btn
   const selectedEnglishDate = useSelector((state) => state.date.englishDate);
-
-  const handleNepaliDateChange = (date) => {
-    dispatch(setNepaliDate(date));
-  };
-
-  const handleEngDateChange = (date) => {
-    dispatch(setEnglishDate(date));
-  };
 
   return (
     <Stack
       sx={{
-        height: { xs: "100%", md: "100svh" },
+        height: { md: "100svh" },
+        minHeight: { xs: "100svh", md: "100svh" },
+        overflow: "auto",
         gap: { xs: 0, md: 2 },
       }}
     >
@@ -70,7 +61,7 @@ function Home() {
             mt: { xs: 1, md: 0 },
           }}
         >
-          <BsView selectedDate={selectedNepaliDate} onChange={handleNepaliDateChange} />
+          <BsView />
         </Stack>
 
         <Box

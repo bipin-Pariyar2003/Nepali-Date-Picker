@@ -1,10 +1,16 @@
 import moment from "moment";
+import { useDispatch } from "react-redux";
+import { setEnglishDate } from "../../features/dateSlice";
 
-const ResetBtn = ({ setSelectedEnglishDate, onChange }) => {
+const ResetBtn = () => {
+  const dispatch = useDispatch();
+
+  const handleChange = (newDate) => {
+    dispatch(setEnglishDate(newDate));
+  };
   const handleReset = () => {
     const currentEnglishDate = moment().format("YYYY/MM/DD");
-    setSelectedEnglishDate(currentEnglishDate);
-    onChange(currentEnglishDate);
+    handleChange(currentEnglishDate);
   };
 
   return (

@@ -15,9 +15,12 @@
     "@mui/icons-material": "^6.4.3",
     "@mui/material": "^6.4.3",
     "@mui/x-date-pickers": "^7.25.0",
+    "@reduxjs/toolkit": "^2.6.1",
     "moment": "^2.30.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-redux": "^9.2.0",
+    "redux": "^5.0.1",
     "vite-tsconfig-paths": "^5.1.4"
   },
   "devDependencies": {
@@ -29,7 +32,7 @@
     "eslint-plugin-react-hooks": "^5.0.0",
     "eslint-plugin-react-refresh": "^0.4.18",
     "globals": "^15.14.0",
-    "vite": "^6.1.0",
+    "vite": "^6.2.1",
     "vite-plugin-pwa": "^0.21.1"
   }
 }

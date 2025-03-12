@@ -1,5 +1,7 @@
 import { useState } from "react";
 import moment from "moment";
+
+import { useSelector, useDispatch } from "react-redux";
 import NepDatePicker from "Components/NepDatePicker";
 import { ad2bsHandler, bs2adHandler } from "utils";
 
@@ -9,25 +11,39 @@ import AdView from "Components/AdView";
 import EngDatePicker from "Components/EngDatePicker";
 import { Box, Stack, Typography } from "@mui/material";
 import ResetBtn from "Components/ResetBtn";
+import { setEnglishDate, setNepaliDate } from "features/dateSlice";
 
 function Home() {
-  const initialEnglishDate = moment().format("YYYY/MM/DD");
-  const initialNepaliDate = ad2bsHandler(initialEnglishDate);
+  const dispatch = useDispatch();
 
-  const [selectedNepaliDate, setSelectedNepaliDate] = useState(initialNepaliDate);
-  const [selectedEnglishDate, setSelectedEnglishDate] = useState(initialEnglishDate);
+  const selectedNepaliDate = useSelector((state) => state.date.nepaliDate);
+  const selectedEnglishDate = useSelector((state) => state.date.englishDate);
 
   const handleNepaliDateChange = (date) => {
-    setSelectedNepaliDate(date);
-    const engDate = bs2adHandler(date);
-    setSelectedEnglishDate(engDate);
+    dispatch(setNepaliDate(date));
   };
 
   const handleEngDateChange = (date) => {
-    setSelectedEnglishDate(date);
-    const nepDate = ad2bsHandler(date);
-    setSelectedNepaliDate(nepDate);
+    dispatch(setEnglishDate(date));
   };
+
+  // const initialEnglishDate = moment().format("YYYY/MM/DD");
+  // const initialNepaliDate = ad2bsHandler(initialEnglishDate);
+
+  // const [selectedNepaliDate, setSelectedNepaliDate] = useState(initialNepaliDate);
+  // const [selectedEnglishDate, setSelectedEnglishDate] = useState(initialEnglishDate);
+
+  // const handleNepaliDateChange = (date) => {
+  //   setSelectedNepaliDate(date);
+  //   const engDate = bs2adHandler(date);
+  //   setSelectedEnglishDate(engDate);
+  // };
+
+  // const handleEngDateChange = (date) => {
+  //   setSelectedEnglishDate(date);
+  //   const nepDate = ad2bsHandler(date);
+  //   setSelectedNepaliDate(nepDate);
+  // };
 
   return (
     <Stack
@@ -113,7 +129,7 @@ function Home() {
           </Stack>
 
           {/* Reset Button positioned absolutely at the bottom */}
-          {selectedEnglishDate !== initialEnglishDate && (
+          {selectedEnglishDate !== moment().format("YYYY/MM/DD") && (
             <Box
               sx={{
                 position: { xs: "static", md: "absolute" },
@@ -123,7 +139,7 @@ function Home() {
               }}
             >
               <ResetBtn
-                setSelectedEnglishDate={setSelectedEnglishDate}
+                setSelectedEnglishDate={setEnglishDate}
                 onChange={handleEngDateChange}
               />
             </Box>

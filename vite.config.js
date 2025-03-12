@@ -48,6 +48,10 @@ export default defineConfig({
       utils: path.resolve(__dirname, "src/utils"),
       assets: path.resolve(__dirname, "src/assets"),
       UI: path.resolve(__dirname, "src/Components/UI"),
+
+      // causing error
+      // redux: path.resolve(__dirname, "src/redux"),
+      features: path.resolve(__dirname, "src/features"),
     },
   },
 });

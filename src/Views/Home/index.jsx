@@ -47,8 +47,7 @@ function Home() {
           overflow: "hidden",
           width: "100%",
           flex: 1,
-          // alignItems: "stretch", // Ensure children stretch to full height
-          alighItems: { xs: "space-between", md: "center" },
+          // alighItems: { xs: "space-between", md: "center" },
         }}
       >
         {/* B.S View */}
@@ -58,7 +57,7 @@ function Home() {
             flex: 1,
             justifyContent: { xs: "center" },
             m: { xs: 1, md: 2 },
-            mt: { xs: 1, md: 0 },
+            mt: { xs: 0, md: 0 },
           }}
         >
           <BsView />

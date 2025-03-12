@@ -9,14 +9,18 @@ import "./index.css";
 import { getCurrentBS, toNepaliNumber } from "assets/RNepaliCalendar";
 import RNepaliCalendar from "assets/RNepaliCalendar";
 import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { setNepaliDate } from "../../features/dateSlice";
 
 // pass the formatted date too
-export default function DatePickerUI({
-  anchorEl,
-  handleClose,
-  onDateSelect,
-  selectedDate,
-}) {
+export default function DatePickerUI({ anchorEl, handleClose }) {
+  const dispatch = useDispatch();
+  const selectedDate = useSelector((state) => state.date.nepaliDate);
+
+  const onDateSelect = (newDate) => {
+    dispatch(setNepaliDate(newDate));
+  };
+
   const open = Boolean(anchorEl);
   const id = open ? "date-picker-popover" : undefined;
 

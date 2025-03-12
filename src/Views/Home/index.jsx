@@ -27,24 +27,6 @@ function Home() {
     dispatch(setEnglishDate(date));
   };
 
-  // const initialEnglishDate = moment().format("YYYY/MM/DD");
-  // const initialNepaliDate = ad2bsHandler(initialEnglishDate);
-
-  // const [selectedNepaliDate, setSelectedNepaliDate] = useState(initialNepaliDate);
-  // const [selectedEnglishDate, setSelectedEnglishDate] = useState(initialEnglishDate);
-
-  // const handleNepaliDateChange = (date) => {
-  //   setSelectedNepaliDate(date);
-  //   const engDate = bs2adHandler(date);
-  //   setSelectedEnglishDate(engDate);
-  // };
-
-  // const handleEngDateChange = (date) => {
-  //   setSelectedEnglishDate(date);
-  //   const nepDate = ad2bsHandler(date);
-  //   setSelectedNepaliDate(nepDate);
-  // };
-
   return (
     <Stack
       sx={{

@@ -7,8 +7,14 @@ import {
   MonthDisplayList,
   YearDisplayList,
 } from "../UI/MonthYearDayList";
+import { useSelector } from "react-redux";
+import { setEnglishDate } from "../../features/dateSlice";
 
-const AdView = ({ selectedDate, onChange }) => {
+const AdView = () => {
+  const selectedDate = useSelector((state) => state.date.englishDate);
+  const handleChange = (newDate) => {
+    dispatch(setEnglishDate(newDate));
+  };
   const [viewDate, setViewDate] = React.useState({
     year: selectedDate.split("/").at(0),
     month: selectedDate.split("/").at(1),
@@ -40,20 +46,20 @@ const AdView = ({ selectedDate, onChange }) => {
       style={{ overflow: "auto" }}
     >
       <DayDisplayList
-        onChange={onChange}
+        onChange={handleChange}
         setViewDate={setViewDate}
         viewDate={viewDate}
         dateType="AD"
       />
       <MonthDisplayList
-        onChange={onChange}
+        onChange={handleChange}
         setViewDate={setViewDate}
         viewDate={viewDate}
         dateType="AD"
       />
 
       <YearDisplayList
-        onChange={onChange}
+        onChange={handleChange}
         setViewDate={setViewDate}
         viewDate={viewDate}
         dateType="AD"

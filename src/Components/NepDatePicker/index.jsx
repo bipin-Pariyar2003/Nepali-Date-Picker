@@ -5,8 +5,16 @@ import DatePickerUI from "Components/DatePickerUI";
 import { toNepaliNumber } from "assets/RNepaliCalendar";
 import "./styles.css";
 import { isValidDate } from "UI/MonthYearDayList/setup"; // Ensure this function validates the Nepali date
+import { useDispatch, useSelector } from "react-redux";
+import { setNepaliDate } from "../../features/dateSlice";
 
-const NepDatePicker = ({ selectedDate, onChange }) => {
+const NepDatePicker = () => {
+  const selectedDate = useSelector((state) => state.date.nepaliDate);
+  const dispatch = useDispatch();
+  const handleChange = (newDate) => {
+    dispatch(setNepaliDate(newDate));
+  };
+
   const inputRef = useRef(selectedDate);
   const [anchorEl, setAnchorEl] = useState(null);
 
@@ -55,7 +63,7 @@ const NepDatePicker = ({ selectedDate, onChange }) => {
 
       // If the date is valid, trigger the onChange callback
       if (isValidDate(formattedValue)) {
-        onChange(formattedValue);
+        handleChange(formattedValue);
       }
     }
   };
@@ -98,7 +106,7 @@ const NepDatePicker = ({ selectedDate, onChange }) => {
       <DatePickerUI
         anchorEl={anchorEl}
         handleClose={handleClose}
-        onDateSelect={onChange}
+        onDateSelect={handleChange}
         selectedDate={selectedDate}
       />
     </div>

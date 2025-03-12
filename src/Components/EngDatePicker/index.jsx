@@ -4,12 +4,19 @@ import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { AdapterMoment } from "@mui/x-date-pickers/AdapterMoment";
 import moment from "moment";
 import { Typography } from "@mui/material";
+import { useDispatch, useSelector } from "react-redux";
+import { setEnglishDate } from "../../features/dateSlice";
 
-const EngDatePicker = ({ selectedDate, onChange }) => {
+const EngDatePicker = () => {
+  const selectedDate = useSelector((state) => state.date.englishDate);
+  const dispatch = useDispatch();
+  const hangleChange = (newDate) => {
+    dispatch(setEnglishDate(newDate));
+  };
   const handleDateChange = (date) => {
     // convert moment obj to YYYY/MM/DD format
     const formattedDate = date.format("YYYY/MM/DD");
-    onChange(formattedDate);
+    hangleChange(formattedDate);
   };
 
   return (

@@ -103,12 +103,7 @@ const NepDatePicker = () => {
         </Button>
       </div>
 
-      <DatePickerUI
-        anchorEl={anchorEl}
-        handleClose={handleClose}
-        onDateSelect={handleChange}
-        selectedDate={selectedDate}
-      />
+      <DatePickerUI anchorEl={anchorEl} handleClose={handleClose} />
     </div>
   );
 };

@@ -98,15 +98,9 @@ function Home() {
               position: "relative",
             }}
           >
-            <NepDatePicker
-              selectedDate={selectedNepaliDate}
-              onChange={handleNepaliDateChange}
-              sx={{ width: { xs: "80%", sm: "100%" } }}
-            />
+            <NepDatePicker sx={{ width: { xs: "80%", sm: "100%" } }} />
             <EngDatePicker
               sx={{ height: "min-content", width: { xs: "80%", sm: "100%" } }}
-              selectedDate={selectedEnglishDate}
-              onChange={handleEngDateChange}
             />
           </Stack>
 
@@ -120,10 +114,7 @@ function Home() {
                 textAlign: "center",
               }}
             >
-              <ResetBtn
-                setSelectedEnglishDate={setEnglishDate}
-                onChange={handleEngDateChange}
-              />
+              <ResetBtn />
             </Box>
           )}
         </Box>
@@ -138,7 +129,7 @@ function Home() {
             mt: { xs: 0, md: 0 },
           }}
         >
-          <AdView selectedDate={selectedEnglishDate} onChange={handleEngDateChange} />
+          <AdView />
         </Stack>
       </Stack>
     </Stack>
